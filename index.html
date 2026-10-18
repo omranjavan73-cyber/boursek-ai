@@ -281,51 +281,77 @@
                 <div class="grid grid-cols-1 xl:grid-cols-12 gap-4 items-center">
                     <!-- 4 Quick-Switch Module Cards (Right 8 Cols) -->
                     <div class="xl:col-span-8 grid grid-cols-2 sm:grid-cols-4 gap-2.5">
-                        <button type="button" class="hero-module-card primary-nav-btn p-3 rounded-xl text-right flex items-center gap-3" data-section="sec-radar">
-                            <div class="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-500/40 flex items-center justify-center text-emerald-400 text-base shrink-0">
-                                <i class="fa-solid fa-bullseye"></i>
+                        <div class="hero-module-card primary-nav-btn p-3 rounded-xl text-right flex items-center justify-between gap-2 cursor-pointer relative group" data-section="sec-radar">
+                            <div class="flex items-center gap-2.5 min-w-0">
+                                <div class="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-500/40 flex items-center justify-center text-emerald-400 text-base shrink-0">
+                                    <i class="fa-solid fa-bullseye"></i>
+                                </div>
+                                <div class="min-w-0">
+                                    <div class="font-black text-xs sm:text-sm text-white truncate">رادار</div>
+                                    <div class="text-[10px] text-slate-400 truncate">شکار فرصت‌ها و فیلترها</div>
+                                </div>
                             </div>
-                            <div class="min-w-0">
-                                <div class="font-black text-xs sm:text-sm text-white truncate">رادار</div>
-                                <div class="text-[10px] text-slate-400 truncate">شکار فرصت‌ها و فیلترها</div>
-                            </div>
-                        </button>
+                            <button type="button" onclick="event.stopPropagation(); openSectionGuideModal('radar');" class="w-6 h-6 rounded-lg surface-inset hover:border-emerald-400 text-slate-400 hover:text-emerald-300 flex items-center justify-center text-[11px] shrink-0 transition" title="راهنمای بخش رادار">
+                                <i class="fa-solid fa-circle-question"></i>
+                            </button>
+                        </div>
 
-                        <button type="button" class="hero-module-card active-hero-card primary-nav-btn p-3 rounded-xl text-right flex items-center gap-3" data-section="sec-options">
-                            <div class="w-10 h-10 rounded-xl bg-emerald-500/20 border border-emerald-400/50 flex items-center justify-center text-emerald-300 text-base shrink-0">
-                                <i class="fa-solid fa-layer-group"></i>
+                        <div class="hero-module-card active-hero-card primary-nav-btn p-3 rounded-xl text-right flex items-center justify-between gap-2 cursor-pointer relative group" data-section="sec-options">
+                            <div class="flex items-center gap-2.5 min-w-0">
+                                <div class="w-10 h-10 rounded-xl bg-emerald-500/20 border border-emerald-400/50 flex items-center justify-center text-emerald-300 text-base shrink-0">
+                                    <i class="fa-solid fa-layer-group"></i>
+                                </div>
+                                <div class="min-w-0">
+                                    <div class="font-black text-xs sm:text-sm text-white truncate">آپشن‌ها</div>
+                                    <div class="text-[10px] text-emerald-300 truncate">تحلیل اختیار معامله</div>
+                                </div>
                             </div>
-                            <div class="min-w-0">
-                                <div class="font-black text-xs sm:text-sm text-white truncate">آپشن‌ها</div>
-                                <div class="text-[10px] text-emerald-300 truncate">تحلیل اختیار معامله</div>
-                            </div>
-                        </button>
+                            <button type="button" onclick="event.stopPropagation(); openSectionGuideModal('options');" class="w-6 h-6 rounded-lg surface-inset hover:border-emerald-400 text-emerald-300 hover:text-white flex items-center justify-center text-[11px] shrink-0 transition" title="راهنمای بخش آپشن‌ها">
+                                <i class="fa-solid fa-circle-question"></i>
+                            </button>
+                        </div>
 
-                        <button type="button" class="hero-module-card primary-nav-btn p-3 rounded-xl text-right flex items-center gap-3" data-section="sec-portfolios">
-                            <div class="w-10 h-10 rounded-xl bg-sky-500/15 border border-sky-500/40 flex items-center justify-center text-sky-400 text-base shrink-0">
-                                <i class="fa-solid fa-briefcase"></i>
+                        <div class="hero-module-card primary-nav-btn p-3 rounded-xl text-right flex items-center justify-between gap-2 cursor-pointer relative group" data-section="sec-portfolios">
+                            <div class="flex items-center gap-2.5 min-w-0">
+                                <div class="w-10 h-10 rounded-xl bg-sky-500/15 border border-sky-500/40 flex items-center justify-center text-sky-400 text-base shrink-0">
+                                    <i class="fa-solid fa-briefcase"></i>
+                                </div>
+                                <div class="min-w-0">
+                                    <div class="font-black text-xs sm:text-sm text-white truncate">سبدها</div>
+                                    <div class="text-[10px] text-slate-400 truncate">مدیریت و تحلیل پرتفوی</div>
+                                </div>
                             </div>
-                            <div class="min-w-0">
-                                <div class="font-black text-xs sm:text-sm text-white truncate">سبدها</div>
-                                <div class="text-[10px] text-slate-400 truncate">مدیریت و تحلیل پرتفوی</div>
-                            </div>
-                        </button>
+                            <button type="button" onclick="event.stopPropagation(); openSectionGuideModal('portfolios');" class="w-6 h-6 rounded-lg surface-inset hover:border-sky-400 text-slate-400 hover:text-sky-300 flex items-center justify-center text-[11px] shrink-0 transition" title="راهنمای بخش سبدها">
+                                <i class="fa-solid fa-circle-question"></i>
+                            </button>
+                        </div>
 
-                        <button type="button" class="hero-module-card primary-nav-btn p-3 rounded-xl text-right flex items-center gap-3" data-section="sec-360">
-                            <div class="w-10 h-10 rounded-xl bg-amber-500/15 border border-amber-500/40 flex items-center justify-center text-amber-400 text-base shrink-0">
-                                <i class="fa-solid fa-globe"></i>
+                        <div class="hero-module-card primary-nav-btn p-3 rounded-xl text-right flex items-center justify-between gap-2 cursor-pointer relative group" data-section="sec-360">
+                            <div class="flex items-center gap-2.5 min-w-0">
+                                <div class="w-10 h-10 rounded-xl bg-amber-500/15 border border-amber-500/40 flex items-center justify-center text-amber-400 text-base shrink-0">
+                                    <i class="fa-solid fa-globe"></i>
+                                </div>
+                                <div class="min-w-0">
+                                    <div class="font-black text-xs sm:text-sm text-white truncate">جامع‌نگر</div>
+                                    <div class="text-[10px] text-slate-400 truncate">دید کلی بازار و صنایع</div>
+                                </div>
                             </div>
-                            <div class="min-w-0">
-                                <div class="font-black text-xs sm:text-sm text-white truncate">جامع‌نگر</div>
-                                <div class="text-[10px] text-slate-400 truncate">دید کلی بازار و صنایع</div>
-                            </div>
-                        </button>
+                            <button type="button" onclick="event.stopPropagation(); openSectionGuideModal('hub360');" class="w-6 h-6 rounded-lg surface-inset hover:border-amber-400 text-slate-400 hover:text-amber-300 flex items-center justify-center text-[11px] shrink-0 transition" title="راهنمای بخش جامع‌نگر">
+                                <i class="fa-solid fa-circle-question"></i>
+                            </button>
+                        </div>
                     </div>
 
-                    <!-- Platform Headline (Left 4 Cols) -->
-                    <div class="xl:col-span-4 text-right xl:text-left border-t xl:border-t-0 pt-3 xl:pt-0 border-slate-800/80">
-                        <h2 class="text-sm sm:text-base font-black text-white leading-snug">تحلیل حرفه‌ای بازار سرمایه، با داده‌های واقعی</h2>
-                        <p class="text-[11px] text-slate-400 mt-1">فیلترها، سبدها، اختیارها و تحلیل جامع در یک پلتفرم</p>
+                    <!-- Platform Headline + Global Help Button (Left 4 Cols) -->
+                    <div class="xl:col-span-4 flex flex-col sm:flex-row xl:flex-col items-start sm:items-center xl:items-end justify-between gap-2 border-t xl:border-t-0 pt-3 xl:pt-0 border-slate-800/80">
+                        <div class="text-right xl:text-left">
+                            <h2 class="text-sm sm:text-base font-black text-white leading-snug">تحلیل حرفه‌ای بازار سرمایه، با داده‌های واقعی</h2>
+                            <p class="text-[11px] text-slate-400 mt-0.5">فیلترها، سبدها، اختیارها و تحلیل جامع در یک پلتفرم</p>
+                        </div>
+                        <button type="button" onclick="openSectionGuideModal('overview')" class="badge-pos hover:opacity-90 px-3 py-1.5 rounded-xl text-xs font-extrabold flex items-center gap-1.5 transition shrink-0">
+                            <i class="fa-solid fa-book-open-reader"></i>
+                            <span>راهنمای جامع استفاده از سایت</span>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -372,6 +398,47 @@
         <!-- ================================================================= -->
         <section id="sec-radar" class="primary-section hidden space-y-4">
             
+            <!-- راهنمای گوشه بالای بخش ۱: رادار -->
+            <div class="surface-card rounded-2xl p-3.5 border border-emerald-500/30 space-y-2.5">
+                <div class="flex flex-wrap items-center justify-between gap-2">
+                    <div class="flex items-center gap-2">
+                        <span class="w-7 h-7 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-xs font-bold">
+                            <i class="fa-solid fa-lightbulb"></i>
+                        </span>
+                        <div>
+                            <h3 class="text-xs sm:text-sm font-black text-white">راهنمای بخش ۱: رادار و شکار سهم (چطور از این بخش استفاده کنیم؟)</h3>
+                            <p class="text-[11px] text-slate-400">غربالگری لحظه‌ای جریان پول حقیقی، تشخیص پیش‌صف‌های خرید و هشدار خروج از نمادهای پرریسک</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button type="button" onclick="toggleInlineGuide('guide-box-radar')" class="surface-inset hover:border-emerald-500/50 text-slate-300 hover:text-white px-2.5 py-1 rounded-lg text-[11px] font-bold transition">
+                            <i class="fa-solid fa-chevron-down ml-1"></i>نمایش / بستن خلاصه راهنما
+                        </button>
+                        <button type="button" onclick="openSectionGuideModal('radar')" class="badge-pos hover:opacity-90 px-3 py-1 rounded-lg text-[11px] font-bold transition flex items-center gap-1">
+                            <i class="fa-solid fa-circle-question"></i><span>آموزش کامل رادار</span>
+                        </button>
+                    </div>
+                </div>
+                <div id="guide-box-radar" class="grid grid-cols-1 md:grid-cols-4 gap-2.5 pt-2 border-t border-slate-800/80 text-[11px]">
+                    <div class="surface-inset p-2.5 rounded-xl space-y-1">
+                        <span class="font-bold text-emerald-400 block">۱. فیلتر آسیاتک و پیش‌صف:</span>
+                        <p class="text-slate-300 leading-relaxed">سهم‌هایی که تقاضای سرخط آن‌ها بیش از <code class="font-mono text-emerald-300">3 برابر</code> عرضه است (`Bid/Ask > 3x`) و در آستانهٔ قفل شدن در صف خرید هستند.</p>
+                    </div>
+                    <div class="surface-inset p-2.5 rounded-xl space-y-1">
+                        <span class="font-bold text-sky-400 block">۲. قدرت خریدار حقیقی (`Power`):</span>
+                        <p class="text-slate-300 leading-relaxed">نسبت سرانهٔ خرید به سرانهٔ فروش حقیقی. اعداد بالای <code class="font-mono text-emerald-300">2.0</code> نشانهٔ ورود پول هوشمند و اعداد زیر <code class="font-mono text-rose-400">0.7</code> هشدار خروج هستند.</p>
+                    </div>
+                    <div class="surface-inset p-2.5 rounded-xl space-y-1">
+                        <span class="font-bold text-amber-400 block">۳. الگوی ساعت (تیک صعودی):</span>
+                        <p class="text-slate-300 leading-relaxed">نمادهایی که آخرین قیمت معاملهٔ آن‌ها بیش از <code class="font-mono text-amber-300">+2%</code> بالاتر از قیمت پایانی است و تقاضای مستمر دارند.</p>
+                    </div>
+                    <div class="surface-inset p-2.5 rounded-xl space-y-1">
+                        <span class="font-bold text-rose-400 block">۴. تعامل سریع با سایر بخش‌ها:</span>
+                        <p class="text-slate-300 leading-relaxed">با کلیک روی <strong>نام هر نماد</strong>، پروندهٔ ۳۶۰ درجهٔ آن باز می‌شود و دکمهٔ <strong>«زنجیره اختیار»</strong> شما را مستقیماً به آپشن‌های آن سهم می‌برد.</p>
+                    </div>
+                </div>
+            </div>
+
             <!-- Radar Sub-Navigation Bar -->
             <div class="flex flex-wrap items-center justify-between gap-2 surface-card p-2 rounded-xl">
                 <div class="flex items-center gap-1 overflow-x-auto">
@@ -671,6 +738,47 @@
         <!-- ================================================================= -->
         <section id="sec-portfolios" class="primary-section hidden space-y-4">
 
+            <!-- راهنمای گوشه بالای بخش ۲: سبدها -->
+            <div class="surface-card rounded-2xl p-3.5 border border-sky-500/30 space-y-2.5">
+                <div class="flex flex-wrap items-center justify-between gap-2">
+                    <div class="flex items-center gap-2">
+                        <span class="w-7 h-7 rounded-lg bg-sky-500/20 text-sky-400 flex items-center justify-center text-xs font-bold">
+                            <i class="fa-solid fa-lightbulb"></i>
+                        </span>
+                        <div>
+                            <h3 class="text-xs sm:text-sm font-black text-white">راهنمای بخش ۲: سبدها و مدیریت پرتفوی (چطور از این بخش استفاده کنیم؟)</h3>
+                            <p class="text-[11px] text-slate-400">مدیریت سبدهای پیشنهادی بر اساس سطح ریسک، سبد چرخشی هفتگی اومیکس، سبدساز دستی و رصد پرتفوی واقعی</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button type="button" onclick="toggleInlineGuide('guide-box-portfolios')" class="surface-inset hover:border-sky-500/50 text-slate-300 hover:text-white px-2.5 py-1 rounded-lg text-[11px] font-bold transition">
+                            <i class="fa-solid fa-chevron-down ml-1"></i>نمایش / بستن خلاصه راهنما
+                        </button>
+                        <button type="button" onclick="openSectionGuideModal('portfolios')" class="badge-pos hover:opacity-90 px-3 py-1 rounded-lg text-[11px] font-bold transition flex items-center gap-1">
+                            <i class="fa-solid fa-circle-question"></i><span>آموزش کامل سبدها</span>
+                        </button>
+                    </div>
+                </div>
+                <div id="guide-box-portfolios" class="grid grid-cols-1 md:grid-cols-4 gap-2.5 pt-2 border-t border-slate-800/80 text-[11px]">
+                    <div class="surface-inset p-2.5 rounded-xl space-y-1">
+                        <span class="font-bold text-emerald-400 block">۱. سبدهای کم‌ریسک تا پرریسک (`L1-H3`):</span>
+                        <p class="text-slate-300 leading-relaxed">۹ سبد استاندارد شامل کم‌ریسک (`L1-L3` با سپر طلا و دلاری)، ریسک متوسط (`M1-M3` کاتالیزور کدال) و پرریسک (`H1-H3` اهرمی و آپشن).</p>
+                    </div>
+                    <div class="surface-inset p-2.5 rounded-xl space-y-1">
+                        <span class="font-bold text-amber-400 block">۲. سبد هفتگی اومیکس (`OMIX`):</span>
+                        <p class="text-slate-300 leading-relaxed">هر هفته ۵ سهم برتر با وزن مساوی <code class="font-mono text-amber-300">20%</code> انتخاب می‌شوند. ثبت هفتهٔ جدید هیچ‌گاه تاریخچهٔ هفته‌های قبل را پاک نمی‌کند.</p>
+                    </div>
+                    <div class="surface-inset p-2.5 rounded-xl space-y-1">
+                        <span class="font-bold text-sky-400 block">۳. پرتفوی واقعی (`EasyTrader`):</span>
+                        <p class="text-slate-300 leading-relaxed">در تب چهارم، دارایی‌های واقعی کارگزاری شما به صورت <strong>کاملاً مجزا و فقط خواندنی (Read-Only)</strong> نمایش داده می‌شود.</p>
+                    </div>
+                    <div class="surface-inset p-2.5 rounded-xl space-y-1">
+                        <span class="font-bold text-teal-300 block">۴. بیمه سبد با اختیار معامله:</span>
+                        <p class="text-slate-300 leading-relaxed">در پایین صفحه، سیستم به شما نشان می‌دهد چطور سهام موجود در سبدتان را با قراردادهای `Put` بیمه کنید یا با `Covered Call` بهای تمام‌شده را کاهش دهید.</p>
+                    </div>
+                </div>
+            </div>
+
             <!-- Portfolios Sub-Navigation -->
             <div class="flex flex-wrap items-center justify-between gap-2 surface-card p-2 rounded-xl">
                 <div class="flex items-center gap-1 overflow-x-auto">
@@ -886,6 +994,47 @@
         <!-- PRIMARY SECTION 3: آپشن‌ها (OPTIONS INTELLIGENCE)                 -->
         <!-- ================================================================= -->
         <section id="sec-options" class="primary-section space-y-4">
+
+            <!-- راهنمای گوشه بالای بخش ۳: آپشن‌ها -->
+            <div class="surface-card rounded-2xl p-3.5 border border-emerald-500/35 space-y-2.5">
+                <div class="flex flex-wrap items-center justify-between gap-2">
+                    <div class="flex items-center gap-2">
+                        <span class="w-7 h-7 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-xs font-bold">
+                            <i class="fa-solid fa-lightbulb"></i>
+                        </span>
+                        <div>
+                            <h3 class="text-xs sm:text-sm font-black text-white">راهنمای بخش ۳: آپشن‌ها و اختیار معامله (چطور از این بخش استفاده کنیم؟)</h3>
+                            <p class="text-[11px] text-slate-400">راهنمای گام‌به‌گام جدول اختیارها، یونانی‌ها، امتیازدهی هوشمند و آزمایشگاه استراتژی‌ها</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button type="button" onclick="toggleInlineGuide('guide-box-options')" class="surface-inset hover:border-emerald-500/50 text-slate-300 hover:text-white px-2.5 py-1 rounded-lg text-[11px] font-bold transition">
+                            <i class="fa-solid fa-chevron-down ml-1"></i>نمایش / بستن خلاصه راهنما
+                        </button>
+                        <button type="button" onclick="openSectionGuideModal('options')" class="badge-pos hover:opacity-90 px-3 py-1 rounded-lg text-[11px] font-bold transition flex items-center gap-1">
+                            <i class="fa-solid fa-circle-question"></i><span>آموزش کامل آپشن‌ها</span>
+                        </button>
+                    </div>
+                </div>
+                <div id="guide-box-options" class="grid grid-cols-1 md:grid-cols-4 gap-2.5 pt-2 border-t border-slate-800/80 text-[11px]">
+                    <div class="surface-inset p-2.5 rounded-xl space-y-1">
+                        <span class="font-bold text-emerald-400 block">۱. تفاوت Call/Put و وضعیت‌ها:</span>
+                        <p class="text-slate-300 leading-relaxed"><code class="font-mono text-emerald-300">Call</code> برای کسب سود از رشد سهم و <code class="font-mono text-rose-400">Put</code> برای ریزش یا بیمهٔ سهم است. <code class="font-mono text-emerald-300">ITM</code> در سود، <code class="font-mono text-amber-300">ATM</code> نزدیک اعمال و <code class="font-mono text-slate-300">OTM</code> خارج از سود است.</p>
+                    </div>
+                    <div class="surface-inset p-2.5 rounded-xl space-y-1">
+                        <span class="font-bold text-sky-400 block">۲. مفهوم IV، دلتا (&Delta;) و تتا (&Theta;):</span>
+                        <p class="text-slate-300 leading-relaxed"><strong>IV</strong> حباب نوسان قیمت اختیار است (هرچه کمتر، ارزان‌تر). <strong>دلتا</strong> میزان تغییر قیمت اختیار به ازای 1 ریال تغییر سهم و <strong>تتا</strong> افت روزانهٔ ارزش زمانی است.</p>
+                    </div>
+                    <div class="surface-inset p-2.5 rounded-xl space-y-1">
+                        <span class="font-bold text-amber-400 block">۳. چرا برخی نمادها «امتیاز ناقص» دارند؟</span>
+                        <p class="text-slate-300 leading-relaxed">اگر قراردادی مظنهٔ خرید فعال نداشته باشد (<code class="font-mono">Bid = 0</code>)، سیستم عددسازی نمی‌کند و امتیاز را مسدود می‌کند تا دچار خطای قیمت غیرقابل معامله نشوید.</p>
+                    </div>
+                    <div class="surface-inset p-2.5 rounded-xl space-y-1">
+                        <span class="font-bold text-teal-300 block">۴. دکمه‌های عملیات (👁️ و 📊):</span>
+                        <p class="text-slate-300 leading-relaxed">در ستون آخر جدول، دکمهٔ <strong>چشم (👁️)</strong> شناسنامهٔ کامل قرارداد را باز می‌کند و دکمهٔ <strong>نمودار (📊)</strong> آن را مستقیماً به آزمایشگاه استراتژی می‌فرستد.</p>
+                    </div>
+                </div>
+            </div>
 
             <!-- ============================================================= -->
             <!-- نمای کلی آپشن‌ها (3-CARD VISUAL OVERVIEW FROM REFERENCE UI)    -->
@@ -1476,6 +1625,47 @@
         <!-- ================================================================= -->
         <section id="sec-360" class="primary-section hidden space-y-4">
 
+            <!-- راهنمای گوشه بالای بخش ۴: جامع‌نگر -->
+            <div class="surface-card rounded-2xl p-3.5 border border-amber-500/35 space-y-2.5">
+                <div class="flex flex-wrap items-center justify-between gap-2">
+                    <div class="flex items-center gap-2">
+                        <span class="w-7 h-7 rounded-lg bg-amber-500/20 text-amber-400 flex items-center justify-center text-xs font-bold">
+                            <i class="fa-solid fa-lightbulb"></i>
+                        </span>
+                        <div>
+                            <h3 class="text-xs sm:text-sm font-black text-white">راهنمای بخش ۴: جامع‌نگر و دید ۳۶۰ درجه بازار (چطور از این بخش استفاده کنیم؟)</h3>
+                            <p class="text-[11px] text-slate-400">بررسی حباب ۹ صندوق اهرمی، رتبه‌بندی ۱۱ صنعت، نسبت‌های بنیادی کدال و پروندهٔ ۳۶۰ درجهٔ هر سهم</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button type="button" onclick="toggleInlineGuide('guide-box-360')" class="surface-inset hover:border-amber-500/50 text-slate-300 hover:text-white px-2.5 py-1 rounded-lg text-[11px] font-bold transition">
+                            <i class="fa-solid fa-chevron-down ml-1"></i>نمایش / بستن خلاصه راهنما
+                        </button>
+                        <button type="button" onclick="openSectionGuideModal('hub360')" class="badge-pos hover:opacity-90 px-3 py-1 rounded-lg text-[11px] font-bold transition flex items-center gap-1">
+                            <i class="fa-solid fa-circle-question"></i><span>آموزش کامل جامع‌نگر</span>
+                        </button>
+                    </div>
+                </div>
+                <div id="guide-box-360" class="grid grid-cols-1 md:grid-cols-4 gap-2.5 pt-2 border-t border-slate-800/80 text-[11px]">
+                    <div class="surface-inset p-2.5 rounded-xl space-y-1">
+                        <span class="font-bold text-emerald-400 block">۱. حباب ۹ صندوق اهرمی:</span>
+                        <p class="text-slate-300 leading-relaxed">مقایسهٔ قیمت تابلو با <code class="font-mono">NAV ابطال</code> و <strong>میانهٔ ۱۲۰ روزه</strong>. هرچه حباب منفی‌تر از میانهٔ تاریخی باشد، صندوق ارزان‌تر است.</p>
+                    </div>
+                    <div class="surface-inset p-2.5 rounded-xl space-y-1">
+                        <span class="font-bold text-amber-400 block">۲. رتبه‌بندی ۱۱ صنعت:</span>
+                        <p class="text-slate-300 leading-relaxed">تشخیص صنایعی که بیشترین ورود پول حقیقی و رشد فروش ماهانه در کدال را دارند (مانند دارو، تایر و فنی‌مهندسی).</p>
+                    </div>
+                    <div class="surface-inset p-2.5 rounded-xl space-y-1">
+                        <span class="font-bold text-sky-400 block">۳. پروندهٔ ۳۶۰ درجهٔ هر نماد:</span>
+                        <p class="text-slate-300 leading-relaxed">در تب چهارم، تمام اطلاعات یک سهم (سیگنال رادار، حضور در سبدها، قراردادهای آپشن مرتبط و کدال) یک‌جا نمایش داده می‌شود.</p>
+                    </div>
+                    <div class="surface-inset p-2.5 rounded-xl space-y-1">
+                        <span class="font-bold text-teal-300 block">۴. بک‌تست و ارزیابی استراتژی‌ها:</span>
+                        <p class="text-slate-300 leading-relaxed">در تب ششم (`signal-ledger`)، نرخ برد تاریخی (`Win-Rate`) هر فیلتر به تفکیک وضعیت عملیاتی یا آزمایشی ثبت شده است.</p>
+                    </div>
+                </div>
+            </div>
+
             <!-- 360 Sub-Navigation -->
             <div class="flex flex-wrap items-center justify-between gap-2 surface-card p-2 rounded-xl">
                 <div class="flex items-center gap-1 overflow-x-auto">
@@ -1704,6 +1894,47 @@
         </div>
     </div>
 
+    <!-- ===================================================================== -->
+    <!-- INTERACTIVE SECTION-BY-SECTION GUIDE MODAL                            -->
+    <!-- ===================================================================== -->
+    <div id="modal-section-guide" class="fixed inset-0 bg-slate-950/85 backdrop-blur-sm z-50 hidden flex items-center justify-center p-3">
+        <div class="surface-card rounded-2xl w-full max-w-3xl p-4 sm:p-5 space-y-4 shadow-2xl max-h-[90vh] overflow-y-auto border border-emerald-500/40">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+                <div class="flex items-center gap-2.5">
+                    <span class="w-8 h-8 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold">
+                        <i class="fa-solid fa-book-open-reader"></i>
+                    </span>
+                    <div>
+                        <h3 id="modal-guide-title" class="text-sm sm:text-base font-black text-white">راهنمای جامع استفاده از سامانه «شاگرد بورس | دستیار بورسی»</h3>
+                        <p class="text-[11px] text-slate-400">آموزش گام‌به‌گام هر ۴ بخش اصلی، مفهوم ستون‌ها، فرمول‌ها و نحوهٔ تصمیم‌گیری</p>
+                    </div>
+                </div>
+                <button type="button" onclick="document.getElementById('modal-section-guide').classList.add('hidden')" class="text-slate-400 hover:text-white p-1.5 rounded-lg surface-inset">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Guide Section Switcher Tabs -->
+            <div class="flex flex-wrap items-center gap-1.5 surface-inset p-1.5 rounded-xl text-xs">
+                <button type="button" onclick="openSectionGuideModal('overview')" class="guide-tab-btn px-3 py-1.5 rounded-lg font-bold transition" data-gtab="overview">نمای کلی سایت</button>
+                <button type="button" onclick="openSectionGuideModal('radar')" class="guide-tab-btn px-3 py-1.5 rounded-lg font-bold transition" data-gtab="radar">۱. راهنمای رادار</button>
+                <button type="button" onclick="openSectionGuideModal('portfolios')" class="guide-tab-btn px-3 py-1.5 rounded-lg font-bold transition" data-gtab="portfolios">۲. راهنمای سبدها</button>
+                <button type="button" onclick="openSectionGuideModal('options')" class="guide-tab-btn px-3 py-1.5 rounded-lg font-bold transition" data-gtab="options">۳. راهنمای آپشن‌ها</button>
+                <button type="button" onclick="openSectionGuideModal('hub360')" class="guide-tab-btn px-3 py-1.5 rounded-lg font-bold transition" data-gtab="hub360">۴. راهنمای جامع‌نگر</button>
+            </div>
+
+            <!-- Dynamic Guide Content Body -->
+            <div id="modal-guide-body" class="space-y-3 text-xs leading-relaxed"></div>
+
+            <div class="flex items-center justify-between pt-2 border-t border-slate-800 text-[11px] text-slate-400">
+                <span>نکته: در بالای هر یک از ۴ بخش سایت نیز کادر «راهنمای سریع همان بخش» قرار دارد.</span>
+                <button type="button" onclick="document.getElementById('modal-section-guide').classList.add('hidden')" class="bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-1.5 rounded-xl font-bold transition">
+                    متوجه شدم
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- Toast Container -->
     <div id="toast-container" class="fixed bottom-16 sm:bottom-4 left-4 right-4 sm:left-auto sm:right-4 sm:w-96 z-50 space-y-2 pointer-events-none"></div>
 
@@ -1711,6 +1942,99 @@
     <!-- UNIFIED APPLICATION ENGINE                                            -->
     <!-- ===================================================================== -->
     <script>
+        function toggleInlineGuide(boxId) {
+            const el = document.getElementById(boxId);
+            if (el) el.classList.toggle('hidden');
+        }
+
+        function openSectionGuideModal(secKey = 'overview') {
+            const modal = document.getElementById('modal-section-guide');
+            const body = document.getElementById('modal-guide-body');
+            if (!modal || !body) return;
+
+            document.querySelectorAll('.guide-tab-btn').forEach(btn => {
+                const act = btn.getAttribute('data-gtab') === secKey;
+                btn.className = act
+                    ? "guide-tab-btn bg-emerald-600 text-white px-3 py-1.5 rounded-lg font-extrabold transition"
+                    : "guide-tab-btn text-slate-300 hover:text-white px-3 py-1.5 rounded-lg font-bold transition";
+            });
+
+            const guides = {
+                overview: `
+                    <div class="surface-inset p-3.5 rounded-xl space-y-2">
+                        <h4 class="font-black text-emerald-400 text-sm">معماری ۴ بخشی یکپارچهٔ «شاگرد بورس | دستیار بورسی»</h4>
+                        <p class="text-slate-300">این پلتفرم به گونه‌ای طراحی شده که تمام داده‌های تابلوخوانی، بنیادی کدال، سبدگردانی و اختیار معامله به هم متصل باشند:</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
+                            <div class="surface-card p-3 rounded-xl space-y-1">
+                                <span class="font-bold text-emerald-400 block">۱. بخش رادار (شکار فرصت‌ها):</span>
+                                <p class="text-[11px] text-slate-300">برای پیدا کردن سهم‌های مستعد رشد در لحظه، بررسی ورود پول حقیقی، تشخیص پیش‌صف خرید و هشدار خروج از سهم‌های پرخطر.</p>
+                            </div>
+                            <div class="surface-card p-3 rounded-xl space-y-1">
+                                <span class="font-bold text-sky-400 block">۲. بخش سبدها (مدیریت پرتفوی):</span>
+                                <p class="text-[11px] text-slate-300">شامل ۹ سبد استاندارد کم‌ریسک تا پرریسک (<code class="font-mono">L1-H3</code>)، سبد چرخش هفتگی اومیکس (<code class="font-mono">OMIX</code>)، سبدساز دستی و نمای فقط خواندنی پرتفوی واقعی کارگزاری.</p>
+                            </div>
+                            <div class="surface-card p-3 rounded-xl space-y-1">
+                                <span class="font-bold text-teal-300 block">۳. بخش آپشن‌ها (اختیار معامله):</span>
+                                <p class="text-[11px] text-slate-300">تحلیل قراردادهای Call و Put، محاسبهٔ بلک-شولز، یونانی‌ها، امتیازدهی وزن‌دار و آزمایشگاه استراتژی‌های پوشش ریسک و اسپرد.</p>
+                            </div>
+                            <div class="surface-card p-3 rounded-xl space-y-1">
+                                <span class="font-bold text-amber-400 block">۴. بخش جامع‌نگر (دید ۳۶۰ درجه):</span>
+                                <p class="text-[11px] text-slate-300">مقایسهٔ حباب ۹ صندوق اهرمی، رتبه‌بندی ۱۱ صنعت، جدول نسبت‌های بنیادی کدال و صفحهٔ اختصاصی ۳۶۰ درجه برای تک‌تک نمادها.</p>
+                            </div>
+                        </div>
+                    </div>
+                `,
+                radar: `
+                    <div class="surface-inset p-3.5 rounded-xl space-y-2.5">
+                        <h4 class="font-black text-emerald-400 text-sm">راهنمای کامل بخش ۱: رادار و شکار سهم</h4>
+                        <ul class="space-y-2 text-slate-200 list-disc list-inside">
+                            <li><strong>فیلتر آسیاتک (پیش‌صف خرید):</strong> نمادهایی که تقاضای ردیف ۱ تا ۳ آن‌ها بیش از <code class="font-mono text-emerald-300">3 برابر</code> عرضه است و قدرت خریدار بالای <code class="font-mono text-emerald-300">2.0</code> دارند.</li>
+                            <li><strong>پول درشت زنده (`LIVE`):</strong> نمادهایی که بیشترین ورود پول حقیقی (بر حسب میلیارد تومان `B.T`) را در جریان بازار ثبت کرده‌اند.</li>
+                            <li><strong>الگوی ساعت (تیک صعودی):</strong> نمادهایی که آخرین معاملهٔ آن‌ها حداقل <code class="font-mono text-amber-300">+2%</code> بالاتر از قیمت پایانی است.</li>
+                            <li><strong>هشدار خروج (`قدرت < 0.7`):</strong> سهم‌هایی که خروج پول سنگین و قدرت خریدار زیر <code class="font-mono text-rose-400">0.7</code> دارند؛ ورود به این نمادها تا تخلیهٔ کامل فشار فروش ممنوع است.</li>
+                            <li><strong>پرش سریع به آپشن یا پروندهٔ ۳۶۰:</strong> روی نام هر سهم کلیک کنید تا صفحهٔ ۳۶۰ درجهٔ آن باز شود، یا روی دکمهٔ سبز <code class="badge-pos px-1.5 py-0.5 rounded text-[10px]">زنجیره اختیار</code> کلیک کنید تا آپشن‌های آن سهم را ببینید.</li>
+                        </ul>
+                    </div>
+                `,
+                portfolios: `
+                    <div class="surface-inset p-3.5 rounded-xl space-y-2.5">
+                        <h4 class="font-black text-sky-400 text-sm">راهنمای کامل بخش ۲: سبدها و مدیریت پرتفوی</h4>
+                        <ul class="space-y-2 text-slate-200 list-disc list-inside">
+                            <li><strong>سبدهای سطح ریسک (`L1-L3`, `M1-M3`, `H1-H3`):</strong> اگر اولویت شما حفظ سرمایه و پوشش تورم است از <code class="font-mono text-emerald-300">L1-L3</code>، اگر به دنبال کاتالیزور گزارش‌های کدال هستید از <code class="font-mono text-teal-300">M1-M3</code>، و در فازهای صعودی پرشتاب از <code class="font-mono text-rose-400">H1-H3</code> الگو بگیرید.</li>
+                            <li><strong>سبد هفتگی اومیکس (`OMIX / OMAX`):</strong> ترکیب ۵ سهم برتر هفته با وزن مساوی <code class="font-mono">20%</code>. هنگام ثبت ترکیب هفتهٔ جدید، تمام هفته‌های قبلی در جدول تاریخچه حفظ می‌شوند.</li>
+                            <li><strong>سبدساز دستی پویا:</strong> در تب سوم می‌توانید هر نماد دلخواه را با وزن دلخواه وارد کرده و با دکمهٔ «تراز خودکار روی 100%» سبد اختصاصی خود را ذخیره کنید.</li>
+                            <li><strong>تفکیک کامل پرتفوی واقعی (`EasyTrader`):</strong> دارایی‌های واقعی کارگزاری شما در کادر آبی‌رنگ با برچسب <code class="badge-warn px-1.5 py-0.5 rounded font-mono text-[10px]">READ-ONLY STRICT</code> نمایش داده می‌شوند و هیچ سفارشی ارسال نمی‌شود.</li>
+                        </ul>
+                    </div>
+                `,
+                options: `
+                    <div class="surface-inset p-3.5 rounded-xl space-y-2.5">
+                        <h4 class="font-black text-emerald-400 text-sm">راهنمای کامل بخش ۳: آپشن‌ها (Options Intelligence)</h4>
+                        <ul class="space-y-2 text-slate-200 list-disc list-inside">
+                            <li><strong>۳ کارت نمای کلی بالای صفحه:</strong> کارت راست سهم هر دارایی پایه از کل بازار اختیار را نشان می‌دهد (با کلیک روی هر نام، جدول زیر همان سهم فیلتر می‌شود). کارت وسط روند حجم و ارزش و کارت چپ نسبت Call به Put را نمایش می‌دهد.</li>
+                            <li><strong>تب ۱ (رادار اختیارها):</strong> جدول زنجیرهٔ قراردادها به همراه قیمت اعمال، ارزش ذاتی و زمانی، روز تا سررسید، اسپرد `Bid/Ask` و یونانی‌ها. با کلیک روی آیکون <i class="fa-regular fa-eye text-emerald-400"></i> شناسنامهٔ کامل قرارداد و با کلیک روی <i class="fa-solid fa-chart-simple text-sky-400"></i> آزمایشگاه استراتژی باز می‌شود.</li>
+                            <li><strong>تب ۲ (رتبه‌بندی و امتیازها):</strong> با تغییر اسلایدرهای ۵گانه (نقدشوندگی، اسپرد، سررسید، سربه‌سر، IV)، امتیاز تمام قراردادها به صورت زنده بازمحاسبه می‌شود. قراردادهای بدون مظنهٔ خرید معتبر (<code class="font-mono">Bid=0</code>) امتیاز نمی‌گیرند تا دچار خطای تصمیم‌گیری نشوید.</li>
+                            <li><strong>تب ۳ (آزمایشگاه استراتژی‌ها):</strong> استراتژی‌های `Long Call`, `Long Put`, `Covered Call`, `Protective Put` و اسپردها را به همراه <strong>وجه تضمین دقیق بورس تهران</strong> و نمودار سود/زیان سررسید در ۷ سناریو شبیه‌سازی می‌کند.</li>
+                            <li><strong>تب ۴ (مقایسه با سهم پایه):</strong> نشان می‌دهد در رشد `+15%`، ثبات `0%` یا افت `-15%`، خرید اختیار چه تفاوتی با خرید مستقیم سهم پایه دارد.</li>
+                        </ul>
+                    </div>
+                `,
+                hub360: `
+                    <div class="surface-inset p-3.5 rounded-xl space-y-2.5">
+                        <h4 class="font-black text-amber-400 text-sm">راهنمای کامل بخش ۴: جامع‌نگر (360° Hub)</h4>
+                        <ul class="space-y-2 text-slate-200 list-disc list-inside">
+                            <li><strong>تب الف (۹ صندوق اهرمی):</strong> حباب لحظه‌ای هر ۹ صندوق اهرمی را با میانهٔ ۱۲۰ روزهٔ خودش مقایسه می‌کند تا ارزان‌ترین صندوق اهرمی مشخص شود.</li>
+                            <li><strong>تب ب (تحلیل ۱۱ صنعت):</strong> صنایع بازار را بر اساس خالص ورود/خروج پول حقیقی و رشد فروش کدال رتبه‌بندی می‌کند.</li>
+                            <li><strong>تب ج (تحلیل بنیادی شرکت‌ها):</strong> نمایش `P/E` تحلیلی، `EPS` و خلاصهٔ آخرین گزارش کدال بدون هیچ عدد فرضی.</li>
+                            <li><strong>تب د (صفحهٔ جامع هر نماد):</strong> با انتخاب هر یک از ۳۴ نماد، تمام اطلاعات تابلو، سیگنال‌ها، سبدهای دارندهٔ آن سهم و قراردادهای اختیار معاملهٔ مرتبط با آن سهم در یک صفحه نمایش داده می‌شود.</li>
+                        </ul>
+                    </div>
+                `
+            };
+
+            body.innerHTML = guides[secKey] || guides.overview;
+            modal.classList.remove('hidden');
+        }
         // ---------------------------------------------------------------------
         // 1. EMBEDDED FALLBACK DATA LAYER (100% Real Merged Records: 34 Symbols)
         // Automatically hydrated by fetching data/*.json when served via HTTP
