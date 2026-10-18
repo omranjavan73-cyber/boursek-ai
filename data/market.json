@@ -1,0 +1,231 @@
+{
+  "schemaVersion": "2.0.0",
+  "productName": "شاگرد بورس | دستیار بورسی",
+  "timezoneDisplay": "Asia/Dubai",
+  "updatedAtDubai": "2026-10-18T23:20:33+04:00",
+  "updatedAtTehran": "2026-10-18T22:50:33+03:30",
+  "source": "TSE Live Snapshot + Firebase RTDB",
+  "freshness": "last_valid_snapshot",
+  "fetchError": null,
+  "marketPulse": {
+    "dateJalali": "1405/07/26",
+    "overallIndex": {
+      "value": 8104000,
+      "changePct": -1.95,
+      "status": "negative"
+    },
+    "equalWeightIndex": {
+      "value": 2192180,
+      "changePct": -1.51,
+      "status": "negative"
+    },
+    "realMoneyFlowB": {
+      "value": -700.0,
+      "prevDayT": -8.0,
+      "unit": "Billion Toman",
+      "status": "outflow"
+    },
+    "marketBreadth": {
+      "positivePct": 30,
+      "negativePct": 70,
+      "buyQueuesB": 2850,
+      "sellQueuesB": 4120
+    },
+    "goldAyar": {
+      "priceR": 712879,
+      "changePct": 2.97,
+      "gram18kT": 26200000,
+      "onsUsd": 4166
+    },
+    "regime": {
+      "current": "bear",
+      "label": "نزولی تدافعی (فشار عرضه و ریسک سیاسی)",
+      "recommendedStockPct": 55,
+      "recommendedSafePct": 45
+    }
+  },
+  "leveragedFunds": [
+    {
+      "id": "SYM_JAHESH",
+      "name": "جهش",
+      "price": 16250,
+      "nav": 20210,
+      "bubble": -19.6,
+      "median120d": -15.2,
+      "leverage": 1.85,
+      "status": "بیشترین تخفیف حباب (-19.6%) | بازده هفتگی +8.96%",
+      "source": "فاندای + تابلو"
+    },
+    {
+      "id": "SYM_SHETAB",
+      "name": "شتاب",
+      "price": 18200,
+      "nav": 22550,
+      "bubble": -19.3,
+      "median120d": -16.2,
+      "leverage": 1.88,
+      "status": "حباب منفی جذاب (-19.3%) | بازده هفتگی +2.03%",
+      "source": "فاندای + تابلو"
+    },
+    {
+      "id": "SYM_NARANJ",
+      "name": "نارنج",
+      "price": 68309,
+      "nav": 84645,
+      "bubble": -19.3,
+      "median120d": -15.0,
+      "leverage": 1.75,
+      "status": "قیمت 68,309 R | تراز پول حقیقی مثبت در کف!",
+      "source": "فاندای + تابلو"
+    },
+    {
+      "id": "SYM_TAVAN",
+      "name": "توان",
+      "price": 69638,
+      "nav": 85655,
+      "bubble": -18.7,
+      "median120d": -13.8,
+      "leverage": 1.82,
+      "status": "قیمت 69,638 R | جذب 479 B.T پول در هفته اخیر",
+      "source": "فاندای + تابلو"
+    },
+    {
+      "id": "SYM_AHROM",
+      "name": "اهرم",
+      "price": 72946,
+      "nav": 88958,
+      "bubble": -18.0,
+      "median120d": -15.5,
+      "leverage": 1.9,
+      "status": "لیدر نقدشوندگی | تراز پول خرد مثبت در کف!",
+      "source": "فاندای + تابلو"
+    },
+    {
+      "id": "SYM_MOJ",
+      "name": "موج",
+      "price": 104733,
+      "nav": 122495,
+      "bubble": -14.5,
+      "median120d": -16.5,
+      "leverage": 1.78,
+      "status": "قیمت 104,733 R | بازده 3 ماهه +141.7%",
+      "source": "فاندای + تابلو"
+    },
+    {
+      "id": "SYM_BIDAR",
+      "name": "بیدار",
+      "price": 14800,
+      "nav": 17310,
+      "bubble": -14.5,
+      "median120d": -14.8,
+      "leverage": 1.7,
+      "status": "بازده 3 ماهه +123.7% | تعادلی",
+      "source": "فاندای + تابلو"
+    },
+    {
+      "id": "SYM_PISHRAN",
+      "name": "پیشران",
+      "price": 17400,
+      "nav": 19120,
+      "bubble": -9.0,
+      "median120d": -14.0,
+      "leverage": 1.65,
+      "status": "کمترین گردش نقدینگی | نظاره",
+      "source": "فاندای + تابلو"
+    },
+    {
+      "id": "SYM_2X",
+      "name": "دوایکس",
+      "price": 46325,
+      "nav": 42893,
+      "bubble": 8.0,
+      "median120d": -5.0,
+      "leverage": 1.95,
+      "status": "اهرم 1.95x | جذب 765 B.T هفتگی و بازده سالانه +557%",
+      "source": "فاندای + تابلو"
+    }
+  ],
+  "legacyLeveragedSnapshot": [
+    {
+      "bubble": -15.35,
+      "leverage": 1.88,
+      "median": -16.2,
+      "name": "شتاب",
+      "nav": 21500,
+      "price": 18200,
+      "status": "بیشترین تخفیف NAV (خرید)"
+    },
+    {
+      "bubble": -14.21,
+      "leverage": 1.9,
+      "median": -15.5,
+      "name": "اهرم",
+      "nav": 23140,
+      "price": 19850,
+      "status": "لیدر نقدشوندگی (خرید)"
+    },
+    {
+      "bubble": -14.67,
+      "leverage": 1.95,
+      "median": -16,
+      "name": "دوایکس",
+      "nav": 25900,
+      "price": 22100,
+      "status": "اهرم حداکثری 1.95x"
+    },
+    {
+      "bubble": -14.02,
+      "leverage": 1.85,
+      "median": -15.2,
+      "name": "جهش",
+      "nav": 18900,
+      "price": 16250,
+      "status": "تخفیف منصفانه"
+    },
+    {
+      "bubble": -13.06,
+      "leverage": 1.82,
+      "median": -13.8,
+      "name": "توان",
+      "nav": 24500,
+      "price": 21300,
+      "status": "ریسک متعادل"
+    },
+    {
+      "bubble": -15.38,
+      "leverage": 1.78,
+      "median": -16.5,
+      "name": "موج",
+      "nav": 18200,
+      "price": 15400,
+      "status": "آربیتراژ جذاب"
+    },
+    {
+      "bubble": -12.12,
+      "leverage": 1.75,
+      "median": -14,
+      "name": "پیشران",
+      "nav": 19800,
+      "price": 17400,
+      "status": "نگهداری"
+    },
+    {
+      "bubble": -13.45,
+      "leverage": 1.7,
+      "median": -14.8,
+      "name": "بیدار",
+      "nav": 17100,
+      "price": 14800,
+      "status": "نگهداری"
+    },
+    {
+      "bubble": -14.19,
+      "leverage": 1.65,
+      "median": -15,
+      "name": "نارنج",
+      "nav": 16200,
+      "price": 13900,
+      "status": "نگهداری"
+    }
+  ]
+}

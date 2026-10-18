@@ -1,0 +1,28 @@
+# Secrets, Tokens & Credentials (NEVER COMMIT)
+.env
+.env.*
+*.pem
+*.key
+*secret*
+*token*
+*credential*
+serviceAccountKey.json
+.surge*
+
+# Browser Sessions & Profiles
+chrome_profile/
+session_storage/
+cookies.json
+*.cookie
+
+# Runtime Locks & Logs
+*.lock
+.publish.lock
+logs/
+*.log
+
+# OS & Editor Artifacts
+__pycache__/
+*.py[cod]
+.DS_Store
+Thumbs.db

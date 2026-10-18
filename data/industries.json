@@ -1,0 +1,179 @@
+{
+  "schemaVersion": "2.0.0",
+  "updatedAtDubai": "2026-10-18T23:20:33+04:00",
+  "industries": [
+    {
+      "id": "IND_PHARMA",
+      "name": "دارویی و سلامت",
+      "strengthRank": 1,
+      "status": "strong_inflow",
+      "realFlowB": 115.8,
+      "avgSalesGrowth": "+42%",
+      "avgPE": 5.9,
+      "leadingSymbols": [
+        "درازی",
+        "دفارا",
+        "داروند",
+        "دیران",
+        "تیپیکو",
+        "دتولید"
+      ],
+      "summary": "قوی‌ترین صنعت بنیادی و تابلوخوانی بازار پس از حذف ارز ترجیحی و رشد حاشیه سود به بالای 45%."
+    },
+    {
+      "id": "IND_ENG",
+      "name": "فنی و مهندسی",
+      "strengthRank": 2,
+      "status": "strong_inflow",
+      "realFlowB": 285.0,
+      "avgSalesGrowth": "+31%",
+      "avgPE": 7.6,
+      "leadingSymbols": [
+        "فاذر",
+        "رتکو",
+        "فاراک",
+        "فکور",
+        "کیسون"
+      ],
+      "summary": "صدرنشین ورود پول حقیقی در معاملات 26 مهر با محوریت فاذر و رتکو."
+    },
+    {
+      "id": "IND_GOLD",
+      "name": "صندوق‌های طلا و نقره",
+      "strengthRank": 3,
+      "status": "safe_haven",
+      "realFlowB": 57.1,
+      "avgSalesGrowth": "همگام با انس و دلار",
+      "avgPE": null,
+      "leadingSymbols": [
+        "عیار",
+        "فنقره"
+      ],
+      "summary": "پناهگاه اول نقدینگی در روزهای منفی شاخص و ریسک‌های سیاسی."
+    },
+    {
+      "id": "IND_TIRE",
+      "name": "تایرسازی و لاستیک",
+      "strengthRank": 4,
+      "status": "catalyst_positive",
+      "realFlowB": 14.2,
+      "avgSalesGrowth": "+28%",
+      "avgPE": 5.6,
+      "leadingSymbols": [
+        "پکویر"
+      ],
+      "summary": "دریافت مجوز رسمی افزایش نرخ 23.4% تایر رادیال در کدال."
+    },
+    {
+      "id": "IND_CEMENT",
+      "name": "سیمان و کانی غیرفلزی",
+      "strengthRank": 5,
+      "status": "selective_inflow",
+      "realFlowB": 38.4,
+      "avgSalesGrowth": "+34%",
+      "avgPE": 6.1,
+      "leadingSymbols": [
+        "سغدیر",
+        "کفرا",
+        "سخاش"
+      ],
+      "summary": "تقاضای قوی در نمادهای صادراتی و نسوز برخلاف کلیت بازار."
+    },
+    {
+      "id": "IND_TECH",
+      "name": "فناوری و ارتباطات",
+      "strengthRank": 6,
+      "status": "pre_queue",
+      "realFlowB": 8.35,
+      "avgSalesGrowth": "+29%",
+      "avgPE": 7.6,
+      "leadingSymbols": [
+        "آسیاتک",
+        "های‌وب"
+      ],
+      "summary": "تراکم تقاضای پیش‌صف به واسطه اخبار افزایش تعرفه خدمات اینترنت."
+    },
+    {
+      "id": "IND_LEVERAGED",
+      "name": "صندوق‌های اهرمی",
+      "strengthRank": 7,
+      "status": "deep_discount_nav",
+      "realFlowB": 18.4,
+      "avgSalesGrowth": "اهرم 1.65x تا 1.95x",
+      "avgPE": null,
+      "leadingSymbols": [
+        "اهرم",
+        "شتاب",
+        "جهش",
+        "توان",
+        "نارنج",
+        "دوایکس"
+      ],
+      "summary": "معامله در کف حباب منفی تاریخی (-18% تا -19.6%) و ثبت تراز حقیقی مثبت در کف قیمت."
+    },
+    {
+      "id": "IND_METALS",
+      "name": "فلزات اساسی و معدنی",
+      "strengthRank": 8,
+      "status": "fundamental_value",
+      "realFlowB": 12.1,
+      "avgSalesGrowth": "+36%",
+      "avgPE": 5.1,
+      "leadingSymbols": [
+        "فملی",
+        "فخوز",
+        "کگل",
+        "وکغدیر"
+      ],
+      "summary": "ارزندگی بنیادی بالا (P/E حدود 5)؛ نیازمند آرامش سیاسی برای شروع موج شاخص‌ساز."
+    },
+    {
+      "id": "IND_BANK",
+      "name": "بانک‌ها و موسسات اعتباری",
+      "strengthRank": 9,
+      "status": "divergent",
+      "realFlowB": -26.8,
+      "avgSalesGrowth": "+24%",
+      "avgPE": 4.9,
+      "leadingSymbols": [
+        "وبملت",
+        "وتجارت",
+        "وبصادر"
+      ],
+      "summary": "واگرایی شدید: وبملت با P/E 3.9 و تراز ارزی مثبت در برابر فشار فروش سنگین در وتجارت و وبصادر."
+    },
+    {
+      "id": "IND_AUTO",
+      "name": "خودرو و ساخت قطعات",
+      "strengthRank": 10,
+      "status": "divergent",
+      "realFlowB": 28.5,
+      "avgSalesGrowth": "+19%",
+      "avgPE": null,
+      "leadingSymbols": [
+        "خبهمن",
+        "خگستر",
+        "خودرو",
+        "خساپا"
+      ],
+      "summary": "صف خرید 389B در خبهمن (کاتالیزور خاور) در مقابل خروج پول و زیان انباشته در خودرو و خساپا."
+    },
+    {
+      "id": "IND_PETRO",
+      "name": "پتروشیمی و شیمیایی",
+      "strengthRank": 11,
+      "status": "mixed",
+      "realFlowB": -38.9,
+      "avgSalesGrowth": "+27%",
+      "avgPE": 5.8,
+      "leadingSymbols": [
+        "آریا",
+        "زاگرس",
+        "شکیمیا",
+        "پترول",
+        "اروند"
+      ],
+      "summary": "ثبات در الفینی‌ها و متانولی‌ها (آریا، زاگرس، شکیمیا) در برابر صف فروش سنگین در اروند."
+    }
+  ]
+}
