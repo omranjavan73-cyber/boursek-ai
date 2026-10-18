@@ -145,7 +145,7 @@
                         <button type="button" class="sidebar-sub-link w-full text-right py-1.5 px-2 rounded-lg text-slate-400 hover:text-white transition flex items-center gap-1.5" data-sec="sec-portfolios" data-sub-btn=".port-sub-btn" data-sub-attr="data-psub" data-sub-val="port-omix">
                             <span class="w-1.5 h-1.5 rounded-full bg-slate-600"></span><span>سبد هفتگی اومیکس</span>
                         </button>
-                        <button type="button" class="sidebar-sub-link w-full text-right py-1.5 px-2 rounded-lg text-slate-400 hover:text-white transition flex items-center gap-1.5" data-sec="sec-portfolios" data-sub-btn=".port-sub-btn" data-sub-attr="data-psub" data-sub-val="port-custom">
+                        <button type="button" class="sidebar-sub-link w-full text-right py-1.5 px-2 rounded-lg text-slate-400 hover:text-white transition flex items-center gap-1.5" data-sec="sec-portfolios" data-sub-btn=".port-sub-btn" data-sub-attr="data-psub" data-sub-val="port-fundamental">
                             <span class="w-1.5 h-1.5 rounded-full bg-slate-600"></span><span>سبدهای بنیادی و دستی</span>
                         </button>
                         <button type="button" class="sidebar-sub-link w-full text-right py-1.5 px-2 rounded-lg text-slate-400 hover:text-white transition flex items-center gap-1.5" data-sec="sec-portfolios" data-sub-btn=".port-sub-btn" data-sub-attr="data-psub" data-sub-val="port-all">
@@ -419,13 +419,13 @@
                         </button>
                     </div>
                 </div>
-                <div id="guide-box-radar" class="grid grid-cols-1 md:grid-cols-4 gap-2.5 pt-2 border-t border-slate-800/80 text-[11px]">
+                <div id="guide-box-radar" class="hidden grid grid-cols-1 md:grid-cols-4 gap-2.5 pt-2 border-t border-slate-800/80 text-[11px]">
                     <div class="surface-inset p-2.5 rounded-xl space-y-1">
                         <span class="font-bold text-emerald-400 block">۱. فیلتر آسیاتک و پیش‌صف:</span>
-                        <p class="text-slate-300 leading-relaxed">سهم‌هایی که تقاضای سرخط آن‌ها بیش از <code class="font-mono text-emerald-300">3 برابر</code> عرضه است (`Bid/Ask > 3x`) و در آستانهٔ قفل شدن در صف خرید هستند.</p>
+                        <p class="text-slate-300 leading-relaxed">سهم‌هایی که تقاضای سرخط آن‌ها بیش از <code class="font-mono text-emerald-300">3 برابر</code> عرضه است (<code class="font-mono">Bid/Ask &gt; 3x</code>) و در آستانهٔ قفل شدن در صف خرید هستند.</p>
                     </div>
                     <div class="surface-inset p-2.5 rounded-xl space-y-1">
-                        <span class="font-bold text-sky-400 block">۲. قدرت خریدار حقیقی (`Power`):</span>
+                        <span class="font-bold text-sky-400 block">۲. قدرت خریدار حقیقی (<code class="font-mono">Power</code>):</span>
                         <p class="text-slate-300 leading-relaxed">نسبت سرانهٔ خرید به سرانهٔ فروش حقیقی. اعداد بالای <code class="font-mono text-emerald-300">2.0</code> نشانهٔ ورود پول هوشمند و اعداد زیر <code class="font-mono text-rose-400">0.7</code> هشدار خروج هستند.</p>
                     </div>
                     <div class="surface-inset p-2.5 rounded-xl space-y-1">
@@ -759,22 +759,22 @@
                         </button>
                     </div>
                 </div>
-                <div id="guide-box-portfolios" class="grid grid-cols-1 md:grid-cols-4 gap-2.5 pt-2 border-t border-slate-800/80 text-[11px]">
+                <div id="guide-box-portfolios" class="hidden grid grid-cols-1 md:grid-cols-4 gap-2.5 pt-2 border-t border-slate-800/80 text-[11px]">
                     <div class="surface-inset p-2.5 rounded-xl space-y-1">
-                        <span class="font-bold text-emerald-400 block">۱. سبدهای کم‌ریسک تا پرریسک (`L1-H3`):</span>
-                        <p class="text-slate-300 leading-relaxed">۹ سبد استاندارد شامل کم‌ریسک (`L1-L3` با سپر طلا و دلاری)، ریسک متوسط (`M1-M3` کاتالیزور کدال) و پرریسک (`H1-H3` اهرمی و آپشن).</p>
+                        <span class="font-bold text-emerald-400 block">۱. سبدهای کم‌ریسک تا پرریسک (<code class="font-mono">L1-H3</code>):</span>
+                        <p class="text-slate-300 leading-relaxed">۹ سبد استاندارد شامل کم‌ریسک (<code class="font-mono">L1-L3</code> با سپر طلا و دلاری)، ریسک متوسط (<code class="font-mono">M1-M3</code> کاتالیزور کدال) و پرریسک (<code class="font-mono">H1-H3</code> اهرمی و آپشن).</p>
                     </div>
                     <div class="surface-inset p-2.5 rounded-xl space-y-1">
-                        <span class="font-bold text-amber-400 block">۲. سبد هفتگی اومیکس (`OMIX`):</span>
+                        <span class="font-bold text-amber-400 block">۲. سبد هفتگی اومیکس (<code class="font-mono">OMIX</code>):</span>
                         <p class="text-slate-300 leading-relaxed">هر هفته ۵ سهم برتر با وزن مساوی <code class="font-mono text-amber-300">20%</code> انتخاب می‌شوند. ثبت هفتهٔ جدید هیچ‌گاه تاریخچهٔ هفته‌های قبل را پاک نمی‌کند.</p>
                     </div>
                     <div class="surface-inset p-2.5 rounded-xl space-y-1">
-                        <span class="font-bold text-sky-400 block">۳. پرتفوی واقعی (`EasyTrader`):</span>
+                        <span class="font-bold text-sky-400 block">۳. پرتفوی واقعی (<code class="font-mono">EasyTrader</code>):</span>
                         <p class="text-slate-300 leading-relaxed">در تب چهارم، دارایی‌های واقعی کارگزاری شما به صورت <strong>کاملاً مجزا و فقط خواندنی (Read-Only)</strong> نمایش داده می‌شود.</p>
                     </div>
                     <div class="surface-inset p-2.5 rounded-xl space-y-1">
                         <span class="font-bold text-teal-300 block">۴. بیمه سبد با اختیار معامله:</span>
-                        <p class="text-slate-300 leading-relaxed">در پایین صفحه، سیستم به شما نشان می‌دهد چطور سهام موجود در سبدتان را با قراردادهای `Put` بیمه کنید یا با `Covered Call` بهای تمام‌شده را کاهش دهید.</p>
+                        <p class="text-slate-300 leading-relaxed">در پایین صفحه، سیستم به شما نشان می‌دهد چطور سهام موجود در سبدتان را با قراردادهای <code class="font-mono">Put</code> بیمه کنید یا با <code class="font-mono">Covered Call</code> بهای تمام‌شده را کاهش دهید.</p>
                     </div>
                 </div>
             </div>
@@ -1016,7 +1016,7 @@
                         </button>
                     </div>
                 </div>
-                <div id="guide-box-options" class="grid grid-cols-1 md:grid-cols-4 gap-2.5 pt-2 border-t border-slate-800/80 text-[11px]">
+                <div id="guide-box-options" class="hidden grid grid-cols-1 md:grid-cols-4 gap-2.5 pt-2 border-t border-slate-800/80 text-[11px]">
                     <div class="surface-inset p-2.5 rounded-xl space-y-1">
                         <span class="font-bold text-emerald-400 block">۱. تفاوت Call/Put و وضعیت‌ها:</span>
                         <p class="text-slate-300 leading-relaxed"><code class="font-mono text-emerald-300">Call</code> برای کسب سود از رشد سهم و <code class="font-mono text-rose-400">Put</code> برای ریزش یا بیمهٔ سهم است. <code class="font-mono text-emerald-300">ITM</code> در سود، <code class="font-mono text-amber-300">ATM</code> نزدیک اعمال و <code class="font-mono text-slate-300">OTM</code> خارج از سود است.</p>
@@ -1646,7 +1646,7 @@
                         </button>
                     </div>
                 </div>
-                <div id="guide-box-360" class="grid grid-cols-1 md:grid-cols-4 gap-2.5 pt-2 border-t border-slate-800/80 text-[11px]">
+                <div id="guide-box-360" class="hidden grid grid-cols-1 md:grid-cols-4 gap-2.5 pt-2 border-t border-slate-800/80 text-[11px]">
                     <div class="surface-inset p-2.5 rounded-xl space-y-1">
                         <span class="font-bold text-emerald-400 block">۱. حباب ۹ صندوق اهرمی:</span>
                         <p class="text-slate-300 leading-relaxed">مقایسهٔ قیمت تابلو با <code class="font-mono">NAV ابطال</code> و <strong>میانهٔ ۱۲۰ روزه</strong>. هرچه حباب منفی‌تر از میانهٔ تاریخی باشد، صندوق ارزان‌تر است.</p>
@@ -1661,7 +1661,7 @@
                     </div>
                     <div class="surface-inset p-2.5 rounded-xl space-y-1">
                         <span class="font-bold text-teal-300 block">۴. بک‌تست و ارزیابی استراتژی‌ها:</span>
-                        <p class="text-slate-300 leading-relaxed">در تب ششم (`signal-ledger`)، نرخ برد تاریخی (`Win-Rate`) هر فیلتر به تفکیک وضعیت عملیاتی یا آزمایشی ثبت شده است.</p>
+                        <p class="text-slate-300 leading-relaxed">در تب ششم (<code class="font-mono">signal-ledger</code>)، نرخ برد تاریخی (<code class="font-mono">Win-Rate</code>) هر فیلتر به تفکیک وضعیت عملیاتی یا آزمایشی ثبت شده است.</p>
                     </div>
                 </div>
             </div>
@@ -1897,7 +1897,7 @@
     <!-- ===================================================================== -->
     <!-- INTERACTIVE SECTION-BY-SECTION GUIDE MODAL                            -->
     <!-- ===================================================================== -->
-    <div id="modal-section-guide" class="fixed inset-0 bg-slate-950/85 backdrop-blur-sm z-50 hidden flex items-center justify-center p-3">
+    <div id="modal-section-guide" onclick="if(event.target===this)closeSectionGuideModal()" class="fixed inset-0 bg-slate-950/85 backdrop-blur-sm z-50 hidden flex items-center justify-center p-3">
         <div class="surface-card rounded-2xl w-full max-w-3xl p-4 sm:p-5 space-y-4 shadow-2xl max-h-[90vh] overflow-y-auto border border-emerald-500/40">
             <div class="flex items-center justify-between border-b border-slate-800 pb-3">
                 <div class="flex items-center gap-2.5">
@@ -1947,6 +1947,11 @@
             if (el) el.classList.toggle('hidden');
         }
 
+        function closeSectionGuideModal() {
+            const modal = document.getElementById('modal-section-guide');
+            if (modal) modal.classList.add('hidden');
+        }
+
         function openSectionGuideModal(secKey = 'overview') {
             const modal = document.getElementById('modal-section-guide');
             const body = document.getElementById('modal-guide-body');
@@ -1971,7 +1976,7 @@
                             </div>
                             <div class="surface-card p-3 rounded-xl space-y-1">
                                 <span class="font-bold text-sky-400 block">۲. بخش سبدها (مدیریت پرتفوی):</span>
-                                <p class="text-[11px] text-slate-300">شامل ۹ سبد استاندارد کم‌ریسک تا پرریسک (<code class="font-mono">L1-H3</code>)، سبد چرخش هفتگی اومیکس (<code class="font-mono">OMIX</code>)، سبدساز دستی و نمای فقط خواندنی پرتفوی واقعی کارگزاری.</p>
+                                <p class="text-[11px] text-slate-300">شامل ۹ سبد استاندارد کم‌ریسک تا پرریسک (<code class="font-mono text-sky-300">L1-H3</code>)، سبد چرخش هفتگی اومیکس (<code class="font-mono text-amber-300">OMIX</code>)، سبدساز دستی و نمای فقط خواندنی پرتفوی واقعی کارگزاری.</p>
                             </div>
                             <div class="surface-card p-3 rounded-xl space-y-1">
                                 <span class="font-bold text-teal-300 block">۳. بخش آپشن‌ها (اختیار معامله):</span>
@@ -1989,9 +1994,9 @@
                         <h4 class="font-black text-emerald-400 text-sm">راهنمای کامل بخش ۱: رادار و شکار سهم</h4>
                         <ul class="space-y-2 text-slate-200 list-disc list-inside">
                             <li><strong>فیلتر آسیاتک (پیش‌صف خرید):</strong> نمادهایی که تقاضای ردیف ۱ تا ۳ آن‌ها بیش از <code class="font-mono text-emerald-300">3 برابر</code> عرضه است و قدرت خریدار بالای <code class="font-mono text-emerald-300">2.0</code> دارند.</li>
-                            <li><strong>پول درشت زنده (`LIVE`):</strong> نمادهایی که بیشترین ورود پول حقیقی (بر حسب میلیارد تومان `B.T`) را در جریان بازار ثبت کرده‌اند.</li>
+                            <li><strong>پول درشت زنده (<code class="font-mono text-emerald-300">LIVE</code>):</strong> نمادهایی که بیشترین ورود پول حقیقی (بر حسب میلیارد تومان <code class="font-mono text-emerald-300">B.T</code>) را در جریان بازار ثبت کرده‌اند.</li>
                             <li><strong>الگوی ساعت (تیک صعودی):</strong> نمادهایی که آخرین معاملهٔ آن‌ها حداقل <code class="font-mono text-amber-300">+2%</code> بالاتر از قیمت پایانی است.</li>
-                            <li><strong>هشدار خروج (`قدرت < 0.7`):</strong> سهم‌هایی که خروج پول سنگین و قدرت خریدار زیر <code class="font-mono text-rose-400">0.7</code> دارند؛ ورود به این نمادها تا تخلیهٔ کامل فشار فروش ممنوع است.</li>
+                            <li><strong>هشدار خروج (<code class="font-mono text-rose-400">قدرت &lt; 0.7</code>):</strong> سهم‌هایی که خروج پول سنگین و قدرت خریدار زیر <code class="font-mono text-rose-400">0.7</code> دارند؛ ورود به این نمادها تا تخلیهٔ کامل فشار فروش ممنوع است.</li>
                             <li><strong>پرش سریع به آپشن یا پروندهٔ ۳۶۰:</strong> روی نام هر سهم کلیک کنید تا صفحهٔ ۳۶۰ درجهٔ آن باز شود، یا روی دکمهٔ سبز <code class="badge-pos px-1.5 py-0.5 rounded text-[10px]">زنجیره اختیار</code> کلیک کنید تا آپشن‌های آن سهم را ببینید.</li>
                         </ul>
                     </div>
@@ -2000,10 +2005,10 @@
                     <div class="surface-inset p-3.5 rounded-xl space-y-2.5">
                         <h4 class="font-black text-sky-400 text-sm">راهنمای کامل بخش ۲: سبدها و مدیریت پرتفوی</h4>
                         <ul class="space-y-2 text-slate-200 list-disc list-inside">
-                            <li><strong>سبدهای سطح ریسک (`L1-L3`, `M1-M3`, `H1-H3`):</strong> اگر اولویت شما حفظ سرمایه و پوشش تورم است از <code class="font-mono text-emerald-300">L1-L3</code>، اگر به دنبال کاتالیزور گزارش‌های کدال هستید از <code class="font-mono text-teal-300">M1-M3</code>، و در فازهای صعودی پرشتاب از <code class="font-mono text-rose-400">H1-H3</code> الگو بگیرید.</li>
-                            <li><strong>سبد هفتگی اومیکس (`OMIX / OMAX`):</strong> ترکیب ۵ سهم برتر هفته با وزن مساوی <code class="font-mono">20%</code>. هنگام ثبت ترکیب هفتهٔ جدید، تمام هفته‌های قبلی در جدول تاریخچه حفظ می‌شوند.</li>
+                            <li><strong>سبدهای سطح ریسک (<code class="font-mono text-emerald-300">L1-L3</code>, <code class="font-mono text-teal-300">M1-M3</code>, <code class="font-mono text-rose-400">H1-H3</code>):</strong> اگر اولویت شما حفظ سرمایه و پوشش تورم است از <code class="font-mono text-emerald-300">L1-L3</code>، اگر به دنبال کاتالیزور گزارش‌های کدال هستید از <code class="font-mono text-teal-300">M1-M3</code>، و در فازهای صعودی پرشتاب از <code class="font-mono text-rose-400">H1-H3</code> الگو بگیرید.</li>
+                            <li><strong>سبد هفتگی اومیکس (<code class="font-mono text-amber-300">OMIX / OMAX</code>):</strong> ترکیب ۵ سهم برتر هفته با وزن مساوی <code class="font-mono">20%</code>. هنگام ثبت ترکیب هفتهٔ جدید، تمام هفته‌های قبلی در جدول تاریخچه حفظ می‌شوند.</li>
                             <li><strong>سبدساز دستی پویا:</strong> در تب سوم می‌توانید هر نماد دلخواه را با وزن دلخواه وارد کرده و با دکمهٔ «تراز خودکار روی 100%» سبد اختصاصی خود را ذخیره کنید.</li>
-                            <li><strong>تفکیک کامل پرتفوی واقعی (`EasyTrader`):</strong> دارایی‌های واقعی کارگزاری شما در کادر آبی‌رنگ با برچسب <code class="badge-warn px-1.5 py-0.5 rounded font-mono text-[10px]">READ-ONLY STRICT</code> نمایش داده می‌شوند و هیچ سفارشی ارسال نمی‌شود.</li>
+                            <li><strong>تفکیک کامل پرتفوی واقعی (<code class="font-mono text-sky-300">EasyTrader</code>):</strong> دارایی‌های واقعی کارگزاری شما در کادر آبی‌رنگ با برچسب <code class="badge-warn px-1.5 py-0.5 rounded font-mono text-[10px]">READ-ONLY STRICT</code> نمایش داده می‌شوند و هیچ سفارشی ارسال نمی‌شود.</li>
                         </ul>
                     </div>
                 `,
@@ -2012,10 +2017,10 @@
                         <h4 class="font-black text-emerald-400 text-sm">راهنمای کامل بخش ۳: آپشن‌ها (Options Intelligence)</h4>
                         <ul class="space-y-2 text-slate-200 list-disc list-inside">
                             <li><strong>۳ کارت نمای کلی بالای صفحه:</strong> کارت راست سهم هر دارایی پایه از کل بازار اختیار را نشان می‌دهد (با کلیک روی هر نام، جدول زیر همان سهم فیلتر می‌شود). کارت وسط روند حجم و ارزش و کارت چپ نسبت Call به Put را نمایش می‌دهد.</li>
-                            <li><strong>تب ۱ (رادار اختیارها):</strong> جدول زنجیرهٔ قراردادها به همراه قیمت اعمال، ارزش ذاتی و زمانی، روز تا سررسید، اسپرد `Bid/Ask` و یونانی‌ها. با کلیک روی آیکون <i class="fa-regular fa-eye text-emerald-400"></i> شناسنامهٔ کامل قرارداد و با کلیک روی <i class="fa-solid fa-chart-simple text-sky-400"></i> آزمایشگاه استراتژی باز می‌شود.</li>
+                            <li><strong>تب ۱ (رادار اختیارها):</strong> جدول زنجیرهٔ قراردادها به همراه قیمت اعمال، ارزش ذاتی و زمانی، روز تا سررسید، اسپرد <code class="font-mono text-emerald-300">Bid/Ask</code> و یونانی‌ها. با کلیک روی آیکون <i class="fa-regular fa-eye text-emerald-400"></i> شناسنامهٔ کامل قرارداد و با کلیک روی <i class="fa-solid fa-chart-simple text-sky-400"></i> آزمایشگاه استراتژی باز می‌شود.</li>
                             <li><strong>تب ۲ (رتبه‌بندی و امتیازها):</strong> با تغییر اسلایدرهای ۵گانه (نقدشوندگی، اسپرد، سررسید، سربه‌سر، IV)، امتیاز تمام قراردادها به صورت زنده بازمحاسبه می‌شود. قراردادهای بدون مظنهٔ خرید معتبر (<code class="font-mono">Bid=0</code>) امتیاز نمی‌گیرند تا دچار خطای تصمیم‌گیری نشوید.</li>
-                            <li><strong>تب ۳ (آزمایشگاه استراتژی‌ها):</strong> استراتژی‌های `Long Call`, `Long Put`, `Covered Call`, `Protective Put` و اسپردها را به همراه <strong>وجه تضمین دقیق بورس تهران</strong> و نمودار سود/زیان سررسید در ۷ سناریو شبیه‌سازی می‌کند.</li>
-                            <li><strong>تب ۴ (مقایسه با سهم پایه):</strong> نشان می‌دهد در رشد `+15%`، ثبات `0%` یا افت `-15%`، خرید اختیار چه تفاوتی با خرید مستقیم سهم پایه دارد.</li>
+                            <li><strong>تب ۳ (آزمایشگاه استراتژی‌ها):</strong> استراتژی‌های <code class="font-mono text-emerald-300">Long Call</code>, <code class="font-mono text-rose-400">Long Put</code>, <code class="font-mono text-sky-300">Covered Call</code>, <code class="font-mono text-amber-300">Protective Put</code> و اسپردها را به همراه <strong>وجه تضمین دقیق بورس تهران</strong> و نمودار سود/زیان سررسید در ۷ سناریو شبیه‌سازی می‌کند.</li>
+                            <li><strong>تب ۴ (مقایسه با سهم پایه):</strong> نشان می‌دهد در رشد <code class="font-mono text-emerald-300">+15%</code>، ثبات <code class="font-mono">0%</code> یا افت <code class="font-mono text-rose-400">-15%</code>، خرید اختیار چه تفاوتی با خرید مستقیم سهم پایه دارد.</li>
                         </ul>
                     </div>
                 `,
@@ -2025,7 +2030,7 @@
                         <ul class="space-y-2 text-slate-200 list-disc list-inside">
                             <li><strong>تب الف (۹ صندوق اهرمی):</strong> حباب لحظه‌ای هر ۹ صندوق اهرمی را با میانهٔ ۱۲۰ روزهٔ خودش مقایسه می‌کند تا ارزان‌ترین صندوق اهرمی مشخص شود.</li>
                             <li><strong>تب ب (تحلیل ۱۱ صنعت):</strong> صنایع بازار را بر اساس خالص ورود/خروج پول حقیقی و رشد فروش کدال رتبه‌بندی می‌کند.</li>
-                            <li><strong>تب ج (تحلیل بنیادی شرکت‌ها):</strong> نمایش `P/E` تحلیلی، `EPS` و خلاصهٔ آخرین گزارش کدال بدون هیچ عدد فرضی.</li>
+                            <li><strong>تب ج (تحلیل بنیادی شرکت‌ها):</strong> نمایش <code class="font-mono text-emerald-300">P/E</code> تحلیلی، <code class="font-mono text-emerald-300">EPS</code> و خلاصهٔ آخرین گزارش کدال بدون هیچ عدد فرضی.</li>
                             <li><strong>تب د (صفحهٔ جامع هر نماد):</strong> با انتخاب هر یک از ۳۴ نماد، تمام اطلاعات تابلو، سیگنال‌ها، سبدهای دارندهٔ آن سهم و قراردادهای اختیار معاملهٔ مرتبط با آن سهم در یک صفحه نمایش داده می‌شود.</li>
                         </ul>
                     </div>
