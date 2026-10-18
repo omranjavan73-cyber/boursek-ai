@@ -1,0 +1,19 @@
+{
+  "system": "Boursek PRO v6.0 AI",
+  "version": "6.0.0",
+  "updatedAt": "2026-10-18T16:00:00Z",
+  "firebaseEndpoint": "https://stock-21aa7-default-rtdb.europe-west1.firebasedatabase.app",
+  "githubPages": "https://omranjavan73-cyber.github.io/boursek-ai/",
+  "marketRegime": {
+    "current": "bear",
+    "modes": ["bull", "neutral", "bear"],
+    "dogmaticRules": false,
+    "description": "100% Dynamic allocation based on live real-money flow and market regime"
+  },
+  "omaxWeekly": {
+    "allocationRule": "5 equal weights of 20% (Total 100%)",
+    "currentHoldings": ["درازی", "دفارا", "داروند", "خبهمن", "عیار"]
+  },
+  "leveragedFundsCount": 9,
+  "screenerFiltersCount": 8
+}

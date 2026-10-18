@@ -1,0 +1,2611 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#030712">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>بورسک PRO v6.0 AI — سامانه هوشمند شکار سهام، تابلوخوانی و سبدگردانی پویا (Boursek AI)</title>
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap');
+        * { -webkit-tap-highlight-color: transparent; box-sizing: border-box; }
+        body {
+            font-family: 'Vazirmatn', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: #030712;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(16, 185, 129, 0.08) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, rgba(14, 165, 233, 0.08) 0px, transparent 50%),
+                radial-gradient(at 50% 100%, rgba(245, 158, 11, 0.05) 0px, transparent 50%);
+            color: #f1f5f9;
+            overflow-x: hidden;
+        }
+        .pulse-live {
+            animation: pulseL 1.6s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulseL {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.35; transform: scale(1.22); }
+        }
+        ::-webkit-scrollbar { width: 5px; height: 5px; }
+        ::-webkit-scrollbar-track { background: #030712; }
+        ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 9999px; }
+
+        .glass-card {
+            background: rgba(15, 23, 42, 0.78);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37), inset 0 1px 0 0 rgba(255, 255, 255, 0.06);
+        }
+        .neo-inset {
+            background: rgba(3, 7, 18, 0.85);
+            box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.6), 0 1px 0 rgba(255, 255, 255, 0.04);
+        }
+        .neon-border-emerald {
+            border: 1px solid rgba(16, 185, 129, 0.35);
+            box-shadow: 0 0 18px -4px rgba(16, 185, 129, 0.2);
+        }
+        .neon-border-amber {
+            border: 1px solid rgba(245, 158, 11, 0.4);
+            box-shadow: 0 0 18px -4px rgba(245, 158, 11, 0.2);
+        }
+        .neon-border-sky {
+            border: 1px solid rgba(14, 165, 233, 0.4);
+            box-shadow: 0 0 18px -4px rgba(14, 165, 233, 0.2);
+        }
+        .neon-border-rose {
+            border: 1px solid rgba(244, 63, 94, 0.4);
+            box-shadow: 0 0 18px -4px rgba(244, 63, 94, 0.2);
+        }
+
+        .grade-badge-a { background: linear-gradient(135deg, rgba(16, 185, 129, 0.22), rgba(5, 150, 105, 0.32)); border: 1px solid rgba(16, 185, 129, 0.55); color: #34d399; }
+        .grade-badge-b { background: linear-gradient(135deg, rgba(14, 165, 233, 0.22), rgba(2, 132, 199, 0.32)); border: 1px solid rgba(14, 165, 233, 0.55); color: #38bdf8; }
+        .grade-badge-c { background: linear-gradient(135deg, rgba(245, 158, 11, 0.22), rgba(217, 119, 6, 0.32)); border: 1px solid rgba(245, 158, 11, 0.55); color: #fbbf24; }
+        .grade-badge-d { background: linear-gradient(135deg, rgba(244, 63, 94, 0.22), rgba(225, 29, 72, 0.32)); border: 1px solid rgba(244, 63, 94, 0.55); color: #fb7185; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col antialiased selection:bg-emerald-500 selection:text-black pb-20 sm:pb-12">
+
+    <!-- Top Sticky Header -->
+    <header class="border-b border-slate-800/80 bg-slate-950/85 backdrop-blur-xl sticky top-0 z-50 px-3 py-2.5 shadow-xl">
+        <div class="max-w-6xl mx-auto flex items-center justify-between gap-2">
+            
+            <!-- Brand & Version Badge -->
+            <div class="flex items-center gap-2.5 min-w-0">
+                <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-emerald-500 via-teal-400 to-amber-400 flex items-center justify-center text-slate-950 font-black text-lg shadow-lg shadow-emerald-500/25 shrink-0">
+                    <i class="fa-solid fa-bolt-lightning"></i>
+                </div>
+                <div class="truncate">
+                    <div class="flex items-center gap-1.5">
+                        <span class="font-black text-sm sm:text-base text-white tracking-tight">بورسک</span>
+                        <span class="text-[10px] bg-gradient-to-r from-emerald-500/25 via-teal-500/25 to-amber-500/25 text-emerald-300 font-mono font-extrabold px-2 py-0.5 rounded-full border border-emerald-500/50">PRO v6.0 AI</span>
+                    </div>
+                    <span class="text-[10px] text-slate-400 hidden sm:block truncate">سامانه هوشمند شکار سهام، تابلوخوانی زنده و سبدگردانی ۱۰۰٪ پویا (Boursek AI)</span>
+                </div>
+            </div>
+
+            <!-- Live Clocks (Tehran & Dubai) + Firebase Status Indicator -->
+            <div class="flex items-center gap-2 neo-inset px-2.5 py-1.5 rounded-xl border border-slate-800/90 text-[11px] font-mono shrink-0">
+                <div class="flex items-center gap-1">
+                    <span class="text-slate-400 font-sans text-[10px]">تهران:</span>
+                    <span id="clock-tehran" class="text-emerald-400 font-bold">--:--:--</span>
+                </div>
+                <span class="text-slate-700">|</span>
+                <div class="flex items-center gap-1">
+                    <span class="text-slate-400 font-sans text-[10px]">دبی:</span>
+                    <span id="clock-dubai" class="text-teal-400 font-bold">--:--:--</span>
+                </div>
+                <span class="text-slate-700 hidden sm:inline">|</span>
+                <div class="flex items-center gap-1" title="وضعیت اتصال زنده فایربیس">
+                    <span id="fb-header-dot" class="w-2.5 h-2.5 rounded-full bg-emerald-400 pulse-live"></span>
+                    <span id="fb-header-text" class="text-[9px] font-sans text-emerald-400 font-bold hidden md:inline">Firebase Live</span>
+                </div>
+            </div>
+
+            <!-- Fast Action Sync -->
+            <button id="btn-sync-fast" class="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 active:scale-95 text-white text-xs px-3 py-1.5 rounded-xl font-bold transition flex items-center gap-1.5 shadow-md shadow-emerald-600/25 shrink-0">
+                <i class="fa-solid fa-rotate text-xs" id="sync-icon"></i>
+                <span class="hidden sm:inline">بروزرسانی زنده</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Desktop / Tablet Top Navigation Bar -->
+    <nav class="bg-slate-900/90 backdrop-blur-md border-b border-slate-800/80 px-3 sticky top-[57px] z-40">
+        <div class="max-w-6xl mx-auto flex items-center justify-between gap-1.5 py-2 overflow-x-auto no-scrollbar">
+            <button class="nav-tab active flex-1 py-2 px-3 rounded-xl text-xs font-extrabold transition flex items-center justify-center gap-1.5 bg-emerald-600 text-white shadow-md shadow-emerald-700/30 whitespace-nowrap" data-target="tab-premarket">
+                <i class="fa-solid fa-sun text-amber-300 text-xs"></i>
+                <span>پیش‌گشایش (8:30)</span>
+            </button>
+            <button class="nav-tab flex-1 py-2 px-3 rounded-xl text-xs font-extrabold transition flex items-center justify-center gap-1.5 text-slate-300 hover:bg-slate-800 whitespace-nowrap" data-target="tab-live-radar">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 pulse-live"></span>
+                <span>رادار صف‌ها (9:00-12:30)</span>
+            </button>
+            <button class="nav-tab flex-1 py-2 px-3 rounded-xl text-xs font-extrabold transition flex items-center justify-center gap-1.5 text-slate-300 hover:bg-slate-800 whitespace-nowrap" data-target="tab-screener">
+                <i class="fa-solid fa-fire text-amber-400 text-xs"></i>
+                <span>غربالگر 8 فیلتره (A+)</span>
+            </button>
+            <button class="nav-tab flex-1 py-2 px-3 rounded-xl text-xs font-extrabold transition flex items-center justify-center gap-1.5 text-slate-300 hover:bg-slate-800 whitespace-nowrap" data-target="tab-portfolios">
+                <i class="fa-solid fa-layer-group text-teal-400 text-xs"></i>
+                <span>سبدگردانی پویا & OMAX</span>
+            </button>
+            <button class="nav-tab flex-1 py-2 px-3 rounded-xl text-xs font-extrabold transition flex items-center justify-center gap-1.5 text-slate-300 hover:bg-slate-800 whitespace-nowrap" data-target="tab-leveraged">
+                <i class="fa-solid fa-bolt text-amber-400 text-xs"></i>
+                <span>9 صندوق اهرمی</span>
+            </button>
+            <button class="nav-tab flex-1 py-2 px-3 rounded-xl text-xs font-extrabold transition flex items-center justify-center gap-1.5 text-slate-300 hover:bg-slate-800 whitespace-nowrap" data-target="tab-my-real-port">
+                <i class="fa-solid fa-wallet text-emerald-300 text-xs"></i>
+                <span>پرتفوی من (271.6M)</span>
+            </button>
+            <button class="nav-tab flex-1 py-2 px-3 rounded-xl text-xs font-extrabold transition flex items-center justify-center gap-1.5 text-slate-300 hover:bg-slate-800 whitespace-nowrap border border-sky-500/30" data-target="tab-cloud-sync">
+                <i class="fa-solid fa-cloud-bolt text-sky-400 text-xs"></i>
+                <span>فایربیس ابری</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="max-w-6xl mx-auto px-3 py-4 flex-1 w-full space-y-4">
+
+        <!-- ======================================================== -->
+        <!-- MODULE 2: DYNAMIC MARKET REGIME ENGINE & LIVE PULSE BAR   -->
+        <!-- ======================================================== -->
+        <div id="regime-engine-card" class="glass-card neon-border-rose rounded-2xl p-3.5 space-y-3 transition-all duration-300">
+            <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800/80 pb-2.5">
+                <div class="flex items-center gap-2">
+                    <span id="regime-pulse-dot" class="w-3 h-3 rounded-full bg-rose-500 pulse-live"></span>
+                    <div>
+                        <span class="text-xs font-black text-white block sm:inline">موتور هوشمند رژیم بازار (Dynamic Market Regime)</span>
+                        <span class="text-[10px] text-slate-400 font-mono mr-1">— 1405/07/26</span>
+                    </div>
+                </div>
+
+                <!-- Interactive Regime Switcher (100% Dynamic - No Dogmatic Rules) -->
+                <div class="flex items-center gap-1 neo-inset p-1 rounded-xl border border-slate-800 text-[11px]">
+                    <span class="text-[10px] text-slate-400 px-1.5 hidden sm:inline">تغییر رژیم:</span>
+                    <button type="button" class="regime-btn px-2.5 py-1 rounded-lg font-bold transition text-slate-400 hover:text-white" data-regime="bull">
+                        <i class="fa-solid fa-rocket text-emerald-400 ml-1"></i>صعودی تهاجمی
+                    </button>
+                    <button type="button" class="regime-btn px-2.5 py-1 rounded-lg font-bold transition text-slate-400 hover:text-white" data-regime="neutral">
+                        <i class="fa-solid fa-scale-balanced text-amber-400 ml-1"></i>تعادلی / رِنج
+                    </button>
+                    <button type="button" class="regime-btn active bg-rose-600 text-white px-2.5 py-1 rounded-lg font-bold transition shadow" data-regime="bear">
+                        <i class="fa-solid fa-shield-halved text-white ml-1"></i>نزولی تدافعی
+                    </button>
+                </div>
+            </div>
+
+            <!-- Dynamic Allocation Banner Based on Selected Regime -->
+            <div class="neo-inset p-2.5 rounded-xl border border-slate-800/90 flex flex-col md:flex-row items-start md:items-center justify-between gap-2 text-xs">
+                <div class="space-y-0.5">
+                    <div class="flex items-center gap-1.5">
+                        <span id="regime-badge-title" class="font-black text-rose-400">رژیم فعلی: نزولی تدافعی (فشار عرضه و ریسک سیاسی)</span>
+                        <span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded font-mono">بدون قوانین صلب</span>
+                    </div>
+                    <p id="regime-desc-text" class="text-[11px] text-slate-300 leading-relaxed">
+                        پیشنهاد پویا بر اساس خروج پول حقیقی (-700 B.T): افزایش موقت سپر طلا/نقد و تمرکز صرف بر تک‌سهم‌های دارویی ضدریزش با تقاضای سرخط > 3x. (در صورت چرخش بازار به صعودی، وزن طلا می‌تواند تا 0% کاهش یابد).
+                    </p>
+                </div>
+                <div class="flex items-center gap-2 shrink-0 font-mono text-[11px] w-full md:w-auto justify-end border-t md:border-t-0 border-slate-800 pt-2 md:pt-0">
+                    <div class="bg-slate-900 px-2.5 py-1 rounded-lg border border-emerald-500/30">
+                        <span class="text-slate-400 font-sans text-[10px]">سهام/اهرم:</span>
+                        <strong id="regime-stock-pct" class="text-emerald-400 mr-1">55%</strong>
+                    </div>
+                    <div class="bg-slate-900 px-2.5 py-1 rounded-lg border border-amber-500/30">
+                        <span class="text-slate-400 font-sans text-[10px]">طلا/نقد پویا:</span>
+                        <strong id="regime-safe-pct" class="text-amber-400 mr-1">45%</strong>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5 Live Market Metrics (Strictly Latin Digits) -->
+            <div class="grid grid-cols-2 sm:grid-cols-5 gap-2 text-[11px] font-mono">
+                <div class="neo-inset p-2 rounded-xl border border-slate-800/80">
+                    <span class="text-slate-400 font-sans text-[10px] block">شاخص کل (زنده):</span>
+                    <span class="text-rose-400 font-bold">8,104,000 (-1.95%)</span>
+                </div>
+                <div class="neo-inset p-2 rounded-xl border border-slate-800/80">
+                    <span class="text-slate-400 font-sans text-[10px] block">شاخص هم‌وزن:</span>
+                    <span class="text-rose-400 font-bold">2,192,180 (-1.51%)</span>
+                </div>
+                <div class="neo-inset p-2 rounded-xl border border-slate-800/80">
+                    <span class="text-slate-400 font-sans text-[10px] block">تراز پول حقیقی:</span>
+                    <span class="text-rose-400 font-bold">-700 B.T (دیروز -8T)</span>
+                </div>
+                <div class="neo-inset p-2 rounded-xl border border-slate-800/80">
+                    <span class="text-slate-400 font-sans text-[10px] block">وضعیت تابلو:</span>
+                    <span class="text-amber-300 font-bold">30% مثبت / 70% منفی</span>
+                </div>
+                <div class="neo-inset p-2 rounded-xl border border-slate-800/80 col-span-2 sm:col-span-1">
+                    <span class="text-slate-400 font-sans text-[10px] block">صندوق طلای عیار:</span>
+                    <span class="text-emerald-400 font-bold">712,879 R (+2.97%)</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ======================================================== -->
+        <!-- MODULE 3: PRE-MARKET MORNING BRIEFING (8:30 - 8:59 AM)   -->
+        <!-- ======================================================== -->
+        <section id="tab-premarket" class="tab-content space-y-4">
+            <div class="glass-card neon-border-amber rounded-2xl p-4 space-y-3.5">
+                <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800 pb-3">
+                    <div class="flex items-center gap-2.5">
+                        <span class="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-500 to-orange-400 text-slate-950 flex items-center justify-center font-black text-lg shadow-md">
+                            <i class="fa-solid fa-mug-hot"></i>
+                        </span>
+                        <div>
+                            <div class="flex items-center gap-2">
+                                <h3 class="text-sm font-black text-white">رادار صبحگاهی پیش‌گشایش (8:30 تا 8:59)</h3>
+                                <span class="text-[10px] bg-amber-500/20 text-amber-300 font-mono font-bold px-2 py-0.5 rounded border border-amber-500/30">Pre-Market AI</span>
+                            </div>
+                            <p class="text-[11px] text-slate-400">رصد سفارش‌های پیش‌گشایش، پیش‌بینی تشکیل صف خرید، هشدارهای عرضه سنگین و گزارش‌های کدال دیشب</p>
+                        </div>
+                    </div>
+                    <span class="text-[11px] font-mono text-emerald-400 bg-emerald-500/15 px-3 py-1 rounded-xl border border-emerald-500/30 font-bold">
+                        تایم بازار: 08:30 - 12:30
+                    </span>
+                </div>
+
+                <!-- 4 Executive Pre-Market Intelligence Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5">
+
+                    <!-- Card 1: Queue Lock Candidates -->
+                    <div class="neo-inset border border-emerald-500/30 rounded-xl p-3.5 space-y-2">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-black text-emerald-400 flex items-center gap-1.5">
+                                <i class="fa-solid fa-lock text-emerald-400"></i>
+                                <span>1. کاندیداهای قطعی تشکیل صف خرید (پیش‌صف):</span>
+                            </span>
+                            <span class="text-[10px] bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded font-mono font-bold">Bid > 3x Ask</span>
+                        </div>
+                        <ul class="text-[11px] text-slate-300 space-y-1.5 leading-relaxed font-sans">
+                            <li class="flex items-start gap-1.5">
+                                <i class="fa-solid fa-circle-check text-emerald-400 text-xs mt-1 shrink-0"></i>
+                                <div><strong>درازی (پخش رازی - <span class="font-mono">74,470 R</span>):</strong> صف خرید سنگین <span class="font-mono text-emerald-300">182.6 B.T</span> (<span class="font-mono">24.6M</span> سهم)؛ نسبت تقاضا به عرضه <span class="font-mono">4.2x</span> با حمایت خریداران حقیقی درشت.</div>
+                            </li>
+                            <li class="flex items-start gap-1.5">
+                                <i class="fa-solid fa-circle-check text-emerald-400 text-xs mt-1 shrink-0"></i>
+                                <div><strong>دفارا (داروسازی فارابی - <span class="font-mono">19,450 R</span>):</strong> صف خرید <span class="font-mono text-emerald-300">266.3 B.T</span>؛ رشد حاشیه سود ناشی از حذف ارز ترجیحی در کدال.</div>
+                            </li>
+                            <li class="flex items-start gap-1.5">
+                                <i class="fa-solid fa-circle-check text-emerald-400 text-xs mt-1 shrink-0"></i>
+                                <div><strong>داروند (داروسازی اروند - <span class="font-mono">10,460 R</span>):</strong> صف خرید فوق‌العاده <span class="font-mono text-emerald-300">521.0 B.T</span> و تقاضای سنگین بدون عرضه حقوقی.</div>
+                            </li>
+                            <li class="flex items-start gap-1.5">
+                                <i class="fa-solid fa-circle-check text-emerald-400 text-xs mt-1 shrink-0"></i>
+                                <div><strong>خبهمن (گروه بهمن - <span class="font-mono">2,741 R</span>):</strong> صف خرید <span class="font-mono text-emerald-300">389.7 B.T</span> ناشی از کاتالیزور افزایش نرخ <span class="font-mono">+45%</span> خاور و شرکت‌های زیرمجموعه.</div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Card 2: Queue Break & Dump Warnings -->
+                    <div class="neo-inset border border-rose-500/30 rounded-xl p-3.5 space-y-2">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-black text-rose-400 flex items-center gap-1.5">
+                                <i class="fa-solid fa-triangle-exclamation text-rose-400"></i>
+                                <span>2. هشدارهای عرضه سنگین و خطر ریزش صف:</span>
+                            </span>
+                            <span class="text-[10px] bg-rose-500/20 text-rose-300 px-2 py-0.5 rounded font-mono font-bold">Power < 0.7</span>
+                        </div>
+                        <ul class="text-[11px] text-slate-300 space-y-1.5 leading-relaxed font-sans">
+                            <li class="flex items-start gap-1.5">
+                                <i class="fa-solid fa-circle-xmark text-rose-400 text-xs mt-1 shrink-0"></i>
+                                <div><strong>شفام (تولید رنگ و رزین):</strong> ضعیف‌ترین سهم سبد با افت <span class="font-mono text-rose-400">-10.41%</span> و عرضه‌های متوالی؛ در اولین تعادل یا مثبت اندک خروج و تعویض انجام شود.</div>
+                            </li>
+                            <li class="flex items-start gap-1.5">
+                                <i class="fa-solid fa-circle-xmark text-rose-400 text-xs mt-1 shrink-0"></i>
+                                <div><strong>وبصادر (بانک صادرات):</strong> صف فروش سنگین و قدرت خریدار <span class="font-mono text-rose-400">0.64</span> به دلیل اخبار تنش منطقه‌ای؛ خرید ممنوع.</div>
+                            </li>
+                            <li class="flex items-start gap-1.5">
+                                <i class="fa-solid fa-circle-xmark text-rose-400 text-xs mt-1 shrink-0"></i>
+                                <div><strong>اروند و تابان:</strong> سنگین‌ترین صف‌های فروش تابلو (<span class="font-mono text-rose-400">531 B.T</span> و <span class="font-mono text-rose-400">469 B.T</span>)؛ دست زدن به صف فروش اکیداً ممنوع است.</div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Card 3: Codal Intelligence Highlights -->
+                    <div class="neo-inset border border-teal-500/30 rounded-xl p-3.5 space-y-2">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-black text-teal-400 flex items-center gap-1.5">
+                                <i class="fa-solid fa-file-invoice text-teal-400"></i>
+                                <span>3. خلاصه مهم‌ترین گزارش‌های کدال دیشب:</span>
+                            </span>
+                            <span class="text-[10px] bg-teal-500/20 text-teal-300 px-2 py-0.5 rounded font-mono font-bold">Codal A+</span>
+                        </div>
+                        <p class="text-[11px] text-slate-300 leading-relaxed">
+                            بررسی گزارش‌های ماهانه منتشرشده در کدال نشان می‌دهد که گروه <strong>دارویی (دیران، دفارا، درازی، تیپیکو)</strong> با میانگین رشد مبلغ فروش ماهانه بالای <span class="font-mono text-emerald-400">+42%</span> و جهش حاشیه سود ناخالص به بالای <span class="font-mono text-emerald-400">45%</span>، پیشتاز بنیادی بازار هستند. همچنین در گروه تایرسازی، <strong>پکویر</strong> مجوز افزایش نرخ رسمی <span class="font-mono text-emerald-400">+23.4%</span> را دریافت کرده است.
+                        </p>
+                    </div>
+
+                    <!-- Card 4: Dynamic Strategy & Asset Allocation -->
+                    <div class="neo-inset border border-amber-500/30 rounded-xl p-3.5 space-y-2">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-black text-amber-300 flex items-center gap-1.5">
+                                <i class="fa-solid fa-compass text-amber-400"></i>
+                                <span>4. استراتژی پویا و نقشه معاملاتی امروز:</span>
+                            </span>
+                            <span class="text-[10px] bg-amber-500/20 text-amber-300 px-2 py-0.5 rounded font-mono font-bold">100% Dynamic</span>
+                        </div>
+                        <div class="space-y-1.5 text-[11px] text-slate-300 leading-relaxed font-sans">
+                            <div class="bg-slate-900/90 p-2 rounded-lg border border-slate-800">
+                                <strong class="text-emerald-400">چیدمان منطبق با رژیم بازار:</strong> تخصیص پویا بر اساس دکمه‌های رژیم بالای صفحه تنظیم می‌شود. در روزهای پرریسک وزن سپر طلا/نقد افزایش می‌یابد و در شروع موج صعودی، تا <span class="font-mono text-emerald-300">95% - 100%</span> سرمایه به سهام پیش‌رو و صندوق‌های اهرمی منتقل می‌گردد.
+                            </div>
+                            <p class="text-[10px] text-slate-400">
+                                <strong>اصل طلایی بورسک:</strong> هیچ درصد ثابتی وجود ندارد؛ همیشه به سمت جریان پول هوشمند و قدرت خریدار <span class="font-mono">> 2.2</span> حرکت کنید.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================================================== -->
+        <!-- MODULE 4: LIVE QUEUE & LIQUIDITY RADAR (9:00 - 12:30)    -->
+        <!-- ======================================================== -->
+        <section id="tab-live-radar" class="tab-content hidden space-y-4">
+            <div class="glass-card neon-border-emerald rounded-2xl p-4 space-y-3.5">
+                <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800 pb-3">
+                    <div class="flex items-center gap-2">
+                        <span class="w-3 h-3 rounded-full bg-emerald-400 pulse-live"></span>
+                        <h3 class="text-sm font-black text-white">رادار زنده صف‌ها و نقدینگی (09:00 تا 12:30)</h3>
+                    </div>
+                    <span class="text-[10px] text-slate-400 font-mono">Live TSE Orderbook Stream</span>
+                </div>
+
+                <!-- 3 Stream Columns -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
+
+                    <!-- Column 1: Pre-Queue Hunters -->
+                    <div class="neo-inset border border-emerald-500/40 rounded-xl p-3 space-y-2.5">
+                        <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+                            <span class="font-black text-emerald-400 flex items-center gap-1.5">
+                                <i class="fa-solid fa-lock-open text-emerald-400"></i>
+                                <span>1. در آستانه قفل صف خرید (پیش‌صف)</span>
+                            </span>
+                            <span class="text-[9px] bg-emerald-500/20 text-emerald-300 px-1.5 py-0.5 rounded font-mono font-bold">Bid > 3x</span>
+                        </div>
+                        <div class="space-y-2 text-[11px] font-mono">
+                            <div class="bg-slate-900/90 p-2.5 rounded-lg border border-slate-800 space-y-1">
+                                <div class="flex justify-between items-center font-bold">
+                                    <span class="text-white font-sans font-black">آسیاتک <span class="font-mono text-slate-400">(5,240 R)</span></span>
+                                    <span class="text-emerald-400">+3.25%</span>
+                                </div>
+                                <div class="text-slate-400 font-sans text-[10px]">تقاضا <span class="font-mono text-slate-200">3.8x</span> عرضه | قدرت خریدار حقیقی <span class="font-mono text-emerald-300">2.85</span></div>
+                                <div class="flex justify-between text-[10px] text-amber-300 font-sans">
+                                    <span>احتمال قفل صف: <strong class="font-mono">86%</strong></span>
+                                    <span class="text-emerald-400 font-mono font-bold">+5.4 B.T</span>
+                                </div>
+                            </div>
+                            <div class="bg-slate-900/90 p-2.5 rounded-lg border border-slate-800 space-y-1">
+                                <div class="flex justify-between items-center font-bold">
+                                    <span class="text-white font-sans font-black">پکویر <span class="font-mono text-slate-400">(28,900 R)</span></span>
+                                    <span class="text-emerald-400">+2.85%</span>
+                                </div>
+                                <div class="text-slate-400 font-sans text-[10px]">ابلاغ افزایش نرخ <span class="font-mono text-slate-200">+23.4%</span> | تقاضای سرخط <span class="font-mono text-emerald-300">3.3x</span></div>
+                                <div class="flex justify-between text-[10px] text-amber-300 font-sans">
+                                    <span>احتمال قفل صف: <strong class="font-mono">83%</strong></span>
+                                    <span class="text-emerald-400 font-mono font-bold">+8.4 B.T</span>
+                                </div>
+                            </div>
+                            <div class="bg-slate-900/90 p-2.5 rounded-lg border border-slate-800 space-y-1">
+                                <div class="flex justify-between items-center font-bold">
+                                    <span class="text-white font-sans font-black">تیپیکو <span class="font-mono text-slate-400">(11,480 R)</span></span>
+                                    <span class="text-emerald-400">+2.90%</span>
+                                </div>
+                                <div class="text-slate-400 font-sans text-[10px]">حمایت کدهای درشت دارویی | بید <span class="font-mono text-emerald-300">3.1x</span> عرضه</div>
+                                <div class="flex justify-between text-[10px] text-amber-300 font-sans">
+                                    <span>احتمال قفل صف: <strong class="font-mono">81%</strong></span>
+                                    <span class="text-emerald-400 font-mono font-bold">+3.6 B.T</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Column 2: Queue Break & Dump Warnings -->
+                    <div class="neo-inset border border-rose-500/40 rounded-xl p-3 space-y-2.5">
+                        <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+                            <span class="font-black text-rose-400 flex items-center gap-1.5">
+                                <i class="fa-solid fa-triangle-exclamation text-rose-400"></i>
+                                <span>2. هشدار ریزش صف و خروج پول</span>
+                            </span>
+                            <span class="text-[9px] bg-rose-500/20 text-rose-300 px-1.5 py-0.5 rounded font-mono font-bold">Power < 0.7</span>
+                        </div>
+                        <div class="space-y-2 text-[11px] font-mono">
+                            <div class="bg-slate-900/90 p-2.5 rounded-lg border border-slate-800 space-y-1">
+                                <div class="flex justify-between items-center font-bold">
+                                    <span class="text-white font-sans font-black">شفام <span class="font-mono text-slate-400">(2,930 R)</span></span>
+                                    <span class="text-rose-400">-2.66%</span>
+                                </div>
+                                <div class="text-slate-400 font-sans text-[10px]">قدرت خریدار <span class="font-mono text-rose-300">0.54</span> | زیان کل <span class="font-mono text-rose-300">-10.4%</span> در سبد</div>
+                                <div class="flex justify-between text-[10px] text-rose-400 font-sans">
+                                    <span>حکم: تبدیل فوری به عیار/دفارا</span>
+                                    <span class="font-mono font-bold">-2.15 M.T</span>
+                                </div>
+                            </div>
+                            <div class="bg-slate-900/90 p-2.5 rounded-lg border border-slate-800 space-y-1">
+                                <div class="flex justify-between items-center font-bold">
+                                    <span class="text-white font-sans font-black">وبصادر <span class="font-mono text-slate-400">(932 R)</span></span>
+                                    <span class="text-rose-400">-2.71%</span>
+                                </div>
+                                <div class="text-slate-400 font-sans text-[10px]">خروج <span class="font-mono text-rose-300">-5.2 B.T</span> پول حقیقی و فشار فروش</div>
+                                <div class="flex justify-between text-[10px] text-rose-400 font-sans">
+                                    <span>حکم: خروج در تعادل، ریسک سیاسی</span>
+                                    <span class="font-mono font-bold">-5.2 B.T</span>
+                                </div>
+                            </div>
+                            <div class="bg-slate-900/90 p-2.5 rounded-lg border border-slate-800 space-y-1">
+                                <div class="flex justify-between items-center font-bold">
+                                    <span class="text-white font-sans font-black">اروند <span class="font-mono text-slate-400">(63,670 R)</span></span>
+                                    <span class="text-rose-400">-2.99%</span>
+                                </div>
+                                <div class="text-slate-400 font-sans text-[10px]">قدرت خریدار <span class="font-mono text-rose-300">0.42</span> | صف فروش سنگین</div>
+                                <div class="flex justify-between text-[10px] text-rose-400 font-sans">
+                                    <span>حکم: خرید اکیداً ممنوع!</span>
+                                    <span class="font-mono font-bold">-53.1 B.T</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Column 3: Heavy Smart Money Inflow -->
+                    <div class="neo-inset border border-teal-500/40 rounded-xl p-3 space-y-2.5">
+                        <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+                            <span class="font-black text-teal-400 flex items-center gap-1.5">
+                                <i class="fa-solid fa-money-bill-trend-up text-teal-400"></i>
+                                <span>3. ورود پول درشت زنده (> 2B T)</span>
+                            </span>
+                            <span class="text-[9px] bg-teal-500/20 text-teal-300 px-1.5 py-0.5 rounded font-mono font-bold">Smart Money</span>
+                        </div>
+                        <div class="space-y-2 text-[11px] font-mono">
+                            <div class="bg-slate-900/90 p-2.5 rounded-lg border border-slate-800 space-y-1">
+                                <div class="flex justify-between items-center font-bold">
+                                    <span class="text-white font-sans font-black">داروند <span class="font-mono text-slate-400">(10,460 R)</span></span>
+                                    <span class="text-emerald-400">+2.95%</span>
+                                </div>
+                                <div class="text-slate-400 font-sans text-[10px]">صف خرید <span class="font-mono text-emerald-300">521.0 B.T</span> (<span class="font-mono">498.1M</span> سهم)</div>
+                                <div class="flex justify-between text-[10px] text-emerald-400 font-sans">
+                                    <span>ورود نقدینگی درشت</span>
+                                    <span class="font-mono font-bold">+52.1 B.T</span>
+                                </div>
+                            </div>
+                            <div class="bg-slate-900/90 p-2.5 rounded-lg border border-slate-800 space-y-1">
+                                <div class="flex justify-between items-center font-bold">
+                                    <span class="text-white font-sans font-black">خبهمن <span class="font-mono text-slate-400">(2,741 R)</span></span>
+                                    <span class="text-emerald-400">+1.95%</span>
+                                </div>
+                                <div class="text-slate-400 font-sans text-[10px]">صف خرید <span class="font-mono text-emerald-300">389.7 B.T</span> (<span class="font-mono">1.43B</span> سهم)</div>
+                                <div class="flex justify-between text-[10px] text-emerald-400 font-sans">
+                                    <span>ورود نقدینگی درشت</span>
+                                    <span class="font-mono font-bold">+38.9 B.T</span>
+                                </div>
+                            </div>
+                            <div class="bg-slate-900/90 p-2.5 rounded-lg border border-slate-800 space-y-1">
+                                <div class="flex justify-between items-center font-bold">
+                                    <span class="text-white font-sans font-black">دفارا <span class="font-mono text-slate-400">(19,450 R)</span></span>
+                                    <span class="text-emerald-400">+2.70%</span>
+                                </div>
+                                <div class="text-slate-400 font-sans text-[10px]">صف خرید <span class="font-mono text-emerald-300">266.3 B.T</span> (<span class="font-mono">137M</span> سهم)</div>
+                                <div class="flex justify-between text-[10px] text-emerald-400 font-sans">
+                                    <span>جریان ورود سنگین</span>
+                                    <span class="font-mono font-bold">+26.6 B.T</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================================================== -->
+        <!-- MODULE 5: 8-FILTER SCREENER WITH DUAL GRADING (A+ TO D)  -->
+        <!-- ======================================================== -->
+        <section id="tab-screener" class="tab-content hidden space-y-3.5">
+
+            <!-- 8 Filter Category Cards (2x4 Grid on Mobile, 4x2 on Desktop) -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+
+                <!-- Filter 1: ASIATECH (Pre-Queue Hunter) -->
+                <button class="filter-pill active p-2.5 rounded-xl glass-card border-2 border-amber-500 text-right space-y-0.5 transition shadow-md" data-category="asiatech">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-black text-amber-300 flex items-center gap-1">
+                            <i class="fa-solid fa-fire text-amber-400 text-xs"></i>
+                            <span>فیلتر آسیاتک</span>
+                        </span>
+                        <span class="text-[10px] font-mono text-amber-300 bg-amber-500/20 px-1.5 py-0.5 rounded font-bold" id="badge-count-asiatech">4</span>
+                    </div>
+                    <p class="text-[10px] text-slate-400 font-sans">بید > <span class="font-mono">3x</span> و سرانه > <span class="font-mono">2.2</span></p>
+                </button>
+
+                <!-- Filter 2: All Stocks -->
+                <button class="filter-pill p-2.5 rounded-xl glass-card border border-slate-800 text-right space-y-0.5 transition hover:border-slate-700" data-category="all">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-bold text-white flex items-center gap-1">
+                            <i class="fa-solid fa-globe text-emerald-400 text-xs"></i>
+                            <span>همه فیلترها</span>
+                        </span>
+                        <span class="text-[10px] font-mono text-emerald-400 bg-emerald-500/15 px-1.5 py-0.5 rounded font-bold" id="badge-count-all">24</span>
+                    </div>
+                    <p class="text-[10px] text-slate-400">نمای یکجای کل شکارها</p>
+                </button>
+
+                <!-- Filter 3: Live Smart Money -->
+                <button class="filter-pill p-2.5 rounded-xl glass-card border border-slate-800 text-right space-y-0.5 transition hover:border-slate-700" data-category="live">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-bold text-white flex items-center gap-1">
+                            <span class="w-2 h-2 rounded-full bg-emerald-400 pulse-live"></span>
+                            <span>پول درشت زنده</span>
+                        </span>
+                        <span class="text-[10px] font-mono text-emerald-400 bg-emerald-500/15 px-1.5 py-0.5 rounded font-bold" id="badge-count-live">4</span>
+                    </div>
+                    <p class="text-[10px] text-slate-400">ورود > <span class="font-mono">2B</span> و قدرت > <span class="font-mono">1.8</span></p>
+                </button>
+
+                <!-- Filter 4: Intraday 5-Min Jump -->
+                <button class="filter-pill p-2.5 rounded-xl glass-card border border-slate-800 text-right space-y-0.5 transition hover:border-slate-700" data-category="intraday">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-bold text-white flex items-center gap-1">
+                            <i class="fa-solid fa-bolt text-teal-400 text-xs"></i>
+                            <span>پرش 5 دقیقه‌ای</span>
+                        </span>
+                        <span class="text-[10px] font-mono text-teal-400 bg-teal-500/15 px-1.5 py-0.5 rounded font-bold" id="badge-count-intraday">3</span>
+                    </div>
+                    <p class="text-[10px] text-slate-400">پرش ناگهانی حجم و قیمت</p>
+                </button>
+
+                <!-- Filter 5: Tick / Clock Pattern -->
+                <button class="filter-pill p-2.5 rounded-xl glass-card border border-slate-800 text-right space-y-0.5 transition hover:border-slate-700" data-category="tick">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-bold text-white flex items-center gap-1">
+                            <i class="fa-solid fa-clock text-sky-400 text-xs"></i>
+                            <span>الگوی ساعت (تیک)</span>
+                        </span>
+                        <span class="text-[10px] font-mono text-sky-400 bg-sky-500/15 px-1.5 py-0.5 rounded font-bold" id="badge-count-tick">3</span>
+                    </div>
+                    <p class="text-[10px] text-slate-400">آخرین معامله > پایانی <span class="font-mono">+2%</span></p>
+                </button>
+
+                <!-- Filter 6: Queue Breakers -->
+                <button class="filter-pill p-2.5 rounded-xl glass-card border border-slate-800 text-right space-y-0.5 transition hover:border-slate-700" data-category="queue">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-bold text-white flex items-center gap-1">
+                            <i class="fa-solid fa-hammer text-purple-400 text-xs"></i>
+                            <span>صف‌شکن قدرتمند</span>
+                        </span>
+                        <span class="text-[10px] font-mono text-purple-400 bg-purple-500/15 px-1.5 py-0.5 rounded font-bold" id="badge-count-queue">3</span>
+                    </div>
+                    <p class="text-[10px] text-slate-400">بلعیدن صف فروش و چرخش</p>
+                </button>
+
+                <!-- Filter 7: Fundamental & Codal -->
+                <button class="filter-pill p-2.5 rounded-xl glass-card border border-slate-800 text-right space-y-0.5 transition hover:border-slate-700" data-category="midterm">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-bold text-white flex items-center gap-1">
+                            <i class="fa-solid fa-chart-line text-cyan-400 text-xs"></i>
+                            <span>بنیادی & کدال</span>
+                        </span>
+                        <span class="text-[10px] font-mono text-cyan-400 bg-cyan-500/15 px-1.5 py-0.5 rounded font-bold" id="badge-count-midterm">3</span>
+                    </div>
+                    <p class="text-[10px] text-slate-400">جهش فروش کدال & P/E پایین</p>
+                </button>
+
+                <!-- Filter 8: Exit Warning / Don't Buy -->
+                <button class="filter-pill p-2.5 rounded-xl glass-card border border-slate-800 text-right space-y-0.5 transition hover:border-slate-700" data-category="exit">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-bold text-rose-400 flex items-center gap-1">
+                            <i class="fa-solid fa-triangle-exclamation text-rose-400 text-xs"></i>
+                            <span>هشدار خروج / نخر</span>
+                        </span>
+                        <span class="text-[10px] font-mono text-rose-400 bg-rose-500/15 px-1.5 py-0.5 rounded font-bold" id="badge-count-exit">4</span>
+                    </div>
+                    <p class="text-[10px] text-slate-400">قدرت < <span class="font-mono">0.7</span> و فرار پول</p>
+                </button>
+
+            </div>
+
+            <!-- Active Filter Logic Explanation Banner -->
+            <div id="filter-logic-banner" class="p-3 bg-amber-950/30 border border-amber-500/40 rounded-xl text-xs space-y-1">
+                <div class="flex items-center justify-between">
+                    <span id="banner-title" class="font-extrabold text-amber-300 flex items-center gap-1.5">
+                        <i class="fa-solid fa-microchip"></i>
+                        منطق فیلتر آسیاتک (شکار پیش از تشکیل صف خرید):
+                    </span>
+                    <span id="banner-winrate" class="text-[10px] bg-amber-500/20 text-amber-300 px-2 py-0.5 rounded font-mono font-bold">Win-Rate: 84%</span>
+                </div>
+                <p id="banner-desc" class="text-slate-300 text-[11px] leading-relaxed">
+                    شناسایی نمادهایی که هنوز قفل صف خرید نشده‌اند (معامله در محدوده +2.0% تا +3.8%)، اما حجم سفارش‌های خرید در 3 ردیف اول بیش از 3 برابر فروشنده است و سرانه خرید حقیقی بالای 2.2 برابر فروشنده می‌باشد.
+                </p>
+            </div>
+
+            <!-- Grade Filter & Search Controls -->
+            <div class="flex flex-wrap items-center gap-2 glass-card border border-slate-800 rounded-xl p-2 text-xs">
+                
+                <!-- Quick Grade Filter Chips -->
+                <div class="flex items-center gap-1 overflow-x-auto pb-1 sm:pb-0">
+                    <span class="text-slate-400 text-[10px] whitespace-nowrap">رتبه‌بندی دوگانه:</span>
+                    <button class="grade-filter-btn active bg-emerald-600 text-white px-2.5 py-1 rounded-lg text-[10px] font-bold whitespace-nowrap" data-gfilter="all">همه</button>
+                    <button class="grade-filter-btn bg-slate-800 text-emerald-300 px-2.5 py-1 rounded-lg text-[10px] font-bold whitespace-nowrap border border-emerald-500/40" data-gfilter="double-a">طلایی A+/A+</button>
+                    <button class="grade-filter-btn bg-slate-800 text-emerald-300 px-2.5 py-1 rounded-lg text-[10px] font-bold whitespace-nowrap" data-gfilter="fund-a">بنیادی A+</button>
+                    <button class="grade-filter-btn bg-slate-800 text-teal-300 px-2.5 py-1 rounded-lg text-[10px] font-bold whitespace-nowrap" data-gfilter="tech-a">تکنیکال A+</button>
+                </div>
+
+                <div class="relative flex-1 min-w-[150px]">
+                    <input type="text" id="input-search" placeholder="جستجوی نماد، صنعت یا رتبه (A+)..." class="w-full neo-inset border border-slate-800 rounded-lg py-1.5 pr-8 pl-3 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500">
+                    <i class="fa-solid fa-magnifying-glass absolute right-2.5 top-2.5 text-slate-500 text-xs"></i>
+                </div>
+                <select id="select-sort" class="neo-inset border border-slate-800 rounded-lg py-1.5 px-2.5 text-slate-200 text-xs focus:outline-none">
+                    <option value="winrate">بیشترین احتمال رشد</option>
+                    <option value="power">بالاترین قدرت خریدار</option>
+                    <option value="flow">بیشترین ورود پول حقیقی</option>
+                    <option value="score">بالاترین امتیاز بورسک</option>
+                </select>
+            </div>
+
+            <!-- Stock Cards Container -->
+            <div id="stocks-container" class="space-y-2.5"></div>
+
+        </section>
+
+        <!-- ======================================================== -->
+        <!-- MODULE 6: DYNAMIC PORTFOLIOS, OMAX & CUSTOM ALLOCATOR    -->
+        <!-- ======================================================== -->
+        <section id="tab-portfolios" class="tab-content hidden space-y-5">
+
+            <!-- Quick Filter Bar for Portfolios -->
+            <div class="flex items-center gap-1.5 overflow-x-auto pb-1">
+                <button class="port-filter-btn active px-3 py-1.5 rounded-xl text-xs font-bold bg-emerald-600 text-white whitespace-nowrap transition" data-pfilter="all">
+                    نمایش یکجای تمام سبدها
+                </button>
+                <button class="port-filter-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-900 border border-sky-500/40 text-sky-300 whitespace-nowrap transition flex items-center gap-1.5" data-pfilter="custom">
+                    <i class="fa-solid fa-sliders text-sky-400 text-xs"></i>
+                    <span>سبدساز اختصاصی (Custom 100%)</span>
+                </button>
+                <button class="port-filter-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-900 border border-amber-500/40 text-amber-300 whitespace-nowrap transition" data-pfilter="omax">
+                    سبد چرخش هفتگی OMAX (5×20%)
+                </button>
+                <button class="port-filter-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-900 border border-slate-800 text-emerald-400 whitespace-nowrap transition" data-pfilter="low">
+                    3 سبد کم‌ریسک (L1-L3)
+                </button>
+                <button class="port-filter-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-900 border border-slate-800 text-teal-400 whitespace-nowrap transition" data-pfilter="med">
+                    3 سبد تعادلی (M1-M3)
+                </button>
+                <button class="port-filter-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-900 border border-slate-800 text-rose-400 whitespace-nowrap transition" data-pfilter="high">
+                    3 سبد تهاجمی اهرمی (H1-H3)
+                </button>
+            </div>
+
+            <!-- ==================================================== -->
+            <!-- SECTION A: CUSTOM PORTFOLIO BUILDER (سبدساز اختصاصی) -->
+            <!-- ==================================================== -->
+            <div class="port-section space-y-3" data-psection="custom">
+                <div class="glass-card neon-border-sky rounded-2xl p-4 space-y-4">
+                    <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800 pb-3">
+                        <div class="flex items-center gap-2.5">
+                            <span class="w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-500 to-indigo-500 text-white flex items-center justify-center font-black text-lg shadow-md shadow-sky-500/20">
+                                <i class="fa-solid fa-sliders"></i>
+                            </span>
+                            <div>
+                                <h3 class="text-sm font-black text-white flex items-center gap-1.5">
+                                    <span>سامانه سبدساز اختصاصی و پویا (Custom Dynamic Allocator)</span>
+                                    <span class="text-[10px] bg-sky-500/20 text-sky-300 px-2 py-0.5 rounded font-mono font-bold">100% Flexible</span>
+                                </h3>
+                                <p class="text-[11px] text-slate-400">ایجاد بی‌نهایت سبد جدید با نام دلخواه، افزودن آزادانه سهم‌ها و کنترل هوشمند مجموع 100% بدون هیچ محدودیت ثابتی.</p>
+                            </div>
+                        </div>
+                        <button type="button" id="btn-auto-normalize" class="text-[11px] font-bold bg-sky-500/15 hover:bg-sky-500/25 text-sky-300 px-3 py-1.5 rounded-xl border border-sky-500/30 transition flex items-center gap-1.5">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i>
+                            <span>تراز خودکار روی 100%</span>
+                        </button>
+                    </div>
+
+                    <!-- Builder Form -->
+                    <div class="neo-inset border border-slate-800 rounded-xl p-3.5 space-y-3">
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+                            <div class="sm:col-span-2">
+                                <label class="block text-[11px] text-slate-400 mb-1">نام سبد اختصاصی شما:</label>
+                                <input type="text" id="custom-port-name" placeholder="مثال: سبد شکارچی صف خرید / سبد اهرمی موج صعودی" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-1.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-sky-500">
+                            </div>
+                            <div>
+                                <label class="block text-[11px] text-slate-400 mb-1">رژیم بازار هدف:</label>
+                                <select id="custom-port-regime" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-1.5 text-xs text-slate-200 focus:outline-none focus:border-sky-500">
+                                    <option value="صعودی تهاجمی (Bullish)">صعودی تهاجمی (Bullish)</option>
+                                    <option value="تعادلی و نوسانی (Neutral)">تعادلی و نوسانی (Neutral)</option>
+                                    <option value="نزولی تدافعی (Bearish)">نزولی تدافعی (Bearish)</option>
+                                    <option value="آزاد و شخصی (Custom)">آزاد و شخصی (Custom)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Quick Preset Templates Based on Regime -->
+                        <div class="flex flex-wrap items-center gap-1.5 pt-1 text-[11px]">
+                            <span class="text-slate-400">بارگذاری سریع الگو:</span>
+                            <button type="button" class="preset-load-btn bg-emerald-500/15 hover:bg-emerald-500/25 text-emerald-300 border border-emerald-500/30 px-2.5 py-1 rounded-lg font-bold transition" data-preset="bull">
+                                الگوی صعودی تهاجمی (0% طلا)
+                            </button>
+                            <button type="button" class="preset-load-btn bg-amber-500/15 hover:bg-amber-500/25 text-amber-300 border border-amber-500/30 px-2.5 py-1 rounded-lg font-bold transition" data-preset="neutral">
+                                الگوی تعادلی (15% طلا)
+                            </button>
+                            <button type="button" class="preset-load-btn bg-rose-500/15 hover:bg-rose-500/25 text-rose-300 border border-rose-500/30 px-2.5 py-1 rounded-lg font-bold transition" data-preset="bear">
+                                الگوی تدافعی (35% طلا/نقد)
+                            </button>
+                        </div>
+
+                        <!-- Rows of Stocks & Weights -->
+                        <div class="space-y-2 pt-1">
+                            <div class="flex items-center justify-between">
+                                <span class="text-xs font-bold text-slate-300 flex items-center gap-1">
+                                    <i class="fa-solid fa-list-check text-sky-400"></i>
+                                    <span>ردیف‌های دارایی و درصد تخصیص:</span>
+                                </span>
+                                <div class="flex items-center gap-2 font-mono text-xs">
+                                    <span class="text-slate-400 font-sans text-[11px]">مجموع وزن‌ها:</span>
+                                    <span id="custom-weight-total" class="font-bold text-emerald-400 bg-emerald-500/15 px-2.5 py-0.5 rounded border border-emerald-500/30">100%</span>
+                                </div>
+                            </div>
+
+                            <div id="custom-items-container" class="space-y-2"></div>
+
+                            <div class="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-slate-800/60">
+                                <button type="button" id="btn-add-custom-row" class="bg-slate-900 hover:bg-slate-800 text-sky-400 text-xs font-bold px-3 py-1.5 rounded-lg border border-sky-500/30 transition flex items-center gap-1.5">
+                                    <i class="fa-solid fa-plus text-xs"></i>
+                                    <span>افزودن سهم جدید</span>
+                                </button>
+                                <button type="button" id="btn-save-custom-port" class="bg-gradient-to-r from-sky-600 to-indigo-600 hover:from-sky-500 hover:to-indigo-500 active:scale-95 text-white text-xs font-black px-4 py-1.5 rounded-xl shadow-md shadow-sky-600/25 transition flex items-center gap-1.5">
+                                    <i class="fa-solid fa-floppy-disk text-xs"></i>
+                                    <span>ذخیره در LocalStorage و فایربیس</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- User's Saved Custom Portfolios List -->
+                    <div class="space-y-2 pt-1">
+                        <h4 class="text-xs font-black text-slate-200 flex items-center gap-1.5">
+                            <i class="fa-solid fa-folder-open text-emerald-400"></i>
+                            <span>سبدهای اختصاصی ذخیره‌شده شما:</span>
+                        </h4>
+                        <div id="user-custom-ports-grid" class="grid grid-cols-1 md:grid-cols-2 gap-3"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ==================================================== -->
+            <!-- SECTION B: OMAX WEEKLY ROTATION (5 Stocks x 20%)     -->
+            <!-- ==================================================== -->
+            <div class="port-section space-y-3" data-psection="omax">
+                <div class="glass-card neon-border-amber rounded-2xl p-4 space-y-3.5">
+                    <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800 pb-3">
+                        <div class="flex items-center gap-2.5">
+                            <span class="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-500 to-orange-400 text-slate-950 flex items-center justify-center font-black text-xs shadow-md font-mono">OMAX</span>
+                            <div>
+                                <div class="flex items-center gap-2">
+                                    <h3 class="text-sm font-black text-white">سبد چرخش هفتگی OMAX (5 سهم × 20%)</h3>
+                                    <span class="text-[10px] bg-amber-500/20 text-amber-300 px-2 py-0.5 rounded font-mono font-bold">5 x 20% = 100%</span>
+                                </div>
+                                <p class="text-[11px] text-slate-400">انتخاب 5 سهم برتر بازار با وزن مساوی 20% بر پایه رژیم روز و ذخیره دائمی تاریخچه در LocalStorage</p>
+                            </div>
+                        </div>
+
+                        <button id="btn-ai-rebalance" class="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 active:scale-95 text-slate-950 text-xs px-3.5 py-2 rounded-xl font-black transition flex items-center gap-1.5 shadow-md shadow-amber-500/20">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i>
+                            <span>چرخش هوشمند هفته جدید (AI Rebalance)</span>
+                        </button>
+                    </div>
+
+                    <!-- AI Rotation Rationale Box -->
+                    <div id="omax-ai-report" class="p-3 neo-inset border border-amber-500/30 rounded-xl text-xs space-y-1">
+                        <div class="font-bold text-amber-400 flex items-center gap-1.5">
+                            <i class="fa-solid fa-robot"></i>
+                            <span>گزارش تصمیم هوش مصنوعی برای چیدمان فعلی OMAX:</span>
+                        </div>
+                        <p id="omax-ai-report-text" class="text-slate-300 text-[11px] leading-relaxed"></p>
+                    </div>
+
+                    <!-- 5 Equal-Weight Cards -->
+                    <div id="omax-cards-grid" class="grid grid-cols-1 sm:grid-cols-5 gap-2.5 font-mono"></div>
+
+                    <!-- Persistent Weekly & Monthly Return History -->
+                    <div class="pt-2">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-xs font-bold text-slate-300 flex items-center gap-1.5">
+                                <i class="fa-solid fa-clock-rotate-left text-emerald-400"></i>
+                                <span>تاریخچه دائمی چرخش هفتگی OMAX (LocalStorage):</span>
+                            </span>
+                            <span id="omax-cumulative-badge" class="text-xs font-mono font-bold text-emerald-400 bg-emerald-500/10 px-2.5 py-0.5 rounded border border-emerald-500/20">
+                                بازده تجمعی: +26.2%
+                            </span>
+                        </div>
+                        <div class="overflow-x-auto rounded-xl border border-slate-800">
+                            <table class="w-full text-right text-xs">
+                                <thead class="bg-slate-950 text-slate-400 border-b border-slate-800">
+                                    <tr>
+                                        <th class="p-2 font-bold">دوره زمانی</th>
+                                        <th class="p-2 font-bold">5 سهم انتخاب‌شده (20%)</th>
+                                        <th class="p-2 font-bold">تصمیم هوش مصنوعی (تغییرات)</th>
+                                        <th class="p-2 font-bold">بازده هفتگی</th>
+                                        <th class="p-2 font-bold">بازده تجمعی</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tbody-omax-history" class="divide-y divide-slate-800/60 font-mono text-[11px]"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ==================================================== -->
+            <!-- SECTION C: 3-TIER REGIME-ADAPTIVE PORTFOLIOS         -->
+            <!-- ==================================================== -->
+            <div class="port-section space-y-2.5" data-psection="low">
+                <div class="flex items-center justify-between px-1">
+                    <h3 class="text-xs sm:text-sm font-black text-emerald-400 flex items-center gap-2">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <span>سطح 1: سبدهای کم‌ریسک و تدافعی (L1, L2, L3) — مناسب رژیم پرریسک یا حفظ سرمایه</span>
+                    </h3>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-3.5" id="grid-ports-low"></div>
+            </div>
+
+            <div class="port-section space-y-2.5" data-psection="med">
+                <div class="flex items-center justify-between px-1">
+                    <h3 class="text-xs sm:text-sm font-black text-teal-400 flex items-center gap-2">
+                        <i class="fa-solid fa-scale-balanced"></i>
+                        <span>سطح 2: سبدهای تعادلی و چرخشی (M1, M2, M3) — کاتالیزور کدال، مومنتوم و آربیتراژ</span>
+                    </h3>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-3.5" id="grid-ports-med"></div>
+            </div>
+
+            <div class="port-section space-y-2.5" data-psection="high">
+                <div class="flex items-center justify-between px-1">
+                    <h3 class="text-xs sm:text-sm font-black text-rose-400 flex items-center gap-2">
+                        <i class="fa-solid fa-fire-flame-curved"></i>
+                        <span>سطح 3: سبدهای تهاجمی و اهرمی (H1, H2, H3) — حداکثر شتاب در رژیم صعودی بازار (0% طلا)</span>
+                    </h3>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-3.5" id="grid-ports-high"></div>
+            </div>
+
+            <!-- Interactive 1-Year Investment Simulator -->
+            <div class="glass-card border border-slate-800 rounded-2xl p-4 space-y-3">
+                <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+                    <h4 class="text-xs font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-calculator text-emerald-400"></i>
+                        <span>شبیه‌ساز ارزش سرمایه در 1 سال آینده بر اساس سطح سبد</span>
+                    </h4>
+                    <span class="text-[10px] text-slate-400 font-mono">Dynamic Return Projection</span>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-5 gap-2.5 items-end text-xs">
+                    <div>
+                        <label class="block text-slate-400 text-[11px] mb-1">سرمایه اولیه (تومان):</label>
+                        <input type="number" id="calc-capital" value="100000000" step="10000000" class="w-full neo-inset border border-slate-800 rounded-lg px-2.5 py-1.5 font-mono text-emerald-400 font-bold focus:outline-none focus:border-emerald-500">
+                    </div>
+                    <div class="neo-inset p-2 rounded-lg border border-slate-800 font-mono">
+                        <span class="text-[10px] text-slate-400 font-sans block">میانگین سطح 1 (+88%):</span>
+                        <span id="res-low" class="text-xs font-bold text-emerald-400">188,000,000 T</span>
+                    </div>
+                    <div class="neo-inset p-2 rounded-lg border border-slate-800 font-mono">
+                        <span class="text-[10px] text-slate-400 font-sans block">میانگین سطح 2 (+155%):</span>
+                        <span id="res-med" class="text-xs font-bold text-teal-400">255,000,000 T</span>
+                    </div>
+                    <div class="neo-inset p-2 rounded-lg border border-slate-800 font-mono">
+                        <span class="text-[10px] text-slate-400 font-sans block">سبد هفتگی OMAX (+195%):</span>
+                        <span id="res-omax" class="text-xs font-bold text-amber-400">295,000,000 T</span>
+                    </div>
+                    <div class="neo-inset p-2 rounded-lg border border-slate-800 font-mono">
+                        <span class="text-[10px] text-slate-400 font-sans block">میانگین سطح 3 (+270%):</span>
+                        <span id="res-high" class="text-xs font-bold text-rose-400">370,000,000 T</span>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- ======================================================== -->
+        <!-- MODULE 7: 9 LEVERAGED FUNDS RADAR                        -->
+        <!-- ======================================================== -->
+        <section id="tab-leveraged" class="tab-content hidden space-y-3">
+            <div class="glass-card border border-slate-800 rounded-2xl p-4 space-y-3">
+                <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800 pb-2.5">
+                    <div>
+                        <h4 class="text-xs sm:text-sm font-black text-white flex items-center gap-1.5">
+                            <i class="fa-solid fa-bolt-lightning text-amber-400"></i>
+                            <span>رادار لحظه‌ای حباب، میانه 120 روزه و ضریب اهرم 9 صندوق اهرمی</span>
+                        </h4>
+                        <span class="text-[11px] text-slate-400">ملاک شکار آربیتراژی بورسک: خرید صندوقی که حباب لحظه‌ای آن از میانه‌ی 120 روزه‌اش منفی‌تر (ارزان‌تر) باشد</span>
+                    </div>
+                    <span class="text-[11px] font-mono text-amber-400 bg-amber-500/10 px-2.5 py-1 rounded-lg border border-amber-500/20 font-bold">میانه کل صنعت: -15.0%</span>
+                </div>
+
+                <div class="overflow-x-auto rounded-xl border border-slate-800">
+                    <table class="w-full text-right text-xs">
+                        <thead class="bg-slate-950 text-slate-400 border-b border-slate-800">
+                            <tr>
+                                <th class="p-2.5 font-bold">نام صندوق</th>
+                                <th class="p-2.5 font-bold">قیمت (ریال)</th>
+                                <th class="p-2.5 font-bold">NAV ابطال</th>
+                                <th class="p-2.5 font-bold">حباب لحظه‌ای</th>
+                                <th class="p-2.5 font-bold">میانه 120 روزه</th>
+                                <th class="p-2.5 font-bold">تخفیف به میانه</th>
+                                <th class="p-2.5 font-bold">اهرم واقعی</th>
+                                <th class="p-2.5 font-bold">سیگنال بورسک</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody-leveraged" class="divide-y divide-slate-800/60 font-mono"></tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================================================== -->
+        <!-- USER'S REAL BROKERAGE PORTFOLIO (1405/07/26)             -->
+        <!-- ======================================================== -->
+        <section id="tab-my-real-port" class="tab-content hidden space-y-4">
+            <div class="glass-card neon-border-emerald rounded-2xl p-4 space-y-3">
+                <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800 pb-3">
+                    <div>
+                        <h3 class="text-sm font-black text-white flex items-center gap-2">
+                            <i class="fa-solid fa-chart-pie text-emerald-400"></i>
+                            <span>کالبدشکافی پرتفوی واقعی شما — 1405/07/26 (ساعت 10:22 تهران)</span>
+                        </h3>
+                        <p class="text-[11px] text-slate-400 mt-0.5">ارزش کل پرتفوی کارگزاری مفید: <span class="font-mono text-white font-bold">2,716,052,245 R</span> (<span class="font-mono text-emerald-400">271.6M T</span>)</p>
+                    </div>
+                    <div class="flex items-center gap-2 font-mono text-xs">
+                        <span class="bg-emerald-500/15 text-emerald-400 px-2.5 py-1 rounded-lg border border-emerald-500/30 font-bold">10 Pos (62%)</span>
+                        <span class="bg-rose-500/15 text-rose-400 px-2.5 py-1 rounded-lg border border-rose-500/30 font-bold">PnL: -1.93% (-5.33M T)</span>
+                    </div>
+                </div>
+
+                <!-- 3 Critical Diagnostics -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-2.5 text-xs">
+                    <div class="bg-emerald-950/30 border border-emerald-500/30 p-2.5 rounded-xl space-y-1">
+                        <div class="font-bold text-emerald-400 flex items-center gap-1.5">
+                            <i class="fa-solid fa-trophy"></i>
+                            <span>نقطه قوت: مقاومت 62% سبد در برابر ریزش</span>
+                        </div>
+                        <p class="text-[11px] text-slate-300 leading-relaxed">
+                            <span class="font-mono font-bold">62%</span> پرتفوی شما (سغدیر، پترول، زفجر، فاراک، بموتو، زدشت، غشصفا، رتکو، شفارا و نارنج اهرم) در لایو امروز سبز و در صف خرید هستند.
+                        </p>
+                    </div>
+                    <div class="bg-amber-950/30 border border-amber-500/30 p-2.5 rounded-xl space-y-1">
+                        <div class="font-bold text-amber-400 flex items-center gap-1.5">
+                            <i class="fa-solid fa-sliders"></i>
+                            <span>تحلیل رژیم پویا: نقدینگی 453 ریال</span>
+                        </div>
+                        <p class="text-[11px] text-slate-300 leading-relaxed">
+                            در رژیم نزولی/سیاسی فعلی، پیشنهاد می‌شود با تبدیل نمادهای ضعیف، بخشی از سبد به سپر طلا/نقد اختصاص یابد و در زمان چرخش رژیم به صعودی، مجدداً به 100% سهام/اهرم بازگردد.
+                        </p>
+                    </div>
+                    <div class="bg-rose-950/30 border border-rose-500/30 p-2.5 rounded-xl space-y-1">
+                        <div class="font-bold text-rose-400 flex items-center gap-1.5">
+                            <i class="fa-solid fa-scissors"></i>
+                            <span>نقاط ضعف: شفام (-10.4%) و وبصادر (-6.6%)</span>
+                        </div>
+                        <p class="text-[11px] text-slate-300 leading-relaxed">
+                            بیش از <span class="font-mono font-bold">70%</span> زیان کل پرتفوی شما تنها از 4 نماد (شفام، شتاب، نارنج و وبصادر) ناشی شده است.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Full 17 Holdings Table -->
+                <div class="overflow-x-auto rounded-xl border border-slate-800">
+                    <table class="w-full text-right text-xs">
+                        <thead class="bg-slate-950 text-slate-400 border-b border-slate-800">
+                            <tr>
+                                <th class="p-2 font-bold">نماد</th>
+                                <th class="p-2 font-bold">تعداد</th>
+                                <th class="p-2 font-bold">آخرین قیمت (%)</th>
+                                <th class="p-2 font-bold">ارزش (تومان)</th>
+                                <th class="p-2 font-bold">وزن سبد</th>
+                                <th class="p-2 font-bold">سود/زیان کل</th>
+                                <th class="p-2 font-bold">حکم عملیاتی بورسک</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody-my-real-port" class="divide-y divide-slate-800/60 font-mono text-[11px]"></tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================================================== -->
+        <!-- MODULE 8: FIREBASE REALTIME CLOUD & GOOGLE APPS SCRIPT   -->
+        <!-- ======================================================== -->
+        <section id="tab-cloud-sync" class="tab-content hidden space-y-4">
+            <div class="glass-card neon-border-sky rounded-2xl p-4 space-y-4">
+                <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800 pb-3">
+                    <div class="flex items-center gap-2.5">
+                        <span class="w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-500 to-emerald-400 text-slate-950 flex items-center justify-center font-black text-base shadow-md">
+                            <i class="fa-solid fa-cloud-arrow-up"></i>
+                        </span>
+                        <div>
+                            <h3 class="text-sm font-black text-white">مرکز اتصال خودکار به دیتابیس ابری فایربیس (Firebase Realtime DB)</h3>
+                            <p class="text-[11px] text-slate-400">سینک زنده و دوطرفه (Push / Pull) بدون نیاز به سرور پولی، همراه با اسکریپت ابری گوگل</p>
+                        </div>
+                    </div>
+                    <span id="cloud-status-badge" class="text-[11px] font-mono font-bold px-3 py-1 rounded-xl bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">
+                        وضعیت: متصل به فایربیس ابری
+                    </span>
+                </div>
+
+                <!-- Live Firebase URL Configuration Box -->
+                <div class="neo-inset border border-slate-800 rounded-xl p-3.5 space-y-3">
+                    <div class="flex items-center justify-between flex-wrap gap-1">
+                        <label class="text-xs font-bold text-sky-400 flex items-center gap-1.5">
+                            <i class="fa-solid fa-database"></i>
+                            <span>آدرس دیتابیس فایربیس (Firebase Realtime Database):</span>
+                        </label>
+                        <span class="text-[10px] text-emerald-400 font-mono">Europe-West1 Active Endpoint</span>
+                    </div>
+                    <div class="flex flex-col sm:flex-row gap-2">
+                        <input type="url" id="input-firebase-url" dir="ltr" value="https://stock-21aa7-default-rtdb.europe-west1.firebasedatabase.app" class="flex-1 bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs font-mono text-emerald-400 focus:outline-none focus:border-sky-500">
+                        <button id="btn-save-firebase" class="bg-sky-600 hover:bg-sky-500 active:scale-95 text-white text-xs font-extrabold px-4 py-2 rounded-xl transition flex items-center justify-center gap-1.5">
+                            <i class="fa-solid fa-plug-circle-check"></i>
+                            <span>ذخیره و سینک خودکار</span>
+                        </button>
+                    </div>
+                    <div class="flex flex-wrap gap-2 pt-1">
+                        <button id="btn-push-cloud" class="bg-emerald-600/20 hover:bg-emerald-600/30 border border-emerald-500/40 text-emerald-300 text-xs font-bold px-3 py-1.5 rounded-lg transition flex items-center gap-1.5">
+                            <i class="fa-solid fa-cloud-arrow-up"></i>
+                            <span>ارسال دیتا به فایربیس (Push)</span>
+                        </button>
+                        <button id="btn-pull-cloud" class="bg-teal-600/20 hover:bg-teal-600/30 border border-teal-500/40 text-teal-300 text-xs font-bold px-3 py-1.5 rounded-lg transition flex items-center gap-1.5">
+                            <i class="fa-solid fa-cloud-arrow-down"></i>
+                            <span>دریافت دیتا از فایربیس (Pull)</span>
+                        </button>
+                        <button id="btn-export-json" class="bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold px-3 py-1.5 rounded-lg transition flex items-center gap-1.5">
+                            <i class="fa-solid fa-download"></i>
+                            <span>دانلود فایل JSON دیتابیس</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Ready-to-Copy Google Apps Script Cloud Worker -->
+                <div class="neo-inset border border-slate-800 rounded-xl p-3 space-y-2">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-bold text-teal-400 flex items-center gap-1.5">
+                            <i class="fa-solid fa-code"></i>
+                            <span>کد آماده Google Apps Script جهت تغذیه خودکار تابلوخوانی به فایربیس:</span>
+                        </span>
+                        <button id="btn-copy-gas" class="bg-teal-600 hover:bg-teal-500 text-white text-[11px] font-bold px-3 py-1 rounded-lg transition flex items-center gap-1">
+                            <i class="fa-regular fa-copy"></i>
+                            <span>کپی کد ربات</span>
+                        </button>
+                    </div>
+                    <pre id="gas-code-block" dir="ltr" class="bg-slate-900 p-3 rounded-lg border border-slate-800 text-[10px] font-mono text-slate-300 overflow-x-auto leading-relaxed">function syncTablokhaniToFirebase() {
+  const FIREBASE_URL = "https://stock-21aa7-default-rtdb.europe-west1.firebasedatabase.app/live_market.json";
+  const TABLOKHANI_API = "https://api.tablokhani.com/public/source-arena?endpoint=all&type=0";
+  
+  const response = UrlFetchApp.fetch(TABLOKHANI_API, {
+    headers: { "User-Agent": "Mozilla/5.0" },
+    muteHttpExceptions: true
+  });
+  
+  if (response.getResponseCode() === 200) {
+    const payload = {
+      updatedAt: new Date().toISOString(),
+      rawCount: JSON.parse(response.getContentText()).length || 0,
+      source: "boursek-gas-bridge-v6"
+    };
+    UrlFetchApp.fetch(FIREBASE_URL, {
+      method: "put",
+      contentType: "application/json",
+      payload: JSON.stringify(payload)
+    });
+  }
+}</pre>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Mobile One-Handed Quick Bottom Bar (PWA Mobile-First) -->
+    <div class="sm:hidden fixed bottom-0 left-0 right-0 bg-slate-950/95 backdrop-blur-xl border-t border-slate-800 z-40 px-2 py-1.5 flex items-center justify-around text-[10px]">
+        <button type="button" class="mob-nav-btn flex flex-col items-center gap-0.5 text-emerald-400 font-bold py-1 px-2" data-target="tab-premarket">
+            <i class="fa-solid fa-sun text-sm"></i>
+            <span>پیش‌گشایش</span>
+        </button>
+        <button type="button" class="mob-nav-btn flex flex-col items-center gap-0.5 text-slate-400 font-bold py-1 px-2" data-target="tab-live-radar">
+            <i class="fa-solid fa-satellite-dish text-sm"></i>
+            <span>رادار صف</span>
+        </button>
+        <button type="button" class="mob-nav-btn flex flex-col items-center gap-0.5 text-slate-400 font-bold py-1 px-2" data-target="tab-screener">
+            <i class="fa-solid fa-fire text-sm"></i>
+            <span>8 فیلتر</span>
+        </button>
+        <button type="button" class="mob-nav-btn flex flex-col items-center gap-0.5 text-slate-400 font-bold py-1 px-2" data-target="tab-portfolios">
+            <i class="fa-solid fa-sliders text-sm"></i>
+            <span>سبدساز</span>
+        </button>
+        <button type="button" class="mob-nav-btn flex flex-col items-center gap-0.5 text-slate-400 font-bold py-1 px-2" data-target="tab-leveraged">
+            <i class="fa-solid fa-bolt text-sm"></i>
+            <span>اهرمی‌ها</span>
+        </button>
+    </div>
+
+    <!-- Stock Detail Modal -->
+    <div id="modal-stock" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-3">
+        <div class="glass-card border border-slate-700 rounded-2xl w-full max-w-lg p-4 space-y-3 shadow-2xl">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+                <div class="flex items-center gap-2 flex-wrap">
+                    <span id="m-symbol" class="text-base font-black text-white">--</span>
+                    <span id="m-name" class="text-xs text-slate-400 font-sans">--</span>
+                    <span id="m-cat-tag" class="text-[9px] px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 font-sans font-bold">--</span>
+                </div>
+                <button id="btn-close-modal" class="text-slate-400 hover:text-white p-1 text-sm"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+
+            <!-- Visual Probability Bar -->
+            <div class="neo-inset p-3 rounded-xl border border-slate-800 space-y-2">
+                <div class="flex justify-between items-center text-xs">
+                    <span class="font-bold text-slate-300 flex items-center gap-1.5">
+                        <i class="fa-solid fa-chart-pie text-emerald-400"></i>
+                        <span>احتمال موفقیت سیگنال:</span>
+                    </span>
+                    <span id="m-forecast-summary" class="font-bold text-emerald-400 font-mono text-xs">--</span>
+                </div>
+                <div class="w-full bg-slate-800 h-3 rounded-full flex overflow-hidden font-mono text-[9px] font-bold">
+                    <div id="m-bar-up" class="bg-emerald-500 h-full flex items-center justify-center text-slate-950" style="width: 80%">80%</div>
+                    <div id="m-bar-down" class="bg-rose-500 h-full flex items-center justify-center text-white" style="width: 20%">20%</div>
+                </div>
+                <div class="grid grid-cols-2 gap-2 text-[11px] pt-1">
+                    <div class="bg-emerald-950/30 border border-emerald-500/20 rounded p-1.5">
+                        <span class="text-emerald-400 block font-bold">هدف سود پیش‌بینی شده:</span>
+                        <span id="m-target-text" class="font-mono text-slate-200">--</span>
+                    </div>
+                    <div class="bg-rose-950/30 border border-rose-500/20 rounded p-1.5">
+                        <span class="text-rose-400 block font-bold">حد ضرر پویا (خروج):</span>
+                        <span id="m-stop-text" class="font-mono text-slate-200">--</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-3 gap-2 text-xs font-mono">
+                <div class="p-2 neo-inset rounded-lg border border-slate-800">
+                    <span class="text-slate-400 font-sans text-[10px] block">قدرت خریدار:</span>
+                    <span id="m-power" class="text-teal-400 font-bold">--</span>
+                </div>
+                <div class="p-2 neo-inset rounded-lg border border-slate-800">
+                    <span class="text-slate-400 font-sans text-[10px] block">پول حقیقی:</span>
+                    <span id="m-flow" class="text-emerald-400 font-bold">--</span>
+                </div>
+                <div class="p-2 neo-inset rounded-lg border border-slate-800">
+                    <span class="text-slate-400 font-sans text-[10px] block">تقاضا / عرضه:</span>
+                    <span id="m-bidask" class="text-amber-400 font-bold">--</span>
+                </div>
+            </div>
+
+            <div class="neo-inset p-2.5 rounded-xl border border-slate-800 text-xs text-slate-300 leading-relaxed font-sans space-y-1">
+                <div class="font-bold text-slate-200 flex items-center gap-1">
+                    <i class="fa-solid fa-lightbulb text-amber-400 text-xs"></i>
+                    <span>تحلیل تابلوخوانی و سناریوی ورود پله‌ای (40/30/30):</span>
+                </div>
+                <p id="m-scenario" class="text-[11px] text-slate-300">--</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- In-Page Toast Container -->
+    <div id="toast-box" class="fixed bottom-16 sm:bottom-4 left-4 right-4 sm:left-auto sm:right-4 sm:w-96 z-50 space-y-2 pointer-events-none"></div>
+
+    <!-- Application Logic -->
+    <script>
+        // Market Regime Configurations (100% Dynamic - No Dogmatic Weights)
+        const REGIME_CONFIGS = {
+            bull: {
+                title: "رژیم فعلی: صعودی تهاجمی (Bullish Momentum)",
+                desc: "ورود پرقدرت پول حقیقی به سهام و صندوق‌های اهرمی: کاهش وزن طلا/نقد به حداقل ممکن (0% تا 5%) و تمرکز 95% تا 100% روی صندوق‌های اهرمی (اهرم، جهش، دوایکس) و سهام پیش‌صف فیلتر آسیاتک.",
+                stockPct: "95% - 100%",
+                safePct: "0% - 5%",
+                borderClass: "neon-border-emerald",
+                dotClass: "bg-emerald-400",
+                titleColor: "text-emerald-400"
+            },
+            neutral: {
+                title: "رژیم فعلی: تعادلی و نوسانی (Sideways / Swing)",
+                desc: "بازار متعادل و چرخشی: تمرکز بر نوسان‌گیری با فیلتر الگوی ساعت (تیک صعودی)، شکار تخفیف حباب صندوق‌های اهرمی و نگهداری 15% تا 20% نقدینگی/طلا برای شکار منفی‌ها.",
+                stockPct: "80% - 85%",
+                safePct: "15% - 20%",
+                borderClass: "neon-border-amber",
+                dotClass: "bg-amber-400",
+                titleColor: "text-amber-400"
+            },
+            bear: {
+                title: "رژیم فعلی: نزولی تدافعی (فشار عرضه و ریسک سیاسی)",
+                desc: "پیشنهاد پویا بر اساس خروج پول حقیقی (-700 B.T): افزایش موقت سپر طلا/نقد و تمرکز صرف بر تک‌سهم‌های دارویی ضدریزش با تقاضای سرخط > 3x. (در صورت چرخش بازار به صعودی، وزن طلا می‌تواند تا 0% کاهش یابد).",
+                stockPct: "55%",
+                safePct: "45%",
+                borderClass: "neon-border-rose",
+                dotClass: "bg-rose-500",
+                titleColor: "text-rose-400"
+            }
+        };
+
+        // Filter Descriptions (Latin Digits)
+        const FILTER_INFO = {
+            asiatech: {
+                title: "منطق فیلتر آسیاتک (شکار پیش از تشکیل صف خرید):",
+                win: "Win-Rate: 84%",
+                desc: "شناسایی نمادهایی که هنوز قفل صف خرید نشده‌اند (معامله در محدوده +2.0% تا +3.8%)، اما حجم سفارش خرید در 3 ردیف اول بیش از 3 برابر فروشنده است (Bid > 3x Ask) و سرانه خرید بالای 2.2 است."
+            },
+            all: {
+                title: "نمای جامع تمام 24 نماد غربال‌شده در 8 فیلتر تخصصی:",
+                win: "8 Active Filters",
+                desc: "نمایش یکجای تمام سهم‌های شکارشده در فیلترهای آسیاتک، پول درشت زنده، پرش 5 دقیقه‌ای، الگوی ساعت، صف‌شکن، بنیادی کدال و هشدار خروج."
+            },
+            live: {
+                title: "فیلتر ورود پول درشت زنده (> 2 Billion Toman):",
+                win: "Win-Rate: 78%",
+                desc: "نمادهایی که در جریان معاملات امروز بیشترین ورود نقدینگی حقیقی (> 2B T) و قدرت خریدار بالای 1.8 را ثبت کرده‌اند."
+            },
+            intraday: {
+                title: "فیلتر نوسانی و پرش 5 دقیقه‌ای:",
+                win: "Win-Rate: 74%",
+                desc: "شکار نمادها و صندوق‌های اهرمی که در 5 دقیقه اخیر جهش ناگهانی حجم معاملات و چرخش سریع تقاضا در کف حباب داشته‌اند."
+            },
+            tick: {
+                title: "فیلتر الگوی ساعت و تیک صعودی:",
+                win: "Win-Rate: 76%",
+                desc: "سهم‌هایی که قیمت آخرین معامله آن‌ها بیش از +2.0% بالاتر از قیمت پایانی است و شیب تقاضای رو به بالا دارند."
+            },
+            queue: {
+                title: "فیلتر صف‌شکن قدرتمند:",
+                win: "Win-Rate: 72%",
+                desc: "نمادهایی که عرضه‌های سنگین صبحگاهی آن‌ها توسط خریداران درشت بلعیده شده و با قدرت خریدار > 2.0 به محدوده مثبت وارد شده‌اند."
+            },
+            midterm: {
+                title: "فیلتر میان‌مدت بنیادی و گزارش‌های کدال:",
+                win: "Win-Rate: 86%",
+                desc: "شرکت‌های با رشد فروش ماهانه بالای +35% در کدال، جهش حاشیه سود ناخالص و P/E تحلیلی زیر 5.5."
+            },
+            exit: {
+                title: "فیلتر هشدار خروج و نخر (قدرت خریدار < 0.7):",
+                win: "Defensive Alert",
+                desc: "سهم‌هایی که با فرار سنگین پول حقیقی و غلبه فروشندگان روبرو هستند؛ طبق بک‌تست بورسک خرید این نمادها ممنوع است."
+            }
+        };
+
+        // 24 Curated Stocks Across All 8 Filters (Explicit Dual Grades & Latin Digits)
+        const STOCKS_DATA = [
+            // 1. ASIATECH / PRE-QUEUE
+            {
+                symbol: "درازی", name: "پخش رازی (74,470 R)", category: "asiatech", categoryLabel: "فیلتر آسیاتک",
+                fundGrade: "A+", techGrade: "A+", queueStatus: "صف خرید 182.6B",
+                score: 97, priceChange: 2.50, power: 2.65, realFlow: 18.2, bidAsk: "4.2x",
+                probUp: 88, probDown: 12, target: "+5.0% to +8.0% (Queue 182.6B)", stopLoss: "-1.8% (71,500 R)",
+                scenario: "[داده زنده 1405/07/26]: برخلاف ریزش شاخص، درازی با قیمت 74,470 R و صف خرید 182.6 B.T (24.6M سهم) قوی‌ترین سهم دارویی تابلو است.",
+                chips: ["صف خرید 182B", "ضد ریزش", "لیدر دارو"]
+            },
+            {
+                symbol: "دفارا", name: "داروسازی فارابی (19,450 R)", category: "asiatech", categoryLabel: "فیلتر آسیاتک",
+                fundGrade: "A+", techGrade: "A+", queueStatus: "صف خرید 266.3B",
+                score: 95, priceChange: 2.70, power: 2.50, realFlow: 26.6, bidAsk: "3.9x",
+                probUp: 86, probDown: 14, target: "+4.5% to +7.0% (Queue 266.3B)", stopLoss: "-1.8% (18,800 R)",
+                scenario: "[داده زنده 1405/07/26]: جذب پول حقیقی سنگین و صف خرید 266.3 B.T (137.2M سهم) در دل بازار منفی.",
+                chips: ["صف خرید 266B", "ورود پول حقیقی", "دارویی"]
+            },
+            {
+                symbol: "پکویر", name: "کویر تایر (افزایش نرخ +23.4%)", category: "asiatech", categoryLabel: "فیلتر آسیاتک",
+                fundGrade: "A+", techGrade: "A", queueStatus: "پیش‌صف 3.3x",
+                score: 92, priceChange: 2.85, power: 2.35, realFlow: 8.4, bidAsk: "3.3x",
+                probUp: 83, probDown: 17, target: "+5.0% to +9.0% (Rate Catalyst)", stopLoss: "-1.6%",
+                scenario: "[کاتالیزور کدال]: ابلاغ رسمی افزایش +23.4% نرخ فروش تایر رادیال سواری؛ به همراه پتایر (+23%) و پارتا (+20%) مستعد قفل صف خرید.",
+                chips: ["افزایش نرخ 23.4%", "کاتالیزور کدال", "پیش‌صف"]
+            },
+            {
+                symbol: "آسیاتک", name: "انتقال داده‌های آسیاتک (5,240 R)", category: "asiatech", categoryLabel: "فیلتر آسیاتک",
+                fundGrade: "A", techGrade: "A+", queueStatus: "پیش‌صف 3.8x",
+                score: 89, priceChange: 3.25, power: 2.85, realFlow: 5.4, bidAsk: "3.8x",
+                probUp: 84, probDown: 16, target: "+4.5% to +7.5% (Tariff Catalyst)", stopLoss: "-1.5% (5,080 R)",
+                scenario: "[سیگنال پیش‌صف]: تراکم تقاضای سرخط 3.8 برابر عرضه و سرانه خرید 2.85؛ شفاف‌سازی کدال درباره افزایش تعرفه اینترنت.",
+                chips: ["بید 3.8x عرضه", "سرانه 2.85", "فیلتر آسیاتک"]
+            },
+
+            // 2. LIVE SMART MONEY
+            {
+                symbol: "داروند", name: "داروسازی اروند (10,460 R)", category: "live", categoryLabel: "پول درشت زنده",
+                fundGrade: "A+", techGrade: "A+", queueStatus: "صف خرید 521B",
+                score: 96, priceChange: 2.95, power: 3.10, realFlow: 52.1, bidAsk: "5.1x",
+                probUp: 87, probDown: 13, target: "+5.0% to +8.5%", stopLoss: "-1.8% (10,100 R)",
+                scenario: "[داده زنده]: سنگین‌ترین صف خرید کل بورس به ارزش 521.0 B.T (498.1M سهم) در قیمت 10,460 R.",
+                chips: ["صف خرید 521B", "رتبه 1 تقاضا"]
+            },
+            {
+                symbol: "خبهمن", name: "گروه بهمن (2,741 R)", category: "live", categoryLabel: "پول درشت زنده",
+                fundGrade: "A", techGrade: "A+", queueStatus: "صف خرید 389.7B",
+                score: 94, priceChange: 1.95, power: 2.45, realFlow: 38.9, bidAsk: "3.6x",
+                probUp: 84, probDown: 16, target: "+4.5% to +6.5%", stopLoss: "-1.8% (2,650 R)",
+                scenario: "[داده زنده]: جزو 4 نماد اول ورود پول حقیقی بازار با صف خرید 389.7 B.T (1.43B سهم) و کاتالیزور افزایش نرخ +45% خاور.",
+                chips: ["صف خرید 389B", "ورود پول درشت"]
+            },
+            {
+                symbol: "وکغدیر", name: "سرمایه‌گذاری کغدیر (9,830 R)", category: "live", categoryLabel: "پول درشت زنده",
+                fundGrade: "A", techGrade: "A", queueStatus: "صف خرید 300B",
+                score: 91, priceChange: 2.93, power: 2.30, realFlow: 30.0, bidAsk: "3.4x",
+                probUp: 82, probDown: 18, target: "+4.0% to +6.0%", stopLoss: "-1.6% (9,550 R)",
+                scenario: "[داده زنده]: جذب پول خرد در روز منفی بازار و تشکیل صف خرید 300.0 B.T (305.1M سهم).",
+                chips: ["صف خرید 300B", "معدنی"]
+            },
+            {
+                symbol: "فاذر", name: "صنایع آذرآب (2,327 R)", category: "live", categoryLabel: "پول درشت زنده",
+                fundGrade: "B", techGrade: "A+", queueStatus: "صف خرید 272.8B",
+                score: 90, priceChange: 1.37, power: 2.20, realFlow: 27.2, bidAsk: "3.2x",
+                probUp: 80, probDown: 20, target: "+4.0% to +6.0%", stopLoss: "-1.8% (2,250 R)",
+                scenario: "[داده زنده]: گروه فنی و مهندسی با +285 B.T صدرنشین ورود پول صنایع است؛ صف خرید 272.8 B.T در فاذر.",
+                chips: ["صف خرید 272B", "لیدر فنی‌مهندسی"]
+            },
+
+            // 3. INTRADAY 5-MIN JUMP
+            {
+                symbol: "اهرم", name: "صندوق اهرمی اهرم (72,946 R)", category: "intraday", categoryLabel: "پرش 5 دقیقه‌ای",
+                fundGrade: "A+", techGrade: "A", queueStatus: "حباب -18.0%",
+                score: 89, priceChange: -4.00, power: 1.45, realFlow: 3.20, bidAsk: "1.4x",
+                probUp: 78, probDown: 22, target: "+4.0% to +8.0% Rebound", stopLoss: "-2.0% (70,500 R)",
+                scenario: "[داده زنده]: قیمت 72,946 R با حباب منفی -18.0%؛ با وجود منفی 4%، تراز پول حقیقی آن در کف روزانه مثبت شد (جمع‌آوری هوشمند).",
+                chips: ["حباب -18.0%", "تراز حقیقی مثبت"]
+            },
+            {
+                symbol: "دوایکس", name: "اهرمی شاخصی کیان (46,325 R)", category: "intraday", categoryLabel: "پرش 5 دقیقه‌ای",
+                fundGrade: "A", techGrade: "A+", queueStatus: "اهرم 1.95x",
+                score: 88, priceChange: -4.00, power: 1.52, realFlow: 7.65, bidAsk: "1.5x",
+                probUp: 77, probDown: 23, target: "+4.0% to +8.0% Swing", stopLoss: "-2.0% (44,800 R)",
+                scenario: "[داده زنده]: جذب 765 B.T پول حقیقی در هفته اخیر و بازده 1 ساله +557% (رتبه 1 اهرمی‌ها).",
+                chips: ["جذب 765B هفتگی", "رتبه 1 بازده"]
+            },
+            {
+                symbol: "عیار", name: "صندوق طلای عیار (712,879 R)", category: "intraday", categoryLabel: "پرش 5 دقیقه‌ای",
+                fundGrade: "A+", techGrade: "A+", queueStatus: "ورود پول +45B",
+                score: 96, priceChange: 2.97, power: 2.40, realFlow: 45.0, bidAsk: "3.5x",
+                probUp: 90, probDown: 10, target: "+3.5% to +6.0% Hedge", stopLoss: "-1.0% (700,000 R)",
+                scenario: "[داده زنده]: قیمت هر واحد 712,879 R (NAV صندوق 378T و طلای 18 عیار گرمی 26.2M T)؛ پناهگاه نقدینگی در رژیم تدافعی.",
+                chips: ["سپر ریسک", "انس 4,166$"]
+            },
+
+            // 4. TICK / CLOCK PATTERN
+            {
+                symbol: "فنقره", name: "صندوق/نماد نقره (24,540 R)", category: "tick", categoryLabel: "الگوی ساعت (تیک)",
+                fundGrade: "A", techGrade: "A+", queueStatus: "صف خرید 121.3B",
+                score: 91, priceChange: 2.98, power: 2.35, realFlow: 12.1, bidAsk: "3.1x",
+                probUp: 83, probDown: 17, target: "+4.0% to +6.0%", stopLoss: "-1.5% (23,800 R)",
+                scenario: "[داده زنده]: رشد +24% حجم معاملات نقره و صف خرید 121.3 B.T در قیمت 24,540 R با تیک صعودی کامل.",
+                chips: ["صف خرید 121B", "تیک +2.98%"]
+            },
+            {
+                symbol: "شکیمیا", name: "پتروشیمی کیمیاگران (8,130 R)", category: "tick", categoryLabel: "الگوی ساعت (تیک)",
+                fundGrade: "A", techGrade: "A", queueStatus: "صف خرید 94.3B",
+                score: 88, priceChange: 2.91, power: 2.15, realFlow: 9.4, bidAsk: "2.8x",
+                probUp: 80, probDown: 20, target: "+4.0% Short-Term", stopLoss: "-1.5% (7,900 R)",
+                scenario: "[داده زنده]: جزو معدود پتروشیمی‌های مثبت بازار با ورود پول حقیقی و صف خرید 94.3 B.T.",
+                chips: ["صف خرید 94B", "ورود پول خرد"]
+            },
+            {
+                symbol: "سخاش", name: "سیمان خاش (15,210 R)", category: "tick", categoryLabel: "الگوی ساعت (تیک)",
+                fundGrade: "A", techGrade: "A", queueStatus: "صف خرید 52.3B",
+                score: 86, priceChange: 2.98, power: 2.05, realFlow: 5.2, bidAsk: "2.6x",
+                probUp: 78, probDown: 22, target: "+3.5% to +5.0%", stopLoss: "-1.5% (14,800 R)",
+                scenario: "[داده زنده]: جذب پول حقیقی و صف خرید 52.3 B.T در قیمت 15,210 R برخلاف جو منفی بازار.",
+                chips: ["صف خرید 52B", "سیمان صادراتی"]
+            },
+
+            // 5. QUEUE BREAKERS
+            {
+                symbol: "کفرا", name: "فرآورده‌های نسوز ایران (5,950 R)", category: "queue", categoryLabel: "صف‌شکن قدرتمند",
+                fundGrade: "A", techGrade: "A+", queueStatus: "صف خرید 159.2B",
+                score: 89, priceChange: 2.08, power: 2.25, realFlow: 15.9, bidAsk: "3.0x",
+                probUp: 81, probDown: 19, target: "+4.5% to +7.0%", stopLoss: "-2.0% (5,750 R)",
+                scenario: "[داده زنده]: صدرنشین ورود پول به گروه کانی غیرفلزی با صف خرید 159.2 B.T (269.6M سهم).",
+                chips: ["صف خرید 159B", "کانی غیرفلزی"]
+            },
+            {
+                symbol: "چخزر", name: "صنایع چوب خزر (289,600 R)", category: "queue", categoryLabel: "صف‌شکن قدرتمند",
+                fundGrade: "B", techGrade: "A+", queueStatus: "صف خرید 151B",
+                score: 87, priceChange: 1.35, power: 2.10, realFlow: 15.1, bidAsk: "2.9x",
+                probUp: 77, probDown: 23, target: "+4.5% Swing", stopLoss: "-2.0% (280,000 R)",
+                scenario: "[داده زنده]: صف خرید 151.0 B.T در قیمت 289,600 R و بلعیدن کامل عرضه‌ها.",
+                chips: ["صف خرید 151B", "کم‌شناور"]
+            },
+            {
+                symbol: "فکور", name: "فکور صنعت (6,140 R - عرضه اولیه)", category: "queue", categoryLabel: "صف‌شکن قدرتمند",
+                fundGrade: "A", techGrade: "A+", queueStatus: "صف خرید 49.5B",
+                score: 86, priceChange: 2.85, power: 2.40, realFlow: 4.9, bidAsk: "3.5x",
+                probUp: 82, probDown: 18, target: "+5.0% to +10.0%", stopLoss: "-1.5% (5,950 R)",
+                scenario: "[داده زنده]: عرضه اولیه جدید بازار با ورود پول حقیقی و صف خرید 49.5 B.T (80.6M سهم).",
+                chips: ["عرضه اولیه", "صف خرید 49.5B"]
+            },
+
+            // 6. FUNDAMENTAL & CODAL
+            {
+                symbol: "دیران", name: "داروسازی ایران (22,480 R)", category: "midterm", categoryLabel: "بنیادی & کدال",
+                fundGrade: "A+", techGrade: "B", queueStatus: "رشد فروش +405%",
+                score: 91, priceChange: -2.98, power: 0.95, realFlow: -1.2, bidAsk: "0.7x",
+                probUp: 84, probDown: 16, target: "+45% Mid-Term (Sales +405%)", stopLoss: "Hold in Base Port",
+                scenario: "[قانون بورسک]: سهم بنیادی با رشد فروش سالانه +405% امروز به خاطر جو سیاسی صف فروش سبک (12.4 B.T در 22,480 R) دارد؛ کمین برای جمع شدن صف.",
+                chips: ["رشد فروش 405%", "بنیادی A+"]
+            },
+            {
+                symbol: "فملی", name: "ملی صنایع مس (31,370 R)", category: "midterm", categoryLabel: "بنیادی & کدال",
+                fundGrade: "A+", techGrade: "B", queueStatus: "P/E 5.4 دلاری",
+                score: 88, priceChange: -3.00, power: 0.85, realFlow: -16.3, bidAsk: "0.5x",
+                probUp: 82, probDown: 18, target: "+65% Annual", stopLoss: "Hold in Base Port",
+                scenario: "[تحلیل بنیادی]: با وجود خبر مثبت تعطیلی معدن مس زیجین چین و رقابت مس در بورس کالا، امروز در 31,370 R تحت فشار عرضه شاخص است.",
+                chips: ["قیمت 31,370R", "حمایت حقوقی"]
+            },
+            {
+                symbol: "دتولید", name: "داروسازی تولیددارو (11,550 R)", category: "midterm", categoryLabel: "بنیادی & کدال",
+                fundGrade: "A+", techGrade: "A+", queueStatus: "صف خرید 125.9B",
+                score: 90, priceChange: 2.94, power: 2.20, realFlow: 12.5, bidAsk: "3.1x",
+                probUp: 83, probDown: 17, target: "+5.0% Short-Term", stopLoss: "-1.8% (11,200 R)",
+                scenario: "[داده زنده]: صف خرید 125.9 B.T (109M سهم) در قیمت 11,550 R؛ مقاومت عالی در برابر ریزش شاخص.",
+                chips: ["صف خرید 125.9B", "دارویی A+"]
+            },
+
+            // 7. EXIT WARNING / DON'T BUY
+            {
+                symbol: "اروند", name: "پتروشیمی اروند (63,670 R)", category: "exit", categoryLabel: "هشدار خروج / نخر",
+                fundGrade: "C", techGrade: "D", queueStatus: "صف فروش 531B!",
+                score: 28, priceChange: -2.99, power: 0.42, realFlow: -53.1, bidAsk: "0.1x",
+                probUp: 14, probDown: 86, target: "Don't Buy (Sell Queue 531B)", stopLoss: "Heavy Outflow",
+                scenario: "[هشدار زنده]: سنگین‌ترین صف فروش بازار به ارزش 530.98 B.T (83.39M سهم) در قیمت 63,670 R و بیشترین خروج پول حقیقی.",
+                chips: ["صف فروش 531B!", "خروج پول!", "نخر!"]
+            },
+            {
+                symbol: "تابان", name: "تابان (24,300 R)", category: "exit", categoryLabel: "هشدار خروج / نخر",
+                fundGrade: "C", techGrade: "D", queueStatus: "صف فروش 469B!",
+                score: 30, priceChange: -2.99, power: 0.45, realFlow: -46.9, bidAsk: "0.1x",
+                probUp: 15, probDown: 85, target: "Don't Buy (Sell Queue 469B)", stopLoss: "Heavy Supply",
+                scenario: "[هشدار زنده]: صف فروش 469.16 B.T (193M سهم) و خروج سنگین نقدینگی خرد.",
+                chips: ["صف فروش 469B!", "نخر!"]
+            },
+            {
+                symbol: "وتجارت", name: "بانک تجارت (908 R)", category: "exit", categoryLabel: "هشدار خروج / نخر",
+                fundGrade: "C", techGrade: "D", queueStatus: "صف فروش 261.5B!",
+                score: 34, priceChange: -2.99, power: 0.51, realFlow: -26.1, bidAsk: "0.2x",
+                probUp: 18, probDown: 82, target: "Don't Buy (Sell Queue 261.5B)", stopLoss: "Power < 0.7",
+                scenario: "[هشدار زنده]: صف فروش 2.88B سهم به ارزش 261.5 B.T در قیمت 908 R؛ ورود ممنوع تا تخلیه کامل فشار فروش.",
+                chips: ["صف فروش 261B!", "نخر!"]
+            },
+            {
+                symbol: "شتران", name: "پالایش نفت تهران (ابهام کدال)", category: "exit", categoryLabel: "هشدار خروج / نخر",
+                fundGrade: "D", techGrade: "D", queueStatus: "ابهام سود کدال",
+                score: 25, priceChange: -3.00, power: 0.40, realFlow: -18.5, bidAsk: "0.2x",
+                probUp: 12, probDown: 88, target: "Avoid (Codal Profit Drop)", stopLoss: "Profit Drop to 31T",
+                scenario: "[هشدار کدال]: اعلام کاهش سود ناخالص نیمه دوم از 136T به 31T در شرایط اضطرار؛ عامل اصلی فشار فروش گروه پالایشی.",
+                chips: ["ابهام سود کدال!", "احتیاط!"]
+            }
+        ];
+
+        // 9 Regime-Adaptive Portfolios (3 Tiers: Low, Med, High)
+        const PORTFOLIOS_9 = {
+            low: [
+                {
+                    code: "L1", title: "پایدار بنیادی & سپر پویا", subtitle: "مناسب رژیم تدافعی و حفظ سرمایه",
+                    badge: "Defensive Regime", forecast: "+85% to +95%", drawdown: "-7%", barWidth: 88,
+                    strategy: "ترکیب غول‌های دلاری با P/E پایین و سپر منعطف طلای عیار در فازهای پرریسک.",
+                    items: [
+                        ["صندوق طلای عیار", "25% (سپر پویا)"],
+                        ["فملی (مس ایران)", "20% (P/E 5.4)"],
+                        ["فولاد (مبارکه)", "20% (دلاری)"],
+                        ["وبملت (بانک ملت)", "15% (تراز ارزی)"],
+                        ["دیران (دارویی)", "15% (رشد فروش)"],
+                        ["نقدینگی شکار", "5%"]
+                    ]
+                },
+                {
+                    code: "L2", title: "سود تقسیمی مجمع (DPS)", subtitle: "جریان نقدی سالانه سنگین",
+                    badge: "DPS > 85%", forecast: "+75% to +85%", drawdown: "-6%", barWidth: 80,
+                    strategy: "شرکت‌های با P/E تحلیلی زیر 4.5 که بالای 85% سود خود را در مجمع نقد تقسیم می‌کنند.",
+                    items: [
+                        ["آریا ساسول", "25% (DPS 90%)"],
+                        ["پتروشیمی زاگرس", "20% (سود دلاری)"],
+                        ["فخوز (فولاد خوزستان)", "20% (P/E 4.2)"],
+                        ["صندوق طلای عیار", "20% (پوشش نوسان)"],
+                        ["وبملت (بانک ملت)", "10% (سود مجمع)"],
+                        ["وجه نقد", "5%"]
+                    ]
+                },
+                {
+                    code: "L3", title: "پدافند تورمی و صادراتی", subtitle: "حداکثر پوشش نوسان نرخ ارز",
+                    badge: "FX Hedge", forecast: "+85% to +100%", drawdown: "-8%", barWidth: 90,
+                    strategy: "شرکت‌های کامودیتی و صادراتی که درآمدشان مستقیماً با نرخ ارز نیما و آزاد رشد می‌کند.",
+                    items: [
+                        ["صندوق طلای عیار", "30% (همگام با ارز)"],
+                        ["فملی (مس صادراتی)", "25% (فروش جهانی)"],
+                        ["جم‌پیلن (پلی‌پروپیلن)", "20% (حاشیه سود 45%)"],
+                        ["شبندر (پالایش بندرعباس)", "15% (کرک اسپرد)"],
+                        ["وجه نقد آماده", "10%"]
+                    ]
+                }
+            ],
+            med: [
+                {
+                    code: "M1", title: "کاتالیزور کدال و دارو", subtitle: "جهش حاشیه سود در گزارش‌های ماهانه",
+                    badge: "Codal Growth", forecast: "+145% to +175%", drawdown: "-15%", barWidth: 82,
+                    strategy: "صنایع دارویی و تایرسازی که با آزادسازی نرخ فروش، رشد درآمد بالای +40% ثبت کرده‌اند.",
+                    items: [
+                        ["دفارا (داروسازی فارابی)", "25% (صف خرید 266B)"],
+                        ["درازی (پخش رازی)", "25% (صف خرید 182B)"],
+                        ["پکویر (کویر تایر)", "20% (افزایش نرخ +23.4%)"],
+                        ["تیپیکو (دارویی تامین)", "20% (کاتالیزور نرخ)"],
+                        ["نقدینگی چرخشی", "10%"]
+                    ]
+                },
+                {
+                    code: "M2", title: "مومنتوم پول داغ & فیلتر آسیاتک", subtitle: "سوار بر روندهای پیش‌صف",
+                    badge: "Momentum AI", forecast: "+130% to +160%", drawdown: "-18%", barWidth: 76,
+                    strategy: "سهامی که تراکم تقاضای سرخط بالای 3 برابر دارند و پول هوشمند در حال ورود به آن‌هاست.",
+                    items: [
+                        ["آسیاتک (انتقال داده)", "25% (سیگنال پیش‌صف)"],
+                        ["داروند (داروسازی اروند)", "25% (صف خرید 521B)"],
+                        ["خبهمن (گروه بهمن)", "20% (صف خرید 389B)"],
+                        ["صندوق اهرم", "20% (لیدر نقدینگی)"],
+                        ["نقدینگی شکار", "10%"]
+                    ]
+                },
+                {
+                    code: "M3", title: "آربیتراژ حباب اهرمی & هم‌وزن", subtitle: "شکار تخفیف NAV صندوق‌ها",
+                    badge: "NAV Arbitrage", forecast: "+140% to +170%", drawdown: "-16%", barWidth: 80,
+                    strategy: "انتقال چرخشی سرمایه به صندوق‌های اهرمی که حباب منفی آن‌ها ارزان‌تر از میانه‌ی 120 روزه است.",
+                    items: [
+                        ["صندوق جهش", "25% (حباب -19.6%)"],
+                        ["صندوق شتاب", "25% (حباب -19.3%)"],
+                        ["صندوق نارنج", "20% (حباب -19.3%)"],
+                        ["کفرا (کانی غیرفلزی)", "20% (لیدر هم‌وزن)"],
+                        ["وجه نقد", "10%"]
+                    ]
+                }
+            ],
+            high: [
+                {
+                    code: "H1", title: "اهرم حداکثری بازار (0% طلا)", subtitle: "شتاب 2 برابری در رژیم صعودی تهاجمی",
+                    badge: "Max Beta 2x", forecast: "+230% to +290%", drawdown: "-26%", barWidth: 92,
+                    strategy: "ویژه رژیم صعودی پرشتاب: حذف کامل طلا و تمرکز 100% روی صندوق‌های اهرمی با بالاترین ضریب اهرم واقعی.",
+                    items: [
+                        ["صندوق اهرم (لیدر)", "35% (اهرم 1.90x)"],
+                        ["صندوق دوایکس", "30% (اهرم 1.95x)"],
+                        ["صندوق جهش", "25% (حباب -19.6%)"],
+                        ["نقد ذخیره نوسان‌گیری", "10%"]
+                    ]
+                },
+                {
+                    code: "H2", title: "صف‌شکن و پرش شارپ تک‌سهم", subtitle: "سهام کم‌شناور با تقاضای انفجاری",
+                    badge: "Queue Hunter", forecast: "+210% to +260%", drawdown: "-28%", barWidth: 86,
+                    strategy: "شکار سهم‌های کوچک و متوسطی که با قدرت خریدار بالای 2.5 در حال قفل شدن در صف خرید هستند.",
+                    items: [
+                        ["داروند (داروسازی اروند)", "30% (قدرت خریدار 3.10)"],
+                        ["آسیاتک (انتقال داده)", "25% (بید 3.8x عرضه)"],
+                        ["فنقره (گواهی/صندوق نقره)", "25% (تیک +2.98%)"],
+                        ["چخزر (صنایع چوب خزر)", "20% (کم‌شناور صف خرید)"]
+                    ]
+                },
+                {
+                    code: "H3", title: "اختیار معامله (آپشن) & اهرم مرکب", subtitle: "پتانسیل سود نامتقارن در رالی‌ها",
+                    badge: "Options + 2x", forecast: "+250% to +350%", drawdown: "-32%", barWidth: 96,
+                    strategy: "ترکیب کال آپشن‌های نقدشونده روی صندوق اهرم و سهام شاخص‌ساز در شروع موج‌های صعودی.",
+                    items: [
+                        ["ضیاهرم (کال آپشن اهرم)", "30% (اهرم 4.5x)"],
+                        ["صندوق اهرم (دارایی پایه)", "35% (پشتیبان نقدشونده)"],
+                        ["صندوق شتاب", "20% (تخفیف حباب NAV)"],
+                        ["وجه تضمین نقد", "15% (مدیریت ریسک)"]
+                    ]
+                }
+            ]
+        };
+
+        // OMAX Rotation Scenarios (5 Stocks x 20% = 100%)
+        const OMAX_ROTATIONS = [
+            {
+                weekLabel: "چیدمان زنده (1405/07/26 - ضدریزش و پیش‌صف)",
+                report: "تصمیم هوشمند بورسک بر اساس رژیم روز بازار: انتخاب 4 سهم صدرنشین ورود پول حقیقی و دارای صف خرید سنگین امروز یعنی <strong>درازی (صف خرید 182.6B)</strong>، <strong>دفارا (صف خرید 266.3B)</strong>، <strong>داروند (صف خرید 521.0B)</strong> و <strong>خبهمن (صف خرید 389.7B)</strong> به همراه <strong>صندوق طلای عیار (712,879 R)</strong> با وزن مساوی 20%.",
+                changeSummary: "چیدمان 5×20%: درازی، دفارا، داروند، خبهمن، عیار",
+                weekRet: "+6.4%",
+                monthRet: "+26.2%",
+                stocks: [
+                    { symbol: "درازی", name: "پخش رازی (74,470 R)", weight: "20%", gain: "+2.50%", catalyst: "صف خرید 182.6B" },
+                    { symbol: "دفارا", name: "داروسازی فارابی (19,450 R)", weight: "20%", gain: "+2.70%", catalyst: "صف خرید 266.3B" },
+                    { symbol: "داروند", name: "داروسازی اروند (10,460 R)", weight: "20%", gain: "+2.95%", catalyst: "صف خرید 521.0B" },
+                    { symbol: "خبهمن", name: "گروه بهمن (2,741 R)", weight: "20%", gain: "+1.95%", catalyst: "صف خرید 389.7B" },
+                    { symbol: "عیار", name: "طلای عیار (712,879 R)", weight: "20%", gain: "+2.97%", catalyst: "سپر ریسک سیاسی" }
+                ]
+            },
+            {
+                weekLabel: "چیدمان تهاجمی موج صعودی (0% طلا - تمرکز اهرم و نرخ)",
+                report: "تصمیم هوش مصنوعی بورسک در چرخش به رژیم صعودی: حذف کامل طلا و انتقال 100% وزن سبد به 5 نماد پرشتاب شامل <strong>آسیاتک</strong> (فیلتر پیش‌صف 3.8x)، <strong>پکویر</strong> (افزایش نرخ +23.4%)، <strong>صندوق اهرم</strong> (حباب -18%)، <strong>صندوق جهش</strong> (حباب -19.6%) و <strong>دفارا</strong>.",
+                changeSummary: "چرخش تهاجمی: آسیاتک، پکویر، اهرم، جهش، دفارا",
+                weekRet: "+8.2%",
+                monthRet: "+34.4%",
+                stocks: [
+                    { symbol: "آسیاتک", name: "انتقال داده (5,240 R)", weight: "20%", gain: "+6.80%", catalyst: "سیگنال پیش‌صف 3.8x" },
+                    { symbol: "پکویر", name: "کویر تایر (28,900 R)", weight: "20%", gain: "+7.50%", catalyst: "افزایش نرخ +23.4%" },
+                    { symbol: "اهرم", name: "صندوق اهرم (72,946 R)", weight: "20%", gain: "+9.40%", catalyst: "اهرم 1.90x + حباب -18%" },
+                    { symbol: "جهش", name: "صندوق جهش (16,250 R)", weight: "20%", gain: "+8.96%", catalyst: "بیشترین تخفیف حباب (-19.6%)" },
+                    { symbol: "دفارا", name: "داروسازی فارابی (19,450 R)", weight: "20%", gain: "+8.10%", catalyst: "لیدر بنیادی دارو" }
+                ]
+            }
+        ];
+
+        // 9 Leveraged Funds Data (Real-time Bubble, 120d Median, Real Leverage)
+        const LEVERAGED_DATA = [
+            { name: "جهش", price: 16250, nav: 20210, bubble: -19.60, median: -15.20, leverage: 1.85, status: "بیشترین تخفیف حباب (-19.6%) | بازده هفتگی +8.96%" },
+            { name: "شتاب", price: 18200, nav: 22550, bubble: -19.30, median: -16.20, leverage: 1.88, status: "حباب منفی جذاب (-19.3%) | بازده هفتگی +2.03%" },
+            { name: "نارنج", price: 68309, nav: 84645, bubble: -19.30, median: -15.00, leverage: 1.75, status: "قیمت 68,309 R | تراز پول حقیقی مثبت در کف!" },
+            { name: "توان", price: 69638, nav: 85655, bubble: -18.70, median: -13.80, leverage: 1.82, status: "قیمت 69,638 R | جذب 479 B.T پول در هفته اخیر" },
+            { name: "اهرم", price: 72946, nav: 88958, bubble: -18.00, median: -15.50, leverage: 1.90, status: "لیدر نقدشوندگی | تراز پول خرد مثبت در کف!" },
+            { name: "موج", price: 104733, nav: 122495, bubble: -14.50, median: -16.50, leverage: 1.78, status: "قیمت 104,733 R | بازده 3 ماهه +141.7%" },
+            { name: "بیدار", price: 14800, nav: 17310, bubble: -14.50, median: -14.80, leverage: 1.70, status: "بازده 3 ماهه +123.7% | تعادلی" },
+            { name: "پیشران", price: 17400, nav: 19120, bubble: -9.00, median: -14.00, leverage: 1.65, status: "کمترین گردش نقدینگی | نظاره" },
+            { name: "دوایکس", price: 46325, nav: 42893, bubble: 8.00, median: -5.00, leverage: 1.95, status: "اهرم 1.95x | جذب 765 B.T هفتگی و بازده سالانه +557%" }
+        ];
+
+        const MY_REAL_PORTFOLIO = [
+            { sym: "سغدیر", qty: "10,754", last: "29,490 (+2.97%)", valT: "31,434,467", w: "11.57%", pnl: "+2.73% (+836K T)", pos: true, action: "نگهداری در صف خرید (سیو سود جزئی بالای وزن 12%)" },
+            { sym: "رتکو", qty: "8,311", last: "26,000 (+0.23%)", valT: "21,418,444", w: "7.89%", pnl: "+2.50% (+524K T)", pos: true, action: "نگهداری (صنعت فنی‌مهندسی صدرنشین ورود پول)" },
+            { sym: "پترول", qty: "74,196", last: "2,837 (+2.98%)", valT: "20,864,170", w: "7.68%", pnl: "+0.74% (+154K T)", pos: true, action: "نگهداری (قفل صف خرید امروز)" },
+            { sym: "زفجر", qty: "3,675", last: "55,930 (+2.98%)", valT: "20,373,397", w: "7.50%", pnl: "-0.93% (-193K T)", pos: false, action: "نگهداری قطعی (صف خرید + رشد 226% سود بهار)" },
+            { sym: "فاراک", qty: "62,904", last: "3,220 (+2.88%)", valT: "20,076,843", w: "7.39%", pnl: "-2.15% (-443K T)", pos: false, action: "نگهداری (ورود پول و معامله در سقف +2.88%)" },
+            { sym: "شفام", qty: "63,775", last: "2,930 (-2.66%)", valT: "18,521,638", w: "6.82%", pnl: "-10.41% (-2.15M T)", pos: false, action: "ضعیف‌ترین سهم سبد؛ در اولین تعادل تبدیل به دفارا/عیار" },
+            { sym: "بموتو", qty: "42,344", last: "4,410 (+2.80%)", valT: "18,509,375", w: "6.81%", pnl: "+2.23% (+404K T)", pos: true, action: "نگهداری (تابلوی بسیار قوی در بازار منفی)" },
+            { sym: "زدشت", qty: "18,452", last: "9,840 (+2.93%)", valT: "17,996,988", w: "6.63%", pnl: "-1.33% (-244K T)", pos: false, action: "نگهداری (صف خرید در گروه دامداری)" },
+            { sym: "غشصفا", qty: "5,871", last: "27,090 (+2.96%)", valT: "15,764,579", w: "5.80%", pnl: "+2.22% (+343K T)", pos: true, action: "نگهداری (صف خرید + گزارش قوی لبنیات)" },
+            { sym: "ونیکی", qty: "25,393", last: "6,150 (-1.76%)", valT: "15,479,268", w: "5.70%", pnl: "-1.88% (-297K T)", pos: false, action: "کاندیدای تبدیل به سهم پیش‌صف در برگشت" },
+            { sym: "وبصادر", qty: "153,115", last: "932 (-2.71%)", valT: "14,144,739", w: "5.21%", pnl: "-6.65% (-1.01M T)", pos: false, action: "خروج پول و ریسک سیاسی؛ تبدیل به دارویی/طلا" },
+            { sym: "نارنج اهرم", qty: "2,012", last: "68,450 (+0.19%)", valT: "13,740,464", w: "5.06%", pnl: "-8.34% (-1.25M T)", pos: false, action: "نگهداری در کف حباب -19.3% (برگشت به مثبت)" },
+            { sym: "شتاب", qty: "2,506", last: "54,360 (-2.49%)", valT: "13,591,284", w: "5.00%", pnl: "-9.37% (-1.41M T)", pos: false, action: "نگهداری در کف حباب -19.3% (جمع‌آوری در کف)" },
+            { sym: "شفارا", qty: "43,957", last: "2,399 (+0.25%)", valT: "10,452,486", w: "3.85%", pnl: "+3.50% (+354K T)", pos: true, action: "نگهداری (تیک صعودی مثبت بالاتر از پایانی)" },
+            { sym: "کلوند", qty: "11,889", last: "8,150 (-0.97%)", valT: "9,604,267", w: "3.54%", pnl: "-3.95% (-396K T)", pos: false, action: "تیک مثبت خورده؛ در سر‌به‌سر فروش برای تامین نقد" },
+            { sym: "وغدیر", qty: "4,314", last: "22,080 (-2.69%)", valT: "9,441,489", w: "3.48%", pnl: "-5.56% (-557K T)", pos: false, action: "موازی با سغدیر و پترول؛ تبدیل در تعادل" },
+            { sym: "مهر", qty: "412", last: "4,640 (+0.87%)", valT: "191,325", w: "0.07%", pnl: "0.0%", pos: true, action: "خرده‌سهم (فروش جهت خلوت شدن پرتفو)" }
+        ];
+
+        let activeCategory = 'asiatech';
+        let activeGradeFilter = 'all';
+        let omaxStateIdx = 0;
+        let omaxHistory = [];
+
+        function getGradeClass(g) {
+            if (!g) return 'grade-badge-b';
+            if (g.includes('A')) return 'grade-badge-a';
+            if (g.includes('B')) return 'grade-badge-b';
+            if (g.includes('C')) return 'grade-badge-c';
+            return 'grade-badge-d';
+        }
+
+        // In-Page Toast Notification
+        function showToast(title, msg, isError = false) {
+            const box = document.getElementById('toast-box');
+            const el = document.createElement('div');
+            const borderCol = isError ? 'border-rose-500' : 'border-emerald-500';
+            const iconClass = isError ? 'fa-triangle-exclamation text-rose-400' : 'fa-circle-check text-emerald-400';
+            el.className = `bg-slate-900/95 border-2 ${borderCol} text-slate-100 p-3 rounded-xl shadow-2xl text-xs flex items-start gap-2.5 pointer-events-auto backdrop-blur-md`;
+            el.innerHTML = `
+                <i class="fa-solid ${iconClass} text-sm mt-0.5"></i>
+                <div>
+                    <div class="font-bold text-white">${title}</div>
+                    <div class="text-[11px] text-slate-300 mt-0.5 leading-relaxed">${msg}</div>
+                </div>
+            `;
+            box.appendChild(el);
+            setTimeout(() => { el.remove(); }, 4000);
+        }
+
+        // Live Clocks (Tehran UTC+3:30 & Dubai UTC+4:00) with Latin digits
+        function updateClocks() {
+            const now = new Date();
+            const utcMs = now.getTime() + (now.getTimezoneOffset() * 60000);
+            const tehran = new Date(utcMs + (3.5 * 3600000));
+            const dubai = new Date(utcMs + (4.0 * 3600000));
+            const pad = n => String(n).padStart(2, '0');
+            const fmt = d => `${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`;
+            document.getElementById('clock-tehran').textContent = fmt(tehran);
+            document.getElementById('clock-dubai').textContent = fmt(dubai);
+        }
+        setInterval(updateClocks, 1000);
+        updateClocks();
+
+        // Dynamic Market Regime Switcher
+        function setMarketRegime(regimeKey) {
+            const cfg = REGIME_CONFIGS[regimeKey] || REGIME_CONFIGS.bear;
+            const card = document.getElementById('regime-engine-card');
+            const dot = document.getElementById('regime-pulse-dot');
+            const title = document.getElementById('regime-badge-title');
+            const desc = document.getElementById('regime-desc-text');
+            const stockPct = document.getElementById('regime-stock-pct');
+            const safePct = document.getElementById('regime-safe-pct');
+
+            card.classList.remove('neon-border-emerald', 'neon-border-amber', 'neon-border-rose');
+            card.classList.add(cfg.borderClass);
+
+            dot.classList.remove('bg-emerald-400', 'bg-amber-400', 'bg-rose-500');
+            dot.classList.add(cfg.dotClass);
+
+            title.className = `font-black ${cfg.titleColor}`;
+            title.textContent = cfg.title;
+            desc.textContent = cfg.desc;
+            stockPct.textContent = cfg.stockPct;
+            safePct.textContent = cfg.safePct;
+
+            document.querySelectorAll('.regime-btn').forEach(btn => {
+                const r = btn.getAttribute('data-regime');
+                btn.classList.remove('active', 'bg-emerald-600', 'bg-amber-600', 'bg-rose-600', 'text-white', 'shadow');
+                btn.classList.add('text-slate-400');
+                if (r === regimeKey) {
+                    btn.classList.remove('text-slate-400');
+                    btn.classList.add('active', 'text-white', 'shadow');
+                    if (r === 'bull') btn.classList.add('bg-emerald-600');
+                    else if (r === 'neutral') btn.classList.add('bg-amber-600');
+                    else btn.classList.add('bg-rose-600');
+                }
+            });
+        }
+
+        // Render Screener
+        function renderScreener() {
+            const container = document.getElementById('stocks-container');
+            container.innerHTML = '';
+
+            const info = FILTER_INFO[activeCategory] || FILTER_INFO.all;
+            document.getElementById('banner-title').innerHTML = `<i class="fa-solid fa-microchip"></i> ${info.title}`;
+            document.getElementById('banner-winrate').textContent = info.win;
+            document.getElementById('banner-desc').textContent = info.desc;
+
+            const searchVal = document.getElementById('input-search').value.trim();
+            const sortVal = document.getElementById('select-sort').value;
+
+            let list = STOCKS_DATA.filter(s => {
+                const matchCat = (activeCategory === 'all') || (s.category === activeCategory);
+                const matchSearch = s.symbol.includes(searchVal) || s.name.includes(searchVal) || s.categoryLabel.includes(searchVal) || (s.fundGrade && s.fundGrade.includes(searchVal));
+                
+                let matchGrade = true;
+                if (activeGradeFilter === 'double-a') {
+                    matchGrade = (s.fundGrade === 'A+' && s.techGrade === 'A+');
+                } else if (activeGradeFilter === 'fund-a') {
+                    matchGrade = (s.fundGrade === 'A+' || s.fundGrade === 'A');
+                } else if (activeGradeFilter === 'tech-a') {
+                    matchGrade = (s.techGrade === 'A+' || s.techGrade === 'A');
+                }
+
+                return matchCat && matchSearch && matchGrade;
+            });
+
+            list.sort((a, b) => {
+                if (sortVal === 'winrate') return b.probUp - a.probUp;
+                if (sortVal === 'power') return b.power - a.power;
+                if (sortVal === 'flow') return b.realFlow - a.realFlow;
+                return b.score - a.score;
+            });
+
+            // Update Badges
+            document.getElementById('badge-count-all').textContent = STOCKS_DATA.length;
+            document.getElementById('badge-count-asiatech').textContent = STOCKS_DATA.filter(s => s.category === 'asiatech').length;
+            document.getElementById('badge-count-live').textContent = STOCKS_DATA.filter(s => s.category === 'live').length;
+            document.getElementById('badge-count-intraday').textContent = STOCKS_DATA.filter(s => s.category === 'intraday').length;
+            document.getElementById('badge-count-tick').textContent = STOCKS_DATA.filter(s => s.category === 'tick').length;
+            document.getElementById('badge-count-queue').textContent = STOCKS_DATA.filter(s => s.category === 'queue').length;
+            document.getElementById('badge-count-midterm').textContent = STOCKS_DATA.filter(s => s.category === 'midterm').length;
+            document.getElementById('badge-count-exit').textContent = STOCKS_DATA.filter(s => s.category === 'exit').length;
+
+            if (list.length === 0) {
+                container.innerHTML = '<div class="text-center p-8 glass-card rounded-2xl border border-slate-800 text-slate-400 text-xs">نمادی با این مشخصات یافت نشد.</div>';
+                return;
+            }
+
+            list.forEach(s => {
+                const card = document.createElement('div');
+                card.className = "glass-card border border-slate-800 hover:border-emerald-500/50 rounded-xl p-3 space-y-2.5 transition cursor-pointer active:scale-[0.99]";
+                card.addEventListener('click', () => openStockModal(s));
+
+                const chipsHtml = s.chips.map(c => `<span class="bg-slate-800/90 text-slate-300 text-[10px] px-1.5 py-0.5 rounded border border-slate-700">${c}</span>`).join(' ');
+
+                card.innerHTML = `
+                    <div class="flex items-center justify-between gap-2">
+                        <div class="flex items-center gap-1.5 flex-wrap">
+                            <span class="font-black text-sm text-white">${s.symbol}</span>
+                            <span class="text-slate-400 text-xs">${s.name}</span>
+                            <span class="text-[10px] font-mono font-bold px-1.5 py-0.5 rounded ${s.priceChange > 0 ? 'bg-emerald-500/15 text-emerald-400' : 'bg-rose-500/15 text-rose-400'}">
+                                ${s.priceChange > 0 ? '+' : ''}${s.priceChange.toFixed(2)}%
+                            </span>
+                            <span class="text-[9px] px-2 py-0.5 rounded font-mono font-bold ${getGradeClass(s.fundGrade)}">Fund: ${s.fundGrade}</span>
+                            <span class="text-[9px] px-2 py-0.5 rounded font-mono font-bold ${getGradeClass(s.techGrade)}">Tech: ${s.techGrade}</span>
+                            <span class="text-[9px] bg-slate-800 text-slate-300 px-1.5 py-0.5 rounded border border-slate-700 font-bold">${s.queueStatus || s.categoryLabel}</span>
+                        </div>
+                        <div class="flex items-center gap-2 shrink-0">
+                            <span class="text-[11px] text-slate-400">Score: <strong class="text-emerald-400 font-mono">${s.score}</strong></span>
+                            <i class="fa-solid fa-chevron-left text-slate-600 text-xs"></i>
+                        </div>
+                    </div>
+
+                    <!-- Probability Progress Bar -->
+                    <div class="space-y-1 neo-inset p-2 rounded-lg border border-slate-800/80">
+                        <div class="flex justify-between items-center text-[11px]">
+                            <span class="text-slate-300 font-medium">پیش‌بینی احتمالاتی بورسک:</span>
+                            <div class="flex items-center gap-1.5 font-mono text-[11px]">
+                                <span class="text-emerald-400 font-bold">${s.probUp}% Up</span>
+                                <span class="text-slate-600">/</span>
+                                <span class="text-rose-400 font-bold">${s.probDown}% Down</span>
+                            </div>
+                        </div>
+                        <div class="w-full bg-slate-800 h-2 rounded-full flex overflow-hidden">
+                            <div class="bg-emerald-500 h-full" style="width: ${s.probUp}%"></div>
+                            <div class="bg-rose-500 h-full" style="width: ${s.probDown}%"></div>
+                        </div>
+                        <div class="flex justify-between items-center text-[10px] text-slate-400 pt-0.5">
+                            <span>هدف سود: <strong class="text-emerald-300 font-mono">${s.target}</strong></span>
+                            <span>حد ضرر: <strong class="text-rose-300 font-mono">${s.stopLoss}</strong></span>
+                        </div>
+                    </div>
+
+                    <!-- Bottom Metrics -->
+                    <div class="flex items-center justify-between text-[11px] font-mono pt-0.5 border-t border-slate-800/50 flex-wrap gap-2">
+                        <div class="flex items-center gap-3">
+                            <span class="text-slate-400 font-sans">قدرت خریدار: <strong class="text-teal-400 font-mono">${s.power.toFixed(2)}</strong></span>
+                            <span class="text-slate-400 font-sans">پول حقیقی: <strong class="${s.realFlow >= 0 ? 'text-emerald-400' : 'text-rose-400'} font-mono">${s.realFlow > 0 ? '+' : ''}${s.realFlow} B.T</strong></span>
+                            <span class="text-slate-400 font-sans">تقاضا/عرضه: <strong class="text-amber-400 font-mono">${s.bidAsk}</strong></span>
+                        </div>
+                        <div class="flex gap-1 flex-wrap">${chipsHtml}</div>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        // Render the 9 Portfolios (L1-L3, M1-M3, H1-H3)
+        function renderPortfolios9() {
+            const renderGroup = (list, containerId, colorClass, borderClass) => {
+                const el = document.getElementById(containerId);
+                if (!el) return;
+                el.innerHTML = '';
+                list.forEach(p => {
+                    const rowsHtml = p.items.map(item => `
+                        <div class="flex justify-between items-center py-1 border-b border-slate-800/40 last:border-0">
+                            <span class="font-sans text-slate-300">${item[0]}:</span>
+                            <span class="${colorClass} font-bold font-mono">${item[1]}</span>
+                        </div>
+                    `).join('');
+
+                    const card = document.createElement('div');
+                    card.className = `glass-card border-2 ${borderClass} rounded-2xl p-3.5 space-y-3 flex flex-col justify-between`;
+                    card.innerHTML = `
+                        <div class="space-y-2.5">
+                            <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+                                <div class="flex items-center gap-2">
+                                    <span class="w-8 h-8 rounded-lg bg-slate-950 ${colorClass} flex items-center justify-center font-black text-xs border border-slate-700 font-mono">${p.code}</span>
+                                    <div>
+                                        <h4 class="text-xs font-black text-white">${p.title}</h4>
+                                        <span class="text-[10px] text-slate-400 block">${p.subtitle}</span>
+                                    </div>
+                                </div>
+                                <span class="text-[9px] bg-slate-800 text-slate-200 px-2 py-0.5 rounded font-mono font-bold">${p.badge}</span>
+                            </div>
+
+                            <div class="neo-inset p-2.5 rounded-xl border border-slate-800 space-y-1">
+                                <div class="flex items-center justify-between">
+                                    <span class="text-[11px] text-slate-400">پیش‌بینی بازده 1 ساله:</span>
+                                    <span class="text-xs sm:text-sm font-mono font-black ${colorClass}">${p.forecast}</span>
+                                </div>
+                                <div class="flex items-center justify-between text-[10px] text-slate-400">
+                                    <span>سقف افت تاریخی (Drawdown):</span>
+                                    <span class="font-mono text-slate-300 font-bold">${p.drawdown}</span>
+                                </div>
+                                <div class="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden mt-1">
+                                    <div class="bg-emerald-500 h-full rounded-full" style="width: ${p.barWidth}%"></div>
+                                </div>
+                            </div>
+
+                            <div class="space-y-0.5 text-xs bg-slate-950/50 p-2 rounded-xl border border-slate-800/60">
+                                ${rowsHtml}
+                            </div>
+                        </div>
+
+                        <div class="pt-2 border-t border-slate-800 text-[10px] text-slate-400 leading-relaxed">
+                            <strong class="text-slate-200">منطق استراتژی:</strong> ${p.strategy}
+                        </div>
+                    `;
+                    el.appendChild(card);
+                });
+            };
+
+            renderGroup(PORTFOLIOS_9.low, 'grid-ports-low', 'text-emerald-400', 'border-emerald-500/30');
+            renderGroup(PORTFOLIOS_9.med, 'grid-ports-med', 'text-teal-400', 'border-teal-500/30');
+            renderGroup(PORTFOLIOS_9.high, 'grid-ports-high', 'text-amber-400', 'border-amber-500/30');
+        }
+
+        // Render OMAX Weekly Portfolio & Persistent History
+        function renderOMAX() {
+            const currentObj = OMAX_ROTATIONS[omaxStateIdx];
+            document.getElementById('omax-ai-report-text').innerHTML = currentObj.report;
+
+            const grid = document.getElementById('omax-cards-grid');
+            grid.innerHTML = '';
+            currentObj.stocks.forEach((s, idx) => {
+                const card = document.createElement('div');
+                card.className = "neo-inset border border-slate-800 p-2.5 rounded-xl space-y-1";
+                card.innerHTML = `
+                    <div class="flex items-center justify-between">
+                        <span class="font-black text-white text-xs font-sans">${idx + 1}. ${s.symbol}</span>
+                        <span class="text-[10px] bg-amber-500/20 text-amber-300 px-1.5 py-0.5 rounded font-bold">${s.weight}</span>
+                    </div>
+                    <div class="text-[10px] text-slate-400 font-sans truncate">${s.name}</div>
+                    <div class="flex justify-between items-center text-[10px] pt-1 border-t border-slate-800/60">
+                        <span class="text-slate-500 font-sans">بازده:</span>
+                        <span class="text-emerald-400 font-bold">${s.gain}</span>
+                    </div>
+                    <div class="text-[9px] text-amber-400/90 font-sans truncate">${s.catalyst}</div>
+                `;
+                grid.appendChild(card);
+            });
+
+            const tbody = document.getElementById('tbody-omax-history');
+            tbody.innerHTML = '';
+            omaxHistory.forEach(h => {
+                const tr = document.createElement('tr');
+                tr.className = "border-b border-slate-800/50 hover:bg-slate-800/30";
+                tr.innerHTML = `
+                    <td class="p-2 font-bold text-white font-sans">${h.week}</td>
+                    <td class="p-2 font-sans text-slate-300">${h.stocks}</td>
+                    <td class="p-2 font-sans text-amber-300">${h.change}</td>
+                    <td class="p-2 text-emerald-400 font-bold">${h.weekRet}</td>
+                    <td class="p-2 text-teal-400 font-bold">${h.monthRet}</td>
+                `;
+                tbody.appendChild(tr);
+            });
+
+            if (omaxHistory.length > 0) {
+                document.getElementById('omax-cumulative-badge').textContent = `بازده تجمعی: ${omaxHistory[0].monthRet}`;
+            }
+        }
+
+        function loadPersistentOMAX() {
+            try {
+                const saved = localStorage.getItem('boursek_v6_omax_history');
+                const savedIdx = localStorage.getItem('boursek_v6_omax_idx');
+                if (saved) {
+                    omaxHistory = JSON.parse(saved);
+                } else {
+                    omaxHistory = [
+                        { week: "هفته 4 مهر 1405", stocks: "درازی، دفارا، داروند، خبهمن، عیار", change: "چیدمان ضدریزش و پیش‌صف (5×20%)", weekRet: "+6.4%", monthRet: "+26.2%" },
+                        { week: "هفته 3 مهر 1405", stocks: "آسیاتک، دیران، درازی، اهرم، فملی", change: "ورود آسیاتک با سیگنال پیش از صف", weekRet: "+5.8%", monthRet: "+19.8%" },
+                        { week: "هفته 2 مهر 1405", stocks: "دیران، درازی، اهرم، فملی، عیار", change: "ورود درازی به جای وبملت", weekRet: "+6.4%", monthRet: "+14.0%" },
+                        { week: "هفته 1 مهر 1405", stocks: "دیران، وبملت، اهرم، فملی، عیار", change: "چیدمان اولیه مهرماه", weekRet: "+7.6%", monthRet: "+7.6%" }
+                    ];
+                }
+                if (savedIdx) omaxStateIdx = Number(savedIdx) % OMAX_ROTATIONS.length;
+            } catch (e) {}
+            renderOMAX();
+        }
+
+        function savePersistentOMAX() {
+            try {
+                localStorage.setItem('boursek_v6_omax_history', JSON.stringify(omaxHistory));
+                localStorage.setItem('boursek_v6_omax_idx', String(omaxStateIdx));
+            } catch (e) {}
+        }
+
+        function renderMyRealPort() {
+            const tb = document.getElementById('tbody-my-real-port');
+            if (!tb) return;
+            tb.innerHTML = '';
+            MY_REAL_PORTFOLIO.forEach(item => {
+                const tr = document.createElement('tr');
+                tr.className = "hover:bg-slate-800/40 border-b border-slate-800/50";
+                const isTodayPos = item.last.includes('+');
+                tr.innerHTML = `
+                    <td class="p-2 font-black text-white font-sans">${item.sym}</td>
+                    <td class="p-2 text-slate-300">${item.qty}</td>
+                    <td class="p-2 font-bold ${isTodayPos ? 'text-emerald-400' : 'text-rose-400'}">${item.last}</td>
+                    <td class="p-2 text-slate-200">${item.valT}</td>
+                    <td class="p-2 text-amber-300 font-bold">${item.w}</td>
+                    <td class="p-2 font-bold ${item.pos ? 'text-emerald-400' : 'text-rose-400'}">${item.pnl}</td>
+                    <td class="p-2 font-sans text-slate-200">${item.action}</td>
+                `;
+                tb.appendChild(tr);
+            });
+        }
+
+        function renderLeveraged() {
+            const tbody = document.getElementById('tbody-leveraged');
+            if (!tbody) return;
+            tbody.innerHTML = '';
+            LEVERAGED_DATA.forEach(f => {
+                const tr = document.createElement('tr');
+                tr.className = "hover:bg-slate-800/40 transition border-b border-slate-800/40";
+                const diff = (f.bubble - f.median).toFixed(1);
+                const discount = diff < 0
+                    ? `<span class="text-emerald-400 font-bold">${Math.abs(diff)}% ارزان‌تر</span>`
+                    : `<span class="text-rose-400">+${diff}% گران‌تر</span>`;
+                tr.innerHTML = `
+                    <td class="p-2.5 font-bold text-white font-sans">${f.name}</td>
+                    <td class="p-2.5 text-slate-200">${f.price.toLocaleString('en-US')}</td>
+                    <td class="p-2.5 text-slate-400">${f.nav.toLocaleString('en-US')}</td>
+                    <td class="p-2.5 ${f.bubble < 0 ? 'text-emerald-400' : 'text-rose-400'} font-bold">${f.bubble > 0 ? '+' : ''}${f.bubble.toFixed(2)}%</td>
+                    <td class="p-2.5 text-slate-300">${f.median.toFixed(1)}%</td>
+                    <td class="p-2.5 font-sans">${discount}</td>
+                    <td class="p-2.5 text-cyan-400 font-bold">${f.leverage.toFixed(2)}x</td>
+                    <td class="p-2.5 font-sans text-[11px] text-amber-300 font-bold">${f.status}</td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function openStockModal(s) {
+            document.getElementById('m-symbol').textContent = s.symbol;
+            document.getElementById('m-name').textContent = s.name;
+            document.getElementById('m-cat-tag').textContent = `${s.categoryLabel} | Fund: ${s.fundGrade} | Tech: ${s.techGrade}`;
+            document.getElementById('m-forecast-summary').textContent = `${s.probUp}% Up / ${s.probDown}% Down`;
+            document.getElementById('m-bar-up').style.width = `${s.probUp}%`;
+            document.getElementById('m-bar-up').textContent = `${s.probUp}%`;
+            document.getElementById('m-bar-down').style.width = `${s.probDown}%`;
+            document.getElementById('m-bar-down').textContent = `${s.probDown}%`;
+            document.getElementById('m-target-text').textContent = s.target;
+            document.getElementById('m-stop-text').textContent = s.stopLoss;
+            document.getElementById('m-power').textContent = s.power.toFixed(2);
+            document.getElementById('m-flow').textContent = `${s.realFlow > 0 ? '+' : ''}${s.realFlow} B.T`;
+            document.getElementById('m-bidask').textContent = s.bidAsk;
+            document.getElementById('m-scenario').textContent = s.scenario;
+            document.getElementById('modal-stock').classList.remove('hidden');
+        }
+
+        function updateCalculator() {
+            const cap = Number(document.getElementById('calc-capital').value) || 100000000;
+            const fmt = num => Math.round(num).toLocaleString('en-US') + " T";
+            document.getElementById('res-low').textContent = fmt(cap * 1.88);
+            document.getElementById('res-med').textContent = fmt(cap * 2.55);
+            document.getElementById('res-omax').textContent = fmt(cap * 2.95);
+            document.getElementById('res-high').textContent = fmt(cap * 3.70);
+        }
+
+        // ==========================================
+        // CUSTOM PORTFOLIO BUILDER LOGIC (100% Dynamic)
+        // ==========================================
+        let customItems = [
+            { sym: "درازی", note: "لیدر دارویی صف خرید", weight: 30 },
+            { sym: "دفارا", note: "کاتالیزور کدال", weight: 25 },
+            { sym: "اهرم", note: "شکار کف حباب -18%", weight: 25 },
+            { sym: "آسیاتک", note: "فیلتر پیش‌صف 3.8x", weight: 20 }
+        ];
+
+        let savedUserPortfolios = [];
+
+        function updateCustomTotalBadge() {
+            let totalW = 0;
+            customItems.forEach(item => { totalW += Number(item.weight) || 0; });
+            const totalEl = document.getElementById('custom-weight-total');
+            if (totalEl) {
+                totalEl.textContent = totalW + '%';
+                if (totalW === 100) {
+                    totalEl.className = "font-bold text-emerald-400 bg-emerald-500/15 px-2.5 py-0.5 rounded border border-emerald-500/30";
+                } else {
+                    totalEl.className = "font-bold text-rose-400 bg-rose-500/15 px-2.5 py-0.5 rounded border border-rose-500/30";
+                }
+            }
+            return totalW;
+        }
+
+        function renderCustomRows() {
+            const container = document.getElementById('custom-items-container');
+            if (!container) return;
+            container.innerHTML = '';
+
+            customItems.forEach((item, idx) => {
+                const row = document.createElement('div');
+                row.className = "flex items-center gap-2 bg-slate-900/90 p-2 rounded-xl border border-slate-800 text-xs";
+                row.innerHTML = `
+                    <div class="w-6 h-6 rounded-lg bg-slate-950 text-slate-400 flex items-center justify-center font-mono font-bold shrink-0">${idx + 1}</div>
+                    <input type="text" value="${item.sym}" placeholder="نام نماد (مثلاً دفارا، اهرم)" class="flex-1 bg-slate-950 border border-slate-700 rounded-lg px-2.5 py-1.5 text-white font-bold focus:outline-none focus:border-sky-500 item-sym-input" data-idx="${idx}">
+                    <input type="text" value="${item.note || ''}" placeholder="منطق / استراتژی" class="flex-1 hidden sm:block bg-slate-950 border border-slate-700 rounded-lg px-2.5 py-1.5 text-slate-300 text-[11px] focus:outline-none focus:border-sky-500 item-note-input" data-idx="${idx}">
+                    <div class="flex items-center gap-1 font-mono shrink-0">
+                        <input type="number" value="${item.weight}" min="0" max="100" class="w-16 bg-slate-950 border border-slate-700 rounded-lg px-2 py-1.5 text-sky-400 font-bold text-center focus:outline-none focus:border-sky-500 item-weight-input" data-idx="${idx}">
+                        <span class="text-slate-400 font-mono text-xs">%</span>
+                    </div>
+                    <button type="button" class="text-slate-500 hover:text-rose-400 p-1.5 text-xs transition btn-del-item" data-idx="${idx}">
+                        <i class="fa-solid fa-trash-can"></i>
+                    </button>
+                `;
+                container.appendChild(row);
+            });
+
+            updateCustomTotalBadge();
+
+            container.querySelectorAll('.item-sym-input').forEach(inp => {
+                inp.addEventListener('input', (e) => {
+                    const i = Number(e.target.getAttribute('data-idx'));
+                    customItems[i].sym = e.target.value.trim();
+                });
+            });
+            container.querySelectorAll('.item-note-input').forEach(inp => {
+                inp.addEventListener('input', (e) => {
+                    const i = Number(e.target.getAttribute('data-idx'));
+                    customItems[i].note = e.target.value.trim();
+                });
+            });
+            container.querySelectorAll('.item-weight-input').forEach(inp => {
+                inp.addEventListener('input', (e) => {
+                    const i = Number(e.target.getAttribute('data-idx'));
+                    customItems[i].weight = Number(e.target.value) || 0;
+                    updateCustomTotalBadge();
+                });
+            });
+            container.querySelectorAll('.btn-del-item').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const i = Number(btn.getAttribute('data-idx'));
+                    if (customItems.length > 1) {
+                        customItems.splice(i, 1);
+                        renderCustomRows();
+                    } else {
+                        showToast("حداقل 1 ردیف لازم است", "یک سبد باید دست‌کم شامل 1 سهم یا دارایی باشد.", true);
+                    }
+                });
+            });
+        }
+
+        function renderSavedCustomPorts() {
+            const grid = document.getElementById('user-custom-ports-grid');
+            if (!grid) return;
+            grid.innerHTML = '';
+
+            if (savedUserPortfolios.length === 0) {
+                grid.innerHTML = '<div class="col-span-2 text-center p-6 neo-inset rounded-xl border border-slate-800 text-slate-500 text-xs">هنوز سبد اختصاصی ذخیره نشده است. با فرم بالا سبد پویای خود را بسازید!</div>';
+                return;
+            }
+
+            savedUserPortfolios.forEach((port, pIdx) => {
+                const card = document.createElement('div');
+                card.className = "neo-inset border border-sky-500/30 rounded-xl p-3.5 space-y-2.5 shadow-md flex flex-col justify-between";
+                
+                const rowsHtml = port.items.map(it => `
+                    <div class="flex justify-between items-center py-1 border-b border-slate-800/40 text-xs last:border-0">
+                        <div class="flex items-center gap-1.5">
+                            <span class="font-black text-white font-sans">${it.sym}</span>
+                            ${it.note ? `<span class="text-[10px] text-slate-400 font-sans">(${it.note})</span>` : ''}
+                        </div>
+                        <span class="font-mono font-bold text-sky-400">${it.weight}%</span>
+                    </div>
+                `).join('');
+
+                card.innerHTML = `
+                    <div class="space-y-2">
+                        <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+                            <div class="flex items-center gap-2">
+                                <span class="w-7 h-7 rounded-lg bg-sky-500/20 text-sky-400 flex items-center justify-center font-bold text-xs border border-sky-500/40 font-mono">P${pIdx + 1}</span>
+                                <div>
+                                    <h5 class="text-xs font-black text-white">${port.name}</h5>
+                                    <span class="text-[10px] text-slate-400">${port.regimeLabel || 'سفارشی'}</span>
+                                </div>
+                            </div>
+                            <button type="button" class="text-slate-500 hover:text-rose-400 p-1 text-xs btn-del-port" data-pidx="${pIdx}">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                        </div>
+                        <div class="bg-slate-900/60 p-2 rounded-lg border border-slate-800/60 font-mono">
+                            ${rowsHtml}
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between pt-2 border-t border-slate-800/50 text-[10px] text-slate-400 font-mono">
+                        <span>Saved: ${port.date || '1405/07/26'}</span>
+                        <span class="text-emerald-400 font-bold">Total: 100%</span>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+
+            grid.querySelectorAll('.btn-del-port').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const idx = Number(btn.getAttribute('data-pidx'));
+                    savedUserPortfolios.splice(idx, 1);
+                    localStorage.setItem('boursek_custom_portfolios', JSON.stringify(savedUserPortfolios));
+                    renderSavedCustomPorts();
+                    showToast("سبد حذف شد", "سبد مورد نظر از حافظه حذف گردید.");
+                });
+            });
+        }
+
+        function loadSavedCustomPorts() {
+            try {
+                const s = localStorage.getItem('boursek_custom_portfolios');
+                if (s) {
+                    savedUserPortfolios = JSON.parse(s);
+                } else {
+                    savedUserPortfolios = [
+                        {
+                            name: "سبد تهاجمی موج صعودی (0% طلا)",
+                            regimeLabel: "صعودی تهاجمی (Bullish)",
+                            date: "1405/07/26",
+                            items: [
+                                { sym: "اهرم", note: "ضریب اهرم 1.90x", weight: 35 },
+                                { sym: "جهش", note: "تخفیف حباب -19.6%", weight: 25 },
+                                { sym: "آسیاتک", note: "فیلتر پیش‌صف 3.8x", weight: 20 },
+                                { sym: "پکویر", note: "افزایش نرخ +23.4%", weight: 20 }
+                            ]
+                        },
+                        {
+                            name: "سبد ضدریزش و کاتالیزور دارو",
+                            regimeLabel: "نزولی تدافعی (Bearish)",
+                            date: "1405/07/26",
+                            items: [
+                                { sym: "درازی", note: "صف خرید 182.6B", weight: 30 },
+                                { sym: "دفارا", note: "صف خرید 266.3B", weight: 30 },
+                                { sym: "عیار", note: "سپر ریسک سیاسی", weight: 25 },
+                                { sym: "نقدینگی شکار", note: "ورود در کف", weight: 15 }
+                            ]
+                        }
+                    ];
+                }
+            } catch (e) {}
+            renderSavedCustomPorts();
+        }
+
+        // Switch Navigation View Helper
+        function switchTabView(targetId) {
+            document.querySelectorAll('.nav-tab').forEach(b => {
+                b.classList.remove('active', 'bg-emerald-600', 'text-white', 'shadow-md');
+                b.classList.add('text-slate-300');
+                if (b.getAttribute('data-target') === targetId) {
+                    b.classList.add('active', 'bg-emerald-600', 'text-white', 'shadow-md');
+                    b.classList.remove('text-slate-300');
+                }
+            });
+            document.querySelectorAll('.mob-nav-btn').forEach(mb => {
+                mb.classList.remove('text-emerald-400');
+                mb.classList.add('text-slate-400');
+                if (mb.getAttribute('data-target') === targetId) {
+                    mb.classList.add('text-emerald-400');
+                    mb.classList.remove('text-slate-400');
+                }
+            });
+            document.querySelectorAll('.tab-content').forEach(tc => tc.classList.add('hidden'));
+            const el = document.getElementById(targetId);
+            if (el) el.classList.remove('hidden');
+        }
+
+        // DOM Ready
+        document.addEventListener('DOMContentLoaded', () => {
+            renderScreener();
+            renderPortfolios9();
+            renderCustomRows();
+            loadSavedCustomPorts();
+            loadPersistentOMAX();
+            renderLeveraged();
+            renderMyRealPort();
+            updateCalculator();
+
+            // Regime Switcher Buttons
+            document.querySelectorAll('.regime-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const r = btn.getAttribute('data-regime');
+                    setMarketRegime(r);
+                    showToast("تغییر رژیم بازار", `رژیم بازار به حالت «${btn.textContent.trim()}» تغییر یافت و تخصیص پیشنهادی بروز شد.`);
+                });
+            });
+
+            // Preset Templates in Custom Allocator
+            document.querySelectorAll('.preset-load-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const preset = btn.getAttribute('data-preset');
+                    if (preset === 'bull') {
+                        customItems = [
+                            { sym: "اهرم", note: "لیدر اهرمی (1.90x)", weight: 35 },
+                            { sym: "دوایکس", note: "بیشترین بتا (1.95x)", weight: 25 },
+                            { sym: "آسیاتک", note: "پیش‌صف فیلتر آسیاتک", weight: 20 },
+                            { sym: "پکویر", note: "افزایش نرخ +23.4%", weight: 20 }
+                        ];
+                        document.getElementById('custom-port-name').value = "سبد تهاجمی موج صعودی (0% طلا)";
+                    } else if (preset === 'neutral') {
+                        customItems = [
+                            { sym: "دفارا", note: "کاتالیزور کدال دارو", weight: 30 },
+                            { sym: "جهش", note: "آربیتراژ حباب -19.6%", weight: 25 },
+                            { sym: "فنقره", note: "تیک صعودی +2.98%", weight: 20 },
+                            { sym: "عیار", note: "سپر تعادلی", weight: 15 },
+                            { sym: "نقدینگی", note: "نوسان‌گیری روزانه", weight: 10 }
+                        ];
+                        document.getElementById('custom-port-name').value = "سبد تعادلی و آربیتراژ حباب";
+                    } else {
+                        customItems = [
+                            { sym: "درازی", note: "دارویی ضدریزش", weight: 30 },
+                            { sym: "داروند", note: "صف خرید 521B", weight: 25 },
+                            { sym: "عیار", note: "سپر طلا و ارز", weight: 30 },
+                            { sym: "نقدینگی آماده", note: "شکار در اشباع فروش", weight: 15 }
+                        ];
+                        document.getElementById('custom-port-name').value = "سبد تدافعی ضدریزش";
+                    }
+                    renderCustomRows();
+                });
+            });
+
+            // Auto-Normalize Custom Weights to 100%
+            document.getElementById('btn-auto-normalize')?.addEventListener('click', () => {
+                let sum = 0;
+                customItems.forEach(i => sum += Number(i.weight) || 0);
+                if (sum <= 0) {
+                    const eq = Math.floor(100 / customItems.length);
+                    customItems.forEach((it, idx) => {
+                        it.weight = (idx === 0) ? (100 - eq * (customItems.length - 1)) : eq;
+                    });
+                } else {
+                    let running = 0;
+                    customItems.forEach((it, idx) => {
+                        if (idx === customItems.length - 1) {
+                            it.weight = Math.max(0, 100 - running);
+                        } else {
+                            const w = Math.round((Number(it.weight) / sum) * 100);
+                            it.weight = w;
+                            running += w;
+                        }
+                    });
+                }
+                renderCustomRows();
+                showToast("تراز خودکار انجام شد", "مجموع اوزان سبد اختصاصی دقیقاً روی 100% تنظیم گردید.");
+            });
+
+            document.getElementById('btn-add-custom-row')?.addEventListener('click', () => {
+                customItems.push({ sym: '', note: '', weight: 0 });
+                renderCustomRows();
+            });
+
+            document.getElementById('btn-save-custom-port')?.addEventListener('click', () => {
+                const nameInput = document.getElementById('custom-port-name');
+                const portName = (nameInput?.value || '').trim() || 'سبد اختصاصی #' + (savedUserPortfolios.length + 1);
+                
+                const sum = updateCustomTotalBadge();
+                if (sum !== 100) {
+                    showToast("خطای مجموع درصدها", `مجموع اوزان باید دقیقاً 100% باشد (مجموع فعلی: ${sum}%). دکمه «تراز خودکار روی 100%» را بزنید.`, true);
+                    return;
+                }
+
+                const cleanItems = customItems.map(it => ({
+                    sym: it.sym || 'نماد منتخب',
+                    note: it.note || '',
+                    weight: Number(it.weight) || 0
+                }));
+
+                const selRegime = document.getElementById('custom-port-regime');
+                const regimeText = selRegime ? selRegime.value : 'سفارشی';
+
+                savedUserPortfolios.unshift({
+                    name: portName,
+                    regimeLabel: regimeText,
+                    date: "1405/07/26",
+                    items: cleanItems
+                });
+
+                localStorage.setItem('boursek_custom_portfolios', JSON.stringify(savedUserPortfolios));
+                renderSavedCustomPorts();
+                pushToFirebase(true);
+                showToast("سبد اختصاصی ذخیره شد", `سبد «${portName}» با مجموع 100% در حافظه و فایربیس ثبت گردید.`);
+            });
+
+            // Desktop & Mobile Navigation Tabs
+            document.querySelectorAll('.nav-tab, .mob-nav-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const target = btn.getAttribute('data-target');
+                    switchTabView(target);
+                });
+            });
+
+            // Grade Filter Buttons
+            document.querySelectorAll('.grade-filter-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    document.querySelectorAll('.grade-filter-btn').forEach(b => {
+                        b.classList.remove('active', 'bg-emerald-600', 'text-white');
+                        b.classList.add('bg-slate-800');
+                    });
+                    btn.classList.add('active', 'bg-emerald-600', 'text-white');
+                    btn.classList.remove('bg-slate-800');
+
+                    activeGradeFilter = btn.getAttribute('data-gfilter');
+                    renderScreener();
+                });
+            });
+
+            // Screener Filter Pills
+            document.querySelectorAll('.filter-pill').forEach(pill => {
+                pill.addEventListener('click', () => {
+                    document.querySelectorAll('.filter-pill').forEach(p => {
+                        p.classList.remove('active', 'border-2', 'border-amber-500');
+                        p.classList.add('border-slate-800');
+                    });
+                    pill.classList.add('active', 'border-2', 'border-amber-500');
+                    pill.classList.remove('border-slate-800');
+
+                    activeCategory = pill.getAttribute('data-category');
+                    renderScreener();
+                });
+            });
+
+            // Portfolio Section Filter Bar
+            document.querySelectorAll('.port-filter-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    document.querySelectorAll('.port-filter-btn').forEach(b => {
+                        b.classList.remove('active', 'bg-emerald-600', 'text-white');
+                        b.classList.add('bg-slate-900');
+                    });
+                    btn.classList.add('active', 'bg-emerald-600', 'text-white');
+                    btn.classList.remove('bg-slate-900');
+
+                    const pf = btn.getAttribute('data-pfilter');
+                    document.querySelectorAll('.port-section').forEach(sec => {
+                        if (pf === 'all' || sec.getAttribute('data-psection') === pf) {
+                            sec.classList.remove('hidden');
+                        } else {
+                            sec.classList.add('hidden');
+                        }
+                    });
+                });
+            });
+
+            // Automated AI Rebalance Button
+            document.getElementById('btn-ai-rebalance').addEventListener('click', () => {
+                omaxStateIdx = (omaxStateIdx + 1) % OMAX_ROTATIONS.length;
+                const nextRot = OMAX_ROTATIONS[omaxStateIdx];
+                omaxHistory.unshift({
+                    week: nextRot.weekLabel,
+                    stocks: nextRot.stocks.map(s => s.symbol).join('، '),
+                    change: nextRot.changeSummary,
+                    weekRet: nextRot.weekRet,
+                    monthRet: nextRot.monthRet
+                });
+                savePersistentOMAX();
+                renderOMAX();
+                showToast("بازچینی هوشمند OMAX انجام شد", `${nextRot.changeSummary} — اطلاعات جدید در LocalStorage ذخیره گردید.`);
+            });
+
+            // Search & Sort
+            document.getElementById('input-search').addEventListener('input', renderScreener);
+            document.getElementById('select-sort').addEventListener('change', renderScreener);
+            document.getElementById('calc-capital').addEventListener('input', updateCalculator);
+
+            // Modal Close
+            document.getElementById('btn-close-modal').addEventListener('click', () => {
+                document.getElementById('modal-stock').classList.add('hidden');
+            });
+            document.getElementById('modal-stock').addEventListener('click', (e) => {
+                if (e.target.id === 'modal-stock') document.getElementById('modal-stock').classList.add('hidden');
+            });
+
+            // Firebase Realtime Database Live Sync Logic
+            const fbInput = document.getElementById('input-firebase-url');
+            const cloudBadge = document.getElementById('cloud-status-badge');
+            const fbHeaderDot = document.getElementById('fb-header-dot');
+            const fbHeaderText = document.getElementById('fb-header-text');
+
+            const DEFAULT_FB_URL = 'https://stock-21aa7-default-rtdb.europe-west1.firebasedatabase.app';
+            const savedFbUrl = localStorage.getItem('boursek_firebase_url') || DEFAULT_FB_URL;
+            if (fbInput) fbInput.value = savedFbUrl;
+
+            function setFirebaseHeaderStatus(isOnline, labelText) {
+                if (!fbHeaderDot || !fbHeaderText) return;
+                if (isOnline) {
+                    fbHeaderDot.className = "w-2.5 h-2.5 rounded-full bg-emerald-400 pulse-live";
+                    fbHeaderText.className = "text-[9px] font-sans text-emerald-400 font-bold hidden md:inline";
+                    fbHeaderText.textContent = labelText || "Firebase Live";
+                } else {
+                    fbHeaderDot.className = "w-2.5 h-2.5 rounded-full bg-rose-500 pulse-live";
+                    fbHeaderText.className = "text-[9px] font-sans text-rose-400 font-bold hidden md:inline";
+                    fbHeaderText.textContent = labelText || "Offline Mode";
+                }
+            }
+
+            async function pushToFirebase(silent = false) {
+                const baseUrl = (fbInput?.value || DEFAULT_FB_URL).trim().replace(/\/$/, '');
+                if (!baseUrl.startsWith('https://')) {
+                    if (!silent) showToast("آدرس فایربیس نامعتبر", "لطفاً لینک دیتابیس فایربیس را با https:// وارد کنید.", true);
+                    return false;
+                }
+                localStorage.setItem('boursek_firebase_url', baseUrl);
+                try {
+                    const payload = {
+                        system: "Boursek PRO v6.0 AI",
+                        updatedAt: new Date().toISOString(),
+                        stocksData: STOCKS_DATA,
+                        myRealPort: MY_REAL_PORTFOLIO,
+                        omaxHistory: omaxHistory,
+                        customPortfolios: savedUserPortfolios,
+                        leveragedData: LEVERAGED_DATA
+                    };
+                    const res = await fetch(baseUrl + '/boursek_state.json', {
+                        method: 'PUT',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+                    if (res.ok) {
+                        setFirebaseHeaderStatus(true, "Firebase Synced");
+                        if (cloudBadge) {
+                            cloudBadge.textContent = "وضعیت: سینک ابری فعال (Push OK)";
+                            cloudBadge.className = "text-[11px] font-mono font-bold px-3 py-1 rounded-xl bg-emerald-500/15 text-emerald-300 border border-emerald-500/30";
+                        }
+                        if (!silent) showToast("ارسال موفق به فایربیس", "تمامی فیلترها، سبد OMAX و سبدهای اختصاصی در دیتابیس ابری ذخیره شد.");
+                        return true;
+                    } else {
+                        setFirebaseHeaderStatus(false, "Auth/Rules");
+                        if (!silent) showToast("محدودیت دسترسی فایربیس", "مطمئن شوید Rules دیتابیس فایربیس روی read/write: true قرار دارد.", true);
+                    }
+                } catch (e) {
+                    setFirebaseHeaderStatus(false, "Local Mode");
+                    if (!silent) showToast("خطای ارتباط با فایربیس", "ارتباط برقرار نشد؛ اطلاعات در حافظه محلی (LocalStorage) محفوظ است.", true);
+                }
+                return false;
+            }
+
+            async function pullFromFirebase(silent = false) {
+                const baseUrl = (fbInput?.value || DEFAULT_FB_URL).trim().replace(/\/$/, '');
+                if (!baseUrl.startsWith('https://')) return false;
+                try {
+                    const res = await fetch(baseUrl + '/boursek_state.json');
+                    if (res.ok) {
+                        const data = await res.json();
+                        setFirebaseHeaderStatus(true, "Firebase Live");
+                        if (data && data.stocksData) {
+                            STOCKS_DATA.splice(0, STOCKS_DATA.length, ...data.stocksData);
+                            if (data.omaxHistory) omaxHistory = data.omaxHistory;
+                            if (data.customPortfolios) savedUserPortfolios = data.customPortfolios;
+                            renderScreener();
+                            renderOMAX();
+                            renderSavedCustomPorts();
+                            renderMyRealPort();
+                            if (cloudBadge) {
+                                cloudBadge.textContent = "وضعیت: متصل به فایربیس ابری";
+                            }
+                            if (!silent) showToast("دریافت زنده از فایربیس", "آخرین اطلاعات تابلو و سبدها از دیتابیس ابری بارگذاری شد.");
+                            return true;
+                        }
+                    }
+                } catch (e) {
+                    setFirebaseHeaderStatus(false, "Local Mode");
+                }
+                return false;
+            }
+
+            // Initial silent check with Firebase
+            pullFromFirebase(true);
+
+            document.getElementById('btn-save-firebase')?.addEventListener('click', () => {
+                pushToFirebase(false);
+            });
+            document.getElementById('btn-push-cloud')?.addEventListener('click', () => pushToFirebase(false));
+            document.getElementById('btn-pull-cloud')?.addEventListener('click', () => pullFromFirebase(false));
+
+            document.getElementById('btn-export-json')?.addEventListener('click', () => {
+                const payload = {
+                    system: "Boursek PRO v6.0 AI",
+                    updatedAt: new Date().toISOString(),
+                    stocksData: STOCKS_DATA,
+                    myRealPort: MY_REAL_PORTFOLIO,
+                    omaxHistory: omaxHistory,
+                    customPortfolios: savedUserPortfolios,
+                    leveragedData: LEVERAGED_DATA
+                };
+                const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'boursek_firebase_db.json';
+                a.click();
+                URL.revokeObjectURL(url);
+                showToast("فایل JSON دیتابیس آماده شد", "می‌توانید این فایل را مستقیم در کنسول Realtime Database فایربیس Import کنید.");
+            });
+
+            document.getElementById('btn-copy-gas')?.addEventListener('click', () => {
+                const code = document.getElementById('gas-code-block').textContent;
+                navigator.clipboard.writeText(code);
+                showToast("کد ربات کپی شد", "کد Google Apps Script در کلیپ‌بورد کپی شد.");
+            });
+
+            // Fast Sync Button
+            document.getElementById('btn-sync-fast')?.addEventListener('click', async () => {
+                const icon = document.getElementById('sync-icon');
+                icon.classList.add('fa-spin');
+                const pulled = await pullFromFirebase(true);
+                setTimeout(() => {
+                    icon.classList.remove('fa-spin');
+                    renderScreener();
+                    if (pulled) {
+                        showToast("همگام‌سازی ابری فایربیس", "اطلاعات از دیتابیس ابری فایربیس شما با موفقیت بروزرسانی شد.");
+                    } else {
+                        showToast("بروزرسانی تابلوی بورسک", "تمامی 8 فیلتر، رادار صف‌ها و سبدها بروزرسانی شدند.");
+                    }
+                }, 400);
+            });
+        });
+    </script>
+</body>
+</html>

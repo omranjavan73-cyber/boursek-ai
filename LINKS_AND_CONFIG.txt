@@ -1,0 +1,18 @@
+=====================================================
+📌 مشخصات و لینک‌های پروژه بورسک (Boursek PRO v6.0 AI)
+=====================================================
+
+1. لینک دسترسی آنلاین (GitHub Pages Live App):
+   https://omranjavan73-cyber.github.io/boursek-ai/
+
+2. مخزن رسمی گیت‌هاب (GitHub Repository):
+   https://github.com/omranjavan73-cyber/boursek-ai.git
+
+3. آدرس دیتابیس فایربیس (Firebase Realtime Database):
+   https://stock-21aa7-default-rtdb.europe-west1.firebasedatabase.app
+
+4. کنسول مدیریت فایربیس (جهت تنظیم Rules):
+   https://console.firebase.google.com
+
+5. ربات ابری گوگل (Google Apps Script):
+   https://script.google.com
